@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/static/css/jquery.growl.css">
+<script src="/static/js/jquery.growl.js"></script>
+{% if messages %}
+{% for message in messages %}
+    <script>
+        $(document).ready(function(){
+            var tag = '{{message.tags}}';
+            console.log(tag);
+            if (tag == 'warning'){
+                $.growl.warning({title:"Warning", message: '{{message}}'});    
+            }
+            else if (tag == 'error'){
+                $.growl.error({title:"Error", message: '{{message}}'});     
+            }
+            else if (tag == 'success'){
+                $.growl.notice({title:"Success", message: '{{message}}'});
+            }
+            else{
+                $.growl.warning({title:"Notice", message: '{{message}}'});
+            }
+        });
+    </script>
+{% endfor %}
+{% endif %}

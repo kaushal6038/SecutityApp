@@ -1,0 +1,155 @@
+version: '3.5'
+
+services:
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - traefik
+
+  webpurpleleaf:
+    image: purpleleaf/purpleleaf:develop
+    env_file: ~/staging/config.env
+    command: /purpleleaf/pl_entrypoint.sh
+    volumes:
+      - /purpleleaf
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_pl:/purpleleaf/media
+    networks:
+      - traefik
+
+  webredtree:
+    image: purpleleaf/redtree:develop
+    env_file: ~/staging/config.env
+    command: /redtree/rt_entrypoint.sh
+    volumes:
+      - /redtree
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    networks:
+      - traefik
+
+  webprodpurpleleaf:
+    image: purpleleaf/purpleleaf:latest
+    env_file: ~/prod_test/config.env
+    command: /purpleleaf/pl_entrypoint.sh
+    volumes:
+      - /purpleleaf
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_pl:/purpleleaf/media
+    networks:
+      - traefik
+
+  webprodredtree:
+    image: purpleleaf/redtree:latest
+    env_file: ~/prod_test/config.env
+    command: /redtree/rt_entrypoint.sh
+    volumes:
+      - /redtree
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    networks:
+      - traefik
+
+  celery_purpleleaf:
+    image: purpleleaf/redtree:develop
+    env_file: ~/staging/config.env
+    command: celery -A purpleleaf worker --beat --scheduler django --loglevel=info
+    depends_on:
+      - redis
+    networks:
+      - traefik
+
+  celery_redtree:
+    image: purpleleaf/redtree:develop
+    env_file: ~/staging/config.env
+    command: celery -A redtree worker --beat --scheduler django --loglevel=info
+    depends_on:
+      - redis
+    networks:
+      - traefik
+
+  celery_prod_purpleleaf:
+    image: purpleleaf/purpleleaf:latest
+    env_file: ~/staging/config.env
+    command: celery -A purpleleaf worker --beat --scheduler django --loglevel=info
+    depends_on:
+      - redis
+    networks:
+      - traefik
+
+  celery_prod_redtree:
+    image: purpleleaf/redtree:latest
+    env_file: ~/staging/config.env
+    command: celery -A redtree worker --beat --scheduler django --loglevel=info
+    depends_on:
+      - redis
+    networks:
+      - traefik
+
+  nginxredtree:
+    build: ~/staging/nginx_redtree
+    volumes:
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_rt:/redtree/media
+    ports:
+      - 8005:80
+    depends_on:
+      - webredtree
+    networks:
+      - traefik
+    labels:
+      - "traefik.backend=nginxredtree"
+      - "traefik.frontend.rule=Host:redtree.purpleleaf.io"
+
+  nginxpurpleleaf:
+    build: ~/staging/nginx_purpleleaf
+    volumes:
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_pl:/purpleleaf/media
+    ports:
+      - 8004:80
+    depends_on:
+      - webpurpleleaf
+    networks:
+      - traefik
+    labels:
+      - "traefik.backend=nginxpurpleleaf"
+      - "traefik.frontend.rule=Host:customer.purpleleaf.io"
+
+  nginxprodredtree:
+    build: ~/prod_test/nginx_redtree
+    volumes:
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    ports:
+      - 8007:80
+    depends_on:
+      - webprodredtree
+    networks:
+      - traefik
+
+  nginxprodpurpleleaf:
+    build: ~/prod_test/nginx_purpleleaf
+    volumes:
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_pl:/purpleleaf/media
+    ports:
+      - 8006:80
+    depends_on:
+      - webprodpurpleleaf
+    networks:
+      - traefik
+
+volumes:
+  static_volume_rt:
+  media_volume_rt:
+  static_volume_pl:
+  media_volume_pl:
+
+networks:
+  traefik:
+    external:
+      name: traefik_traefik

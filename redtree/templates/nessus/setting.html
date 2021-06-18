@@ -1,0 +1,1185 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Settings - Redtree</title>
+{% endblock %}
+{% block sidebar %}
+
+<div class="vertical-nav">
+    <!-- Sidebar menu start -->
+    <ul class="menu clearfix">
+        <li>
+            <a href="/home">
+                <span class="menu-item">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/nessus/upload">
+                <span class="menu-item">File Upload</span>
+            </a>
+        </li>
+        <li>
+            <a href="/nessus">
+                <span class="menu-item">Nessus</span>
+            </a>
+        </li>
+        <li>
+            <a href="/vulnerabilities">
+                <span class="menu-item">Vulnerabilities</span>
+            </a>
+        </li>
+        <li class="active selected">
+            <a href="/settings">
+                <span class="menu-item">Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="/report">
+                <span class="menu-item">Report</span>
+            </a>
+        </li>
+        <li>
+            <a href="/retest-history">
+                <span class="menu-item">History</span>
+            </a>
+        </li>
+        <li>
+            <a href="/retest">
+                <span class="menu-item">Retest</span>
+            </a>
+        </li>
+        <li>
+            <a href="/event-history">
+                <span class="menu-item">Event History</span>
+            </a>
+        </li>
+    </ul>
+    <!-- Sidebar menu end -->
+</div>
+{% endblock %}
+
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Row starts -->
+
+        <div class="top-bar clearfix">
+            <div class="row gutter">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ message|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+            
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="panel panel-mar-bt">
+                    <div class="panel-body">
+                        <div class="tabbable tabs-left clearfix">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#knowlwdgebase_toggle" data-toggle="tab" id="">Knowledgebase API</a>
+                                </li>
+                                <li>
+                                    <a href="#notifications_toggle" data-toggle="tab" id="">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="#clientusers_toggle" data-toggle="tab" id="">Client Users</a>
+                                </li>
+                                <li>
+                                    <a href="#purpleleaf_toggle" data-toggle="tab" id="">PurpleLeaf</a>
+                                </li>
+                                <li>
+                                    <a href="#redtree_toggle" data-toggle="tab" id="">Redtree</a>
+                                </li>
+                                <li>
+                                    <a href="#appliances_toggle" data-toggle="tab" id="">Appliances</a>
+                                </li>
+                                <li>
+                                    <a href="#aws_toggle" data-toggle="tab" id="">AWS</a>
+                                </li>
+                                <li class="export-config-li-float-rt">
+                                    <a href="/configuration-export" class="btn btn-info export-config-btn">Export
+                                        Configuration</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane active" id="knowlwdgebase_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>Knowledgebase Configurations</h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="apiform">
+                                                        <div class="panel custom-display">
+                                                            <table class="configurationtable">
+                                                                <tbody>
+                                                                <tr class="marketing-cost">
+                                                                    <td>Knowledgebase API</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{form.instance.api}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{form.api}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="marketing-cost">
+                                                                    <td>Kb Base Url</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{form.instance.kb_base_url}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{form.kb_base_url}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="marketing-cost">
+                                                                    <td>Kb Auth Token</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{form.instance.kb_auth_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{form.kb_auth_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="notifications_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>Notification List</h4>
+                                                </div>
+                                                <div class=" panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="emaillist">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="45%"/>
+                                                                <col width="40%"/>
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                {{ notification_emails_forms.management_form }}
+                                                                {% for email_form in notification_emails_forms %}
+                                                                {% if not forloop.last %}
+                                                                <tr class="marketing-cost">
+                                                                    {% for hidden in email_form.hidden_fields %}
+                                                                    {{ hidden }}
+                                                                    {% endfor %}
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{email_form.instance.email}}
+                                                                    </td>
+                                                                    {{form.errors}}
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{email_form.email}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                        <a href="/notification/email-delete/{{email_form.instance.id}}"
+                                                                           class="btn btn-danger">Delete</a>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                {% else %}
+                                                                <tr class="marketing-cost">
+                                                                    {% for hidden in email_form.hidden_fields %}
+                                                                    {{ hidden }}
+                                                                    {% endfor %}
+                                                                    <td class="clickable-configuration"></td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{email_form.email}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Add
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="clientusers_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <div class="panel">
+                                                    <div class="panel-heading">
+                                                        <h4>Users</h4>
+                                                    </div>
+                                                    <div class=" panel-body">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="15%"/>
+                                                                <col width="45%"/>
+                                                                <col width="15%"/>
+                                                                <col width="25%"/>
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Email</th>
+                                                                    <th style="text-align: center;"> Status</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <input type="hidden" name="form-type" value="userform">
+                                                                {% for user in user_obj %}
+                                                                <tr>
+                                                                    <td class="clickable-configuration">
+                                                                        <input type="text" readonly name=""
+                                                                               class="form-control"
+                                                                               value="{{user.user_name}}">
+                                                                    </td>
+                                                                    <td class="clickable-configuration">
+                                                                        <input type="text" readonly name=""
+                                                                               class="form-control"
+                                                                               value="{{user.user_email}}">
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        <input type="" name=""
+                                                                               id="edit-user-name-{{user.id}}"
+                                                                               class="form-control"
+                                                                               value="{{user.user_name}}">
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        <input type="text" name=""
+                                                                               id="edit-user-email-{{user.id}}"
+                                                                               class="form-control"
+                                                                               value="{{user.user_email}}">
+                                                                    </td>
+                                                                    <td class="clickable-configuration"
+                                                                    style="text-align: center;">
+                                                                    {% if user.active == True %}
+                                                                    <span>Registered</span>
+                                                                    {% else %}
+                                                                    <span>
+                                                                    Invite sent</span>
+                                                                    <div id="{{user.activation_key}}" style="display: none">{{ url }}/invite/{{user.activation_key}}</div>
+                                                                    <i style="cursor: pointer; margin-left: 5px; transition: all .5s;" class="fas fa-copy" onclick="handleCopy('{{ user.activation_key }}')"></i>
+                                                                    {% endif %}
+                                                                    </td>
+                                                            
+                                                                    <td class="clickable-configuration
+																				formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">
+                                                                            Edit
+                                                                        </button>
+                                                                        <a href="/user-delete/{{user.id}}"
+                                                                           class="btn btn-danger">
+                                                                            Delete
+                                                                        </a>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data
+																				formfieldsubmit">
+                                                                        <button type="button"
+                                                                                onclick="edit_user({{user.id}});"
+                                                                                class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">
+                                                                            Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                <tr>
+                                                                    <td class="clickable-configuration"></td>
+                                                                    <td class="clickable-configuration-data hidden"
+                                                                    >
+                                                                        <input type="text" id="new_user_name"
+                                                                               class="form-control">
+                                                                    </td>
+                                                                    <td class="clickable-configuration"></td>
+                                                                    <td class="clickable-configuration-data hidden"
+                                                                    >
+                                                                        <input type="text" id="new_user_email"
+                                                                               class="form-control">
+                                                                    </td>
+                                                                    <td></td>
+                                                                    <td class="clickable-configuration
+																				formfieldsubmit"
+                                                                                >
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">
+                                                                            Add User
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data
+																				formfieldsubmit">
+                                                                        <button type="button" onclick="adduser();"
+                                                                                class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">
+                                                                            Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- </form> -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="purpleleaf_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="form-type" value="clientconf">
+                                                <div class="panel">
+                                                    <div class="panel-heading">
+                                                        <h4>Client Configurations</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="panel custom-display">
+                                                            <table class="configurationtable">
+                                                                <tr>
+                                                                    <td>Client Name</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.client_name}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.client_name}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Client Legal Name</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.client_legal_name}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.client_legal_name}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Mailgun API</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.mailgun_api_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.mailgun_api_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Purpleleaf Url</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.hostname}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.hostname}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Mailgun Base Url</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.mailgun_base_url}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.mailgun_base_url}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> Redtree Auth key</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.authentication_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.authentication_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Twilio Account SID</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.twilio_account_sid}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.twilio_account_sid}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Twilio Auth Key</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.twilio_auth_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.twilio_auth_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Twilio Number</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.twilio_account_number}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.twilio_account_number}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        Application Status
+                                                                    </td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;
+                                                                        {% if client_conf_form.instance.application_status %}
+                                                                        Enabled
+                                                                        {% else %}
+                                                                        Disabled
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.application_status}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">
+                                                                            Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">
+                                                                            Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Analytics Status
+                                                                    </td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;
+                                                                        {% if client_conf_form.instance.analytics_status %}
+                                                                        <label>Enabled</label>
+                                                                        {% else %}
+                                                                        <label>Disabled</label>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.analytics_status}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">
+                                                                            Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">
+                                                                            Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Session timeout length</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.session_timeout_length}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.session_timeout_length}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Manual Hours Purchased</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.manual_hours_purchased}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.manual_hours_purchased}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Manual Hours Remaining</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.manual_hours_remaining}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.manual_hours_remaining}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Maximum Ips</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{client_conf_form.instance.max_ips}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{client_conf_form.max_ips}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="redtree_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>App Configurations</h4>
+                                                </div>
+                                                <div class=" panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="app_conf_form">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="17%"/>
+                                                                <col width="43%"/>
+                                                                <col width="40%"/>
+                                                                <tbody>
+                                                                <tr class="marketing-cost">
+                                                                    <td>Purpleleaf Auth Key</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{app_conf_form.instance.purpleleaf_auth_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{app_conf_form.purpleleaf_auth_key}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- Row starts -->
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>
+                                                        Microservice Configuration
+                                                    </h4>
+                                                </div>
+                                                <div class=" panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="scan_freq_form">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="17%"/>
+                                                                <col width="43%"/>
+                                                                <col width="40%"/>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>Scan Frequency</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{ scan_frequency_form.instance.scan_frequency }}
+                                                                        {% if scan_frequency_form.instance.scan_frequency == 1 %}
+                                                                        Day
+                                                                        {% elif scan_frequency_form.instance.scan_frequency > 1 %}
+                                                                        Days {% endif %}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{ scan_frequency_form.scan_frequency }}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">
+                                                                            Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{ scan_frequency_form.submit }}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">
+                                                                            Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>Image Upload</h4>
+                                                </div>
+                                                <div class=" panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="image_upload">
+                                                        <div class="col-lg-10">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                    {{media_upload_form.storage_type}}
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                            <table id="storage-table"
+                                                               {% if not media_upload_form.instance.storage_type == 'S3' %}
+                                                                   hidden
+                                                                   {% endif %} class="configurationtable">
+                                                            <col width="17%"/>
+                                                            <col width="43%"/>
+                                                            <col width="40%"/>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>S3 Access Token</td>
+                                                                <td class="clickable-configuration-data">
+                                                                    {{media_upload_form.s3_access_token}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Secret Access Token</td>
+                                                                <td class="clickable-configuration-data">
+                                                                    {{media_upload_form.s3_secret_access_token}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Bucket Name</td>
+                                                                <td class="clickable-configuration-data">
+                                                                    {{media_upload_form.s3_bucket_name}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Pre Signed Time Length</td>
+                                                                <td class="clickable-configuration-data">
+                                                                    {{media_upload_form.pre_signed_time_length}}
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                            </table>
+                                                            {{media_upload_form.submit}}
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row starts -->
+                                    <div class="row gutter">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-body">
+                                                    <form method="post"  class="form-horizontal">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="timezone">
+                                                        <fieldset>
+                                                            <legend>Time Zone(Current: {{TIME_ZONE}})  </legend>
+                                                            <div class="form-group row gutter">
+                                                                <label class="col-lg-6 control-label">{{timezoneform.timezone.label}}</label>
+                                                                <div class="col-lg-6">
+                                                                    {{timezoneform.timezone}}
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <div class="form-group row gutter">
+                                                            <div class="col-lg-6 col-lg-offset-6">
+                                                                <button type="submit" class="btn btn-success">Set</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ROW END -->
+                                </div>
+
+                                <div class="tab-pane" id="appliances_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h4>Appliances</h4>
+                                                </div>
+                                                <div class=" panel-body">
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="form-type" value="appliances">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="20%"/>
+                                                                <col width="10%"/>
+                                                                <col width="30%"/>
+                                                                <col width="40%"/>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>IP Address</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                               {{ appliances_form.management_form }}
+                                                                {% for appliances in appliances_form %}
+                                                                {% if not forloop.last %}
+                                                                <tr class="marketing-cost">
+                                                                    {% for hidden in appliances.hidden_fields %}
+                                                                    {{ hidden }}
+                                                                    {% endfor %}
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{appliances.instance.appliance_ip}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{appliances.instance.port}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{appliances.instance.network_type}}
+                                                                    </td>
+                                                                    {{form.errors}}
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.appliance_ip}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.port}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.network_type}}
+                                                                    </td>
+
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <a href="appliance/{{appliances.instance.id}}/"
+                                                                           class="btn btn-danger">Setting</a>
+                                                                        &nbsp;&nbsp;
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                        <a href="/appliances-delete/{{appliances.instance.id}}"
+                                                                           class="btn btn-danger">Delete</a>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                {% else %}
+                                                                <tr class="marketing-cost">
+                                                                    {% for hidden in appliances.hidden_fields %}
+                                                                    {{ hidden }}
+                                                                    {% endfor %}
+                                                                    <td class="clickable-configuration"></td>
+                                                                    <td class="clickable-configuration"></td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.appliance_ip}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.port}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{appliances.network_type}}
+                                                                    </td>
+
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn"
+                                                                                style="float: right;margin-right: -70px;">Add
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        <button type="submit" class="btn btn-success">
+                                                                            Save
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="aws_toggle">
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="form-type" value="aws_form">
+                                                <div class="panel">
+                                                    <div class="panel-heading">
+                                                        <h4>AWS Settings</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="col-lg-10">
+                                                            <table class="configurationtable">
+                                                                <col width="17%"/>
+                                                                <col width="43%"/>
+                                                                <col width="40%"/>
+                                                                <tr>
+                                                                    <td>Aws Access Token</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{aws_settings_form.instance.client_aws_access_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{aws_settings_form.client_aws_access_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{client_conf_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Aws Secret Token</td>
+                                                                    <td class="clickable-configuration fielddisplay">
+                                                                        &nbsp;{{aws_settings_form.instance.client_aws_secret_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration-data hidden">
+                                                                        {{aws_settings_form.client_aws_secret_token}}
+                                                                    </td>
+                                                                    <td class="clickable-configuration formfieldsubmit">
+                                                                        <button type="button"
+                                                                                class="btn btn-info edit-btn">Edit
+                                                                        </button>
+                                                                    </td>
+                                                                    <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                                        {{aws_settings_form.submit}}
+                                                                        <button type="button"
+                                                                                class="btn btn-danger cancel">Cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row gutter">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="form-type" value="aws_regions">
+                                                <div class="panel">
+                                                    <div class="panel-heading">
+                                                        <h4>AWS regions</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="col-lg-10">
+                                                            <table>
+                                                                {% for region in regions %}
+                                                                <tr>
+                                                                    <td>{{region.region}}</td>
+                                                                    {% if region.status %}
+                                                                    <td class="tss"><input type="checkbox" class="region-checkbox" name="regions" value={{region.id}} checked/>
+                                                                    </td>
+                                                                    {% else %}
+                                                                    <td ><input class="region-checkbox" type="checkbox" name="regions" value={{region.id}} /></td>
+                                                                    {% endif %}
+                                                                </tr>
+                                                                {% endfor %}
+                                                                <tr>
+                                                                    <td>
+                                                                    <input type="submit" value="Save" class="btn btn-info">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>                                          
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row ends -->
+    </div>
+    <!-- Container fluid ends -->
+</div>
+<!-- Dashboard Wrapper End -->
+    <script>
+        function handleCopy(id) {
+            const activationElement = window.document.getElementById(id);
+            const temp = document.createElement("input");
+            temp.setAttribute("value",  activationElement.innerText);
+            temp.setAttribute("style",  "position: fixed;");
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+        }
+    </script>
+{% endblock %}

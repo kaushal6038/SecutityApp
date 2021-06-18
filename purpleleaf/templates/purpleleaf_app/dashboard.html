@@ -1,0 +1,309 @@
+{% extends 'purpleleaf_app/base.html' %}
+{% load time_tags %}
+{% load humanize %}
+    {% block title %}
+            <title>Dashboard - Purpleleaf Dashboard</title>
+    {% endblock %}
+    
+	{% block content %}
+        <!-- Dashboard Wrapper Start -->
+		<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+			<!-- Container fluid Starts -->
+			<div class="container-fluid">
+
+				<div class="container top-bar main-top-bar">
+					<div class="col-md-12 main-sub-container-first">
+						<div class="col-md-4 page-title title-tab">
+							<h3>Dashboard</h3>
+							<p class="dash12" style="margin-top: 0px;">
+								Welcome to Purpleleaf Dashboard
+							</p>
+						</div>
+						<div class="col-md-4 appliance-container">
+							<p>External appliance: {% if external_appliance %}{{external_appliance}}{% else %} &nbsp;N/A{% endif %}
+								<br>
+								Internal appliance: {% if internal_appliance %}{{internal_appliance}}{% else %} &nbsp;N/A{% endif %}
+							</p>
+						</div>
+					</div>
+					<div class="col-md-12 main-sub-container-second">
+						<div class="col-md-4 manaulhour-bar">
+							<progress class="progress" id ="progress-tag" value="{{configuration.manual_hours_remaining}}" max="{{configuration.manual_hours_purchased}}" ></progress>
+									
+									<p>{{configuration.manual_hours_remaining}} of {{configuration.manual_hours_purchased}} Manual testing hours remaining</p>
+						</div>
+						<div class="col-md-4 ips-bar">
+							<progress class="progress" value="{{active_ips}}" max="{{configuration.max_ips}}"></progress>
+									
+									<p>IP Allocation Used<br>({{active_ips}} of {{configuration.max_ips}})</p>
+						</div>
+						<div class="col-md-4 status-btn">
+							<ul class="right-stats" id="mini-nav-right">
+								{% if configuration.active is False %}
+								<li>
+									<button id="status" onclick="checkStatus(this);" value="{{configuration.active}}" class="btn btn-danger">Scanning is not active. Click to start</button>
+								</li>
+								{% else %}
+								<li>
+									<button id="status" onclick="checkStatus(this);" value="{{configuration.active}}" class="btn btn-success">Scanning is active. Click to stop</button>
+								</li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Row starts -->
+				<div class="row gutter">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+						<div class="row gutter">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="panel height2">
+									<div class="panel-heading">
+										<h4>Open Vulnerabilities</h4>
+									</div>
+									<div class="panel-body">
+										<ul class="sales-q2">
+											<li class="clearfix">
+												<div class="month-type critical">Critical</div>
+												<div class="sale-info">
+													<h3>{{critical}}<span class="span-critical">
+														<i class="icon-triangle-up"></i></span></h3>
+												</div>
+											</li>
+											<li class="clearfix">
+												<div class="month-type high">High</div>
+												<div class="sale-info">
+													<h3>{{high}}<span class="span-high">
+														<i class="icon-triangle-up"></i></span></h3>
+												</div>
+											</li>
+											<li class="clearfix">
+												<div class="month-type medium">Medium</div>
+												<div class="sale-info">
+													<h3>{{medium}}<span class="span-medium">
+														<i class="icon-triangle-down"></i></span></h3>
+												</div>
+											</li>
+                                            <li class="clearfix">
+												<div class="month-type low">Low</div>
+												<div class="sale-info">
+													<h3>{{low}}<span class="span-low">
+														<i class="icon-triangle-up"></i></span></h3>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-5 col-xs-12">
+						<div class="row gutter">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="panel height1">
+									<div class="panel-heading">
+										<h4>Active IPs</h4>
+									</div>
+									<div class="panel-body">
+										<div class="sessions">
+											<h2>{{active_ips}}</h2>
+											<div id="active_ips" class="graph"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="panel height1">
+									<div class="panel-heading">
+										<h4>Open Ports</h4>
+									</div>
+									<div class="panel-body">
+										<div class="sessions">
+											<h2>{{open_ports}}</h2>
+											<div id="open_ports" class="graph"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="col-lg-5 col-md-3 col-sm-12 col-xs-12">
+						<div class="panel height2">
+							<div class="panel-heading act_padding">
+								<h4 class="panel-title">Vulnerabilities (Last 30 Days)</h4>
+							</div>
+							<div class="panel-body">
+								<div id="vulnerabilitiesChart" class="chart-height1"></div>
+							</div>
+						</div>
+					</div>
+				    <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+						<div class="panel height2 act_padding1">
+							<div class="panel-heading">
+								<h4 class="panel-title">Activity Log</h4>
+							</div>
+							<div class="panel-body activity_scroll adj_table">
+								<div class="latest_services_table activity_flow">
+									<table class="table table-bordered no-margin">
+										<thead>
+											<tr>
+												<th>Age</th>
+												<th>Activity</th>
+											</tr>
+										</thead>
+										<tbody>
+											<col width="5%"/>
+											<col width="95%"/>
+											{% for data in activity|slice:":6" %}
+											<tr>
+												<td class="font_fix"><center class="activity_age_ago">{{ data.created_at }}</center></td>
+												<td class="font_fix">{{ data.activity }}</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+								<div class="latest_services_table">
+									<table class="table table-bordered no-margin">
+										<thead>
+											<tr>
+												<th class="blank-table-width"></th>
+												<th>
+													<button class="btn btn-default btn-transparent btn-transparent-font" onclick="location.href='/history';">
+															Full activity log
+													</button>
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row ends -->
+
+				<!-- Row starts -->
+				<div class="row gutter">
+					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+						<div class="panel panel-blue latest_services dashboard-panel-ht">
+							<!-- <div class="panel-heading service_width">
+								<h4>Latest Services Identified</h4>
+							</div> -->
+							<div class="panel-body" style="display: table;">
+								<h4 style="text-align: center; margin-top: -15px; margin-bottom: 20px;">
+									Latest Services Identified
+								</h4>
+								<div class="table-responsive latest_services_table" >
+									<table class="table table-bordered no-margin ">
+										<thead>
+											<tr>
+												<th>First Observed</th>
+												<th>Host</th>
+												<th>Port</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for service in latest_service_identified %}
+											<tr>
+												<td>
+													<p style="margin:0;text-align: center;" class="service_age">{{ service.created }}</p>
+												</td>
+												<td>
+													<a href="/vulnerability/{{service.id}}">
+														{{service.host_ip}}
+													</a>
+												</td>
+												<td>{{service.port}}</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+						<div class="panel panel-blue dashboard-panel-ht">
+							<!-- <div class="panel-heading ">
+								<h4>Latest Confirmed Vulnerabilities</h4>
+							</div> -->
+							<div class="panel-body" style="display: table;">
+								<h4 style="text-align: center; margin-top: -15px; margin-bottom: 20px;">
+									Latest Confirmed Vulnerabilities
+								</h4>
+								<div class="table-responsive ">
+									<table class="table table-bordered no-margin">
+										<tbody>
+
+										{% for data in vulnerabilities_table %}
+											<tr>
+												{% if data.risk == "Critical" %}
+													<td class="ver-space"><button class="btn btn-critical btn-xs" type="button">{{data.risk}}</button></td>
+												{% elif data.risk == "High"%}
+													<td class="ver-space"><button class="btn btn-high btn-xs" type="button">{{data.risk}}</button></td>
+												{% elif data.risk == "Medium" %}
+													<td class="ver-space"><button class="btn btn-medium btn-xs" type="button">{{data.risk}}</button></td>
+												{% elif data.risk == "Low" %}
+													<td class="ver-space"><button class="btn btn-low btn-xs" type="button">{{data.risk}}</button></td>
+												{% elif data.risk == "Note" %}
+													<td class="ver-space"><button class="btn btn-note btn-default btn-xs" type="button">{{data.risk}}</button></td>
+												{% endif %}
+												<td class="ver-space">{{data.host_ip}}</td>
+												<td class="ver-space">
+													<a href="/vulnerabilities/{{data.virtue_id}}/{{data.id}}">
+														{{data.title}}
+													</a>
+												</td>
+												<td class="ver-space" style="word-break: break-all; white-space: nowrap;">
+													
+													<p style="margin:0" class="age_ago">{{ data.created }}</p>
+												</td>
+											</tr>
+										{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row ends -->
+
+			</div>
+			<!-- Container fluid ends -->
+
+		</div>
+		{% csrf_token %}
+		<!-- Dashboard Wrapper End -->
+	{% endblock %}
+
+    {% block script %}
+
+        <script src="/static/js/sparkline/retina.js"></script>
+
+		<!-- D3 JS -->
+		<script src="/static/js/d3/d3.v3.min.js"></script>
+		<script src="/static/js/d3/d3.powergauge.js"></script>
+
+		<!-- C3 Graphs -->
+		<script src="/static/js/chart-colors.js"></script>
+		<script src="/static/js/c3/c3.min.js"></script>
+		<!-- <script src="/static/js/c3/c3.custom.js"></script> -->
+		<script src="/static/js/d3/d3.custom.js"></script>
+		<script src="/static/js/d3/d3-tip.min.js"></script>
+
+
+		<!-- Circliful js -->
+		<script src="/static/js/circliful/circliful.min.js"></script>
+		<script src="/static/js/circliful/circliful.custom.js"></script>
+		<script src="/static/js/jquery.age.js"></script>
+		<script src="/static/js/moment-min.js"></script>
+		<script type="text/javascript">
+  			// $('.age').age();
+			// get_timestamp_add();
+		</script>
+    {% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Encryption - RedTree</title>
+{% endblock %}
+{% block extracss %}
+    <link href="/static/css/nvd3/nv.d3.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+			{% if certificates %}
+			<div class="panel cipher_width" >
+			    <div class="panel-heading">
+			        <h3>Certificates</h3>
+			    </div>
+			    <div class="panel-body">
+			        <div class="table-responsive">
+			            <table class="table-bordered table-hover table-condensed no-margin" style="width: 100%;">
+			                <thead>
+			                    <tr>
+			                        <th class="notifications_heading">
+			                            Service
+			                        </th>
+			                        <th class="notifications_heading">
+			                            Verified
+			                        </th>
+			                        <th class="notifications_heading" style="white-space: nowrap;">
+			                            Common Name
+			                        </th>
+			                        <th class="notifications_heading">
+			                            Alg
+			                        </th>
+			                        <th class="notifications_heading">
+			                            Chain
+			                        </th>
+			                        <th class="notifications_heading">
+			                            Identified
+			                        </th>
+			                        <th class="notifications_heading">
+			                            Last Seen
+			                        </th>
+			                    </tr>
+			                </thead>
+			                <tbody>
+			                    {% for certificate in certificates %}
+			                        <tr>
+			                            <td class="cipher_text">
+			                                {{ certificate.host }}:{{ certificate.port }}
+			                            </td>
+			                            <td>
+			                                {% if certificate.verified_certificate_chain %}
+			                                    <button class=" btn-xs TLSv1_2">
+			                                        Valid
+			                                    </button>
+			                                {% else %}
+			                                    <button class=" btn-xs SSLv3">
+			                                            Invalid
+			                                    </button>
+			                                {% endif %}
+			                            </td>
+			                            <td class="cipher_text">
+			                                {% if certificate.common_name %}
+			                                    {{ certificate.common_name }}
+			                                {% endif %}
+			                            </td>
+			                            <td>
+			                                {% if certificate.algorithm == 'SHA1' %}
+			                                    <button class="btn btn-danger btn-transparent btn-xs " style="pointer-events:none;">
+			                                        {{certificate.algorithm}}
+			                                    </button>
+			                                {% else %}
+			                                    
+			                                    <button class="btn btn-success btn-transparent btn-xs sshyze_ok_btn_pd">
+			                                        {{certificate.algorithm}}
+			                                    </button>
+			                                {% endif %}
+			                            </td>
+			                            <td>
+			                                {% if certificate.sha1_in_chain %}
+			                                    <button class="btn btn-danger btn-transparent btn-xs" style="pointer-events:none;  cursor: not-allowed;">
+			                                        SHA1
+			                                    </button>
+			                                {% else %}
+			                                    <button class="btn btn-success btn-transparent btn-xs sshyze_ok_btn_pd">
+			                                        OK
+			                                    </button>
+			                                {% endif %}
+			                            </td>
+			                            <td class="cipher_text">
+			                                {{ certificate.created|date:'d-m-Y' }}
+			                            </td>
+			                            <td class="cipher_text">
+			                                {{ certificate.modified|date:'d-m-Y' }}
+			                            </td>
+			                        </tr>
+			                    {% endfor %}
+			                </tbody>
+			            </table>
+			        </div>
+			    </div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>AffectedHosts - Nessus</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block sidebar %}
+	<div class="vertical-nav">
+		<!-- Sidebar menu start -->
+		<ul class="menu clearfix">
+			<li >
+				<a href="/home">
+					<span class="menu-item">Home</span>
+				</a>
+			</li>
+			<li >
+				<a href="/nessus/upload">
+					<span class="menu-item">File Upload</span>
+				</a>
+			</li>
+			<li class="active selected">
+				<a href="/nessus">
+					<span class="menu-item">Nessus</span>
+				</a>
+			</li>
+			<li>
+                <a href="/vulnerabilities">
+                    <span class="menu-item">Vulnerabilities</span>
+                </a>
+            </li>
+			<li >
+				<a href="/settings">
+					<span class="menu-item">Settings</span>
+				</a>
+			</li>
+			<li >
+				<a href="/report">
+					<span class="menu-item">Report</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest-history">
+					<span class="menu-item">History</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest">
+					<span class="menu-item">Retest</span>
+				</a>
+			</li>
+			<li>
+				<a href="/event-history">
+					<span class="menu-item">Event History</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Sidebar menu end -->
+	</div>
+{% endblock %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+		{% if affectedHosts %}
+			<div class="top-bar clearfix nessus-width">
+                <div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="page-title">
+							{% if nessus_host %}
+							<h3>
+								{% if affectedhost_obj %}
+                                    {{ affectedhost_obj.name|escape }}
+                                {% endif %}
+                                <span class="icon-chevron-right"></span>
+                                {{nessus_host.host}}
+                            </h3>
+                            {% else %}
+                            <h3>
+								{% if affectedhost_obj %}
+                                    {{ affectedhost_obj.name|escape }}
+                                {% endif %}
+                            </h3>
+                            {% endif %}
+						</div>
+					</div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul  class="right-stats" id="mini-nav-right">
+							<li>
+								<a  href="/nessus/" class="btn btn-info">Back</a>
+							</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					{% if affectedhost_obj and affectedhost_obj.synopsis %}
+						<div class="panel nessus-width">
+							<div class="panel-heading">
+								<h3>Synopsis</h3>
+							</div>
+							<div class="panel-body">
+								<p class="markdown-line-break">
+	                            	{% spaceless %}
+	                                    {{ affectedhost_obj.synopsis|escape }}
+	                                {% endspaceless %}
+	                            </p>
+							</div>
+						</div>
+					{% endif %}
+					{% if affectedhost_obj and affectedhost_obj.description %}
+						<div class="panel nessus-width">
+							<div class="panel-heading">
+								<h3>Description</h3>
+							</div>
+							<div class="panel-body">
+								<p class="markdown-line-break">
+	                                {% spaceless %}
+	                                    {{ affectedhost_obj.description|escape }}
+	                                {% endspaceless %}
+	                            </p>
+							</div>
+						</div>
+					{% endif %}
+					{% if affectedhost_obj and affectedhost_obj.solution %}
+						<div class="panel nessus-width">
+							<div class="panel-heading">
+								<h3>Solution</h3>
+							</div>
+							<div class="panel-body">
+								<p class="markdown-line-break">
+	                                {% spaceless %}
+	                                    {{ affectedhost_obj.solution|escape }}
+	                                {% endspaceless %}
+	                            </p>
+							</div>
+						</div>
+					{% endif %}
+					{% if affectedhost_obj and affectedhost_obj.plugin_output %}
+						<div class="panel nessus-width">
+							<div class="panel-heading">
+								<h3>Plugin Output</h3>
+							</div>
+							<div class="panel-body ">					
+                        		<pre class="monospace markdown-css plugin-output">
+                            		{{ affectedhost_obj.plugin_output|escape }}
+                        		</pre>
+							</div>
+						</div>
+					{% endif %}
+					<div class="panel nessus-width">
+                        <div class="panel-heading">
+                            <p>Affected Hosts:</p>
+                            <br>
+                            <p>
+                            {% if affectedhost_obj %}
+                                {{ affectedhost_obj.name }}
+                            {% endif %}
+                            </p>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive custom-display">
+								<table id="nessus-datatable" class="table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Host</th>
+											<th hidden="true">Host:Port</th>
+											<th>Risk</th>
+											<th>Protocol</th>
+											<th>Port</th>
+                                            <th>Svc Name</th>
+											<th>Identified</th>
+											<th>last seen</th>
+											{% if banner_exist %}
+												<th>Banner</th>
+											{% endif %}
+											<th>Details</th>
+											<th>Confirmed</th>
+											<th>File</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in affectedHosts %}
+										<tr>
+											{% if data.host_link %}
+											<td>
+												<a href="/host/{{data.host_link}}">{{ data.host }}</a></td>
+											{% else %}
+											<td title="This host is not discovered yet.">
+												{{data.host}}
+											</td>
+											{% endif %}
+											<td hidden="true">
+												{{data.host}}:{{ data.port }}
+											</td>
+											<td>{{ data.risk }}</td>
+											<td >{{ data.protocol }}</td>
+											<td>{{ data.port }}</td>
+                                            <td>{{ data.svc_type }}</td>
+											<td style="white-space: nowrap;">
+												{% if data.first_identified %}
+													{{ data.first_identified|get_identified_date}}
+												{% endif %}
+											</td>
+											<td style="white-space: nowrap;">
+												{% if data.last_seen %}
+													{{ data.last_seen|get_identified_date}}
+												{% endif %}
+											</td>
+											{% if data.banner %}
+												<td>{{ data.banner }}</td>
+											{% endif %}
+											<td>
+												<center>
+													<a href="/nessus/plugin/{{data.plugin_id}}/{{data.id}}">
+														View
+													</a>
+												</center>
+											</td>
+											{% if data.date_confirmed %}
+												<td>{{ data.date_confirmed }}</td>
+											{% else %}
+											<td></td>
+											{% endif %}
+											<td>
+												<a href="/nessus/file/{{data.linked_file_code}}">View</a>
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+        {% else %}
+        	<h3>No Details Found</h3>
+        {% endif %}
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

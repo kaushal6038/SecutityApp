@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - ssh</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Row Starts -->
+
+            <div class="top-bar clearfix">
+                <h3 class="encryption-color">Encryption <span class="icon-chevron-right"></span> SSH</h3>
+                <div class="row gutter" style="margin-top: -50px;">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul class="right-stats" id="mini-nav-right">
+                            <li>
+                                <a href="/sshyze/delete" class="btn btn-info">Clear Ciphers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutter custom-display">
+                {% for encryption_data in encryption %}
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel">
+                            {% if encryption_data.encryption %}
+                                <h4 class="panel_margin">SSH Ciphers</h4>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-condensed no-margin"> 
+                                            <thead>
+                                                <tr>
+                                                    <th class="notifications_heading">Count</th>
+                                                    <th class="notifications_heading">Ciphers</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for cipher in encryption_data.encryption %}
+                                                    <tr>
+                                                        <td>{{ cipher.count }}</td>
+                                                        <td>
+                                                            <a href="/encryption/ssh/encryption/{{ cipher.cipher }}">{{ cipher.cipher }}</a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p>No SSh Ciphers</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel">
+                            {% if encryption_data.mac %}
+                                <h4 class="panel_margin">MAC Algorithms</h4>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-condensed no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="notifications_heading">Count</th>
+                                                    <th class="notifications_heading">Ciphers</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for cipher in encryption_data.mac %}
+                                                    <tr>
+                                                        <td>{{ cipher.count }}</td>
+                                                        <td>
+                                                            <a href="/encryption/ssh/mac/{{ cipher.cipher }}">{{ cipher.cipher }}</a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p> No MAC Algorithms</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+                        <div class="panel">
+                            {% if encryption_data.key_exchange %}
+                                <h4 class="panel_margin">Key Exchange Algorithms</h4>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-condensed no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th class="notifications_heading">Count</th>
+                                                    <th class="notifications_heading">Ciphers</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for cipher in encryption_data.key_exchange %}
+                                                    <tr>
+                                                        <td>{{ cipher.count }}</td>
+                                                        <td>
+                                                        <a href="/encryption/ssh/key_exchange/{{ cipher.cipher }}">{{ cipher.cipher }}</a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <p>No Key Exchange Algorithms</p>    
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <!-- Row Ends -->
+    </div>
+    <!-- Container fluid ends -->
+
+</div>
+
+<!-- Dashboard Wrapper End -->
+{% endblock %}

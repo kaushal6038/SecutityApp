@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Host Detail - RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			{% if host_obj %}
+			<div class="top-bar clearfix">
+				<h3 class="vulnerability-color">
+					{{ host_obj.host }} 
+						&nbsp;
+					<a href="/vulnerabilities/network/{{host_obj.user_host.network.id}}" class="btn btn-default btn-transparent btn-transparent-font" >
+					{{ host_obj.user_host.network.network }}
+					</a>
+				</h3>
+				<div class="row gutter" style="margin-top: -50px;">
+               	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+               	</div>
+					<div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+						<ul class="right-stats" id="mini-nav-right">
+							<li>
+								
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-6 col-md-6 col-sm-7 col-xs-5 host-vul-width">
+					<div class="panel" style="min-width: 300px;">
+						<div class="panel-heading">
+							{% if vulnerabilities %}
+	                            <h3>Confirmed Vulnerabilities</h3>
+	                        {% endif %}
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								{% if vulnerabilities %}
+									<table class="table-bordered table-hover table-condensed no-margin">
+										<col width="18%" />
+										<col width="64%" />
+										<col width="18%" />
+										<thead>
+											<tr>
+												<th>Risk</th>
+												<th>Title</th>
+												<th>Instances</th>
+											</tr>
+										</thead>
+										<tbody>
+										{% for data in vulnerabilities %}
+											<tr>
+												<td>
+													{% if data.risk == 'Critical' %}
+														<button class="btn btn-critical btn-xs">Critical</button>
+													{% elif data.risk == 'High' %}
+														<button class="btn btn-high btn-xs">High</button>
+													{% elif data.risk == 'Medium' %}
+														<button class="btn btn-medium btn-xs">Medium</button>
+													{% elif data.risk == 'Low' %}
+														<button class="btn btn-low btn-xs">Low</button>
+													{% elif data.risk == 'Note' %}
+														<button class="btn btn-primary btn-xs btn-note">Note</button>
+													{% endif %}
+												</td>
+												<td>
+													<a href="/vulnerabilities/host/{{ data.host_id }}/{{ data.virtue_id }}/">{{data.title}}</a>
+												</td>
+												<td>
+													{{data.instances}}
+												</td>
+											</tr>
+										{% endfor %}
+										</tbody>
+									</table>
+								{% else %}
+									<p>No Vulnerabilities available</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+
+					<div class="panel" style="min-width: 300px;">
+						<div class="panel-heading">
+							{% if nessus_obj %}
+	                            <h3>Unconfirmed Vulnerabilities</h3>
+	                        {% endif %}
+                        </div>
+						<div class="panel-body" >
+							<div class="table-responsive">
+								{% if nessus_obj %}
+									<table class="table-bordered table-hover table-condensed no-margin">
+										<col width="18%" />
+										<col width="64%" />
+										<col width="18%" />
+										<thead>
+											<tr>
+												<th>Risk</th>
+												<th>Name</th>
+												<th>Instances</th>
+											</tr>
+										</thead>
+										<tbody>
+										{% for data in nessus_obj %}
+											<tr>
+												<td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% elif data.risk == 'None' %}
+													<button class="btn btn-primary btn-xs btn-note">None</button>
+												{% endif %}
+											</td>
+												<td>
+													<a href="/nessus/plugin/{{data.plugin_id}}/host/{{host_obj.id}}">{{data.name}}</a>
+													
+												</td>
+												<td>{{ data.instances }}</td>
+											</tr>
+										{% endfor %}
+										</tbody>
+									</table>
+								{% else %}
+									<p>No Unconfirmed Vulnerabilities</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 host-application-width">
+                	<button type="button" class="btn btn-danger host-delete-btn" onclick="delete_host({{host_obj.id}});">Delete</button>
+                	
+
+                	{% if raw_whois_data %}
+                	<div class="col-lg-12">
+	                    <div class="panel" >
+	                        <div class="panel-body">
+	                            <div id="world-map-markers" class="chart-height1"></div>
+	                        </div>
+	                        <div class="panel-body">
+								<div class="table-responsive">
+									<table class="table-bordered table-hover table-condensed no-margin">
+										<tbody>
+											<tr>
+												<td>
+													ASN
+												</td>
+												<td>
+													{{whois_detail.whois_record.asn_description}}
+												</td>
+											</tr>
+											{% if whois_detail.whois_record.network_name %}
+											<tr>
+												<td>
+													Network
+												</td>
+												<td>
+													{{whois_detail.whois_record.network_name}}
+												</td>
+											</tr>
+											{% endif %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+	                    </div>
+                	</div>
+                	{% endif %}
+                	{% if applications %}
+                	<div class="col-lg-12 col-md-7 col-sm-7 col-xs-7">					
+						<div class="panel" style="min-width: 300px;">
+	                        <div class="panel-heading">
+	                            <h3>Applications</h3>
+	                        </div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table-bordered table-hover table-condensed no-margin">
+										<thead>
+											<tr>
+												<th class="notifications_heading">#</th>
+												<th class="notifications_heading">Title</th>
+												<th class="notifications_heading">Application</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for application in applications %}
+											<tr>
+												<td>
+													{{ forloop.counter }}
+												</td>
+												<td>
+													{{ application.application_title }}
+												</td>
+												<td>
+													<a href="/application/{{application.id}}/">
+														{{ application.application_url }}
+													</a>
+												</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+					{% if open_ports %}
+                	<div class="col-lg-12 col-md-7 col-sm-7 col-xs-7">					
+						<div class="panel" style="min-width: 300px;">
+							<div class="panel-body">
+								<div class="row">
+									<div class="table-responsive col-lg-4">
+										<div class="panel-heading">
+				                            <h3>Open Ports</h3>
+				                        </div>
+										<table class="table-bordered table-hover table-condensed no-margin">
+											<thead>
+							                    <tr>
+							                        <th class="notifications_heading">Port</th>
+							                        <th class="notifications_heading" style="white-space: nowrap;">last Seen</th>
+							                    </tr>
+			                    			</thead>
+											<tbody>
+												{% for port in open_ports %}
+												<tr>
+													<td>
+														{{port.port}}
+													</td>
+													<td>
+														{{port.modified|date:'M. d, Y'}}
+													</td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<div class="table-responsive col-lg-8">
+										<div class="panel-heading">
+				                            <h3>Services</h3>
+				                        </div>
+										<table class="table-bordered table-hover table-condensed no-margin">
+											<thead>
+							                    <tr>
+							                        <th class="notifications_heading">Port</th>
+							                        <th class="notifications_heading">Service</th>
+							                        <th class="notifications_heading">Count</th>
+							                    </tr>
+			                    			</thead>
+											<tbody>
+												{% for service in sorted_services %}
+												<tr>
+													<td>
+														{{service.port}}
+													</td>
+													<td>
+														{{service.svc_type}}
+													</td>
+													<td>
+														{{service.service_count}}
+													</td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					{% endif %}
+					{% if certificates %}
+					<div class="col-lg-12 col-md-7 col-sm-7 col-xs-7">
+	                    <div class="panel " >
+	                        <div class="panel-heading">
+	                            <h3>Certificates</h3>
+	                        </div>
+	                        <div class="panel-body">
+	                            <div class="table-responsive">
+	                                <table class="table-bordered table-hover table-condensed no-margin  ">
+	                                    <thead>
+	                                        <tr>
+	                                            <th class="notifications_heading">
+	                                                port
+	                                            </th>
+	                                            <th class="notifications_heading">
+	                                                Verified
+	                                            </th>
+	                                            <th class="notifications_heading">
+	                                                Common Name
+	                                            </th>
+	                                            <th class="notifications_heading">
+	                                                Chain
+	                                            </th>
+	                                            <th class="notifications_heading">
+	                                                Identified
+	                                            </th>
+	                                            <th class="notifications_heading">
+	                                                Last Seen
+	                                            </th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        {% for certificate in certificates %}
+	                                            <tr>
+	                                                <td>
+	                                                    {{ certificate.port }}
+	                                                </td>
+	                                                <td>
+	                                                    {% if certificate.verified_certificate_chain %}
+	                                                        <button class=" btn-xs TLSv1_2">
+	                                                            Valid
+	                                                        </button>
+	                                                    {% else %}
+	                                                        <button class=" btn-xs SSLv3">
+	                                                                Invalid
+	                                                        </button>
+	                                                    {% endif %}
+	                                                </td>
+	                                                <td>
+	                                                    <center>
+	                                                    	{% if certificate.common_name %}
+	                                                    		{{ certificate.common_name }}
+	                                                    	{% endif %}
+	                                                    </center>
+	                                                </td>
+	                                                <td>
+	                                                    {% if certificate.sha1_in_chain %}
+		                                                    <button class="btn btn-danger btn-transparent btn-xs">
+		                                                    	SHA1
+		                                                    </button>
+	                                                    {% else %}
+		                                                    <button class="btn btn-success btn-transparent btn-xs sshyze_ok_btn_pd">
+		                                                    	OK
+		                                                    </button>
+	                                                    {% endif %}
+	                                                </td>
+	                                                <td style="white-space: nowrap;">
+	                                                    {{ certificate.created|date:'d-m-Y' }}
+	                                                </td>
+	                                                <td style="white-space: nowrap;">
+	                                                    {{ certificate.modified|date:'d-m-Y' }}
+	                                                </td>
+	                                            </tr>
+	                                        {% endfor %}
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+                    {% endif %}
+                </div>
+				
+			</div>
+			<!-- Row ends -->
+			{% else %}
+				<h2>No record found.</h2>
+			{% endif %}
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+{% block script %}
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/js/jvectormap/jquery-jvectormap-2.0.3.min.js"></script> 
+    <script src="/static/js/jvectormap/world-mill-en.js"></script>
+    <script src="/static/js/jvectormap/gdp-data.js"></script>
+    <script src="/static/js/jvectormap/country-coords-data.js"></script>
+    <script src="/static/js/jvectormap/host-map.js"></script>
+    <script>
+       	var mapdata = "{{mapdata}}";
+    	var country_code = "{{country_code}}";
+    </script>
+
+{% endblock %}

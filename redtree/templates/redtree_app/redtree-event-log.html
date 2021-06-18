@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Event Log - RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 ">
+					<div class="panel ">
+                        <div class="panel-heading">
+                            <h3>Redtree Event Log</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<col width="18%" />
+									<col width="15%" />
+									<col width="10%" />
+									<col width="12%" />
+									<col width="20%" />
+									<col width="25%" />
+									<thead>
+										<tr>
+											<th>Ago</th>											
+											<th>Event Type</th>
+											<th>User</th>
+											<th>Ip</th>
+											<th>Date</th>						
+											<th>Data</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for event in redtree_event_history %}
+										<tr>		
+											<td>{{event.created|timesince}}</td>							
+											<td>{{event.event_type}}</td>
+											<td>{{event.username}}</td>
+											<td>{{event.ip}}</td>
+											<td>{{event.timestamp}}</td>
+											<td>{{event.data}}</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

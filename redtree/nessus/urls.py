@@ -1,0 +1,79 @@
+from django.conf.urls import url
+from . import views
+from .views import (
+    NetworkNessusVulnerabilitiesDetailView
+)
+
+
+urlpatterns = [
+    url(
+        r'^$',
+        views.nessusdata,
+        name='nessusdata'
+    ),
+    url(
+        r'^upload$',
+        views.reportupload,
+        name='reportupload'
+    ),
+    url(
+        r'^reprocess/$',
+        views.reprocess_nessusdata,
+        name="reprocess_nessusdata"
+    ),
+    url(
+        r'^plugin/(?P<plugin_id>[0-9]+)/$',
+        views.affected_hosts,
+        name='affected_hosts'
+    ),
+    url(
+        r'^files$',
+        views.nessus_files,
+        name='nessus_files'
+    ),
+    url(
+        r'^file-logs/(?P<file_id>[0-9]+)$',
+        views.file_logs,
+        name='file_logs'
+    ),
+    url(
+        r'^delete-file/(?P<id>[0-9]+)$',
+        views.delete_nessus_file,
+        name='delete_nessus_file'
+    ),
+    url(
+        r'^file/(?P<file_code>[\w\d@\.-]+)/$',
+        views.nessusfile_history,
+        name='nessusfile_history'
+    ),
+    url(
+        r'^upload-masscan$',
+        views.masscan_upload,
+        name='upload_masscan'
+    ),
+    url(
+        r'^plugin/(?P<plugin_id>[0-9]+)/(?P<issue_id>[0-9]+)/$',
+        views.nessus_issue_detail,
+        name='nessus_issue_detail'
+    ),
+    url(
+        r'^network/(?P<network_id>[0-9]+)/$',
+        NetworkNessusVulnerabilitiesDetailView.as_view(),
+        name='network_nessus_vulnerabilities_detail'
+    ),
+    url(
+        r'^search-title/$',
+        views.search_title,
+        name='nessus_search_title'
+    ),
+    url(
+        r'^plugin-map/$',
+        views.plugin_map,
+        name='nessus_plugin_map'
+    ),
+    url(
+        r'^plugin/(?P<plugin_id>[0-9]+)/host/(?P<host_id>[0-9]+)$',
+        views.host_plugin_issues,
+        name='host-plugin-issues'
+    ),
+]

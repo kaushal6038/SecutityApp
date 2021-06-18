@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% block title %}
+	{% if file_detail.file %}
+    <title>Nessus - {{file_detail.file}}</title>
+    {% else %}
+    <title>Nessus - {{file_detail.file_code}}</title>
+    {% endif %}
+{% endblock %}
+{% block sidebar %}
+	<div class="vertical-nav">
+		<!-- Sidebar menu start -->
+		<ul class="menu clearfix">
+			<li >
+				<a href="/home">
+					<span class="menu-item">Home</span>
+				</a>
+			</li>
+			<li >
+				<a href="/nessus/upload">
+					<span class="menu-item">File Upload</span>
+				</a>
+			</li>
+			<li class="active selected">
+				<a href="/nessus">
+					<span class="menu-item">Nessus</span>
+				</a>
+			</li>
+			<li>
+                <a href="/vulnerabilities">
+                    <span class="menu-item">Vulnerabilities</span>
+                </a>
+            </li>
+			<li >
+				<a href="/settings">
+					<span class="menu-item">Settings</span>
+				</a>
+			</li>
+			<li >
+				<a href="/report">
+					<span class="menu-item">Report</span>
+				</a>
+			</li>
+            <li>
+				<a href="/retest-history">
+					<span class="menu-item">History</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest">
+					<span class="menu-item">Retest</span>
+				</a>
+			</li>
+			<li>
+				<a href="/event-history">
+					<span class="menu-item">Event History</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Sidebar menu end -->
+	</div>
+{% endblock %}
+
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+            {% if message %}
+            <div class="top-bar clearfix">
+                <div class="row gutter">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-title">
+                            <h3>{{message}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if file_detail %}
+            <!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel custom-display">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>File Detail</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Code</th>
+											<th>Scan Date</th>
+											{% if file_detail.is_accepted %}
+											<th>File Logs</th>
+											{% endif %}
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											{% if file_detail.file %}
+											<td>{{ file_detail.file }}</td>
+											{% else %}
+											<td>{{file_detail.file_code}}</td>
+											{% endif %}
+											<td>{{file_detail.file_code}}</td>
+											<td>{{ file_detail.uploaded_at }}</td>
+											{% if file_detail.is_accepted %}
+											<td><a href="/nessus/file-logs/{{file_detail.id}}">view</a></td>
+											{% endif %}
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel custom-display">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Processing Details</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<tbody>
+										<tr>
+											<th>File Status</th>
+											{% if file_detail.is_accepted %}
+											<td>Accepted</td>
+											{% else %}
+											<td>Rejected</td>
+											{% endif %}
+										</tr>
+										{% if file_detail.is_accepted %}
+											<tr>
+												<th>Process Status</th>
+												{% if file_detail.is_accepted and not file_detail.is_completed %}
+												<td>Processing</td>
+												{% else %}
+												<td>Completed</td>
+												{% endif %}
+											</tr>
+											<tr>
+												<th>XML Processing Status</th>
+												{% if file_detail.xml_process_status %}
+												<td>Processed</td>
+												{% elif file_detail.is_completed and not file_detail.xml_process_status%}
+												<td>Processed</td>
+												{% else %}
+												<td>Processing</td>
+												{% endif %}
+											</tr>
+											<tr>
+												<th>Appliaction Processing Status</th>
+												{% if file_detail.applications_process_status %}
+												<td>Processed</td>
+												{% elif file_detail.is_completed and not file_detail.applications_process_status%}
+												<td>Processed</td>
+												{% else %}
+												<td>Processing</td>
+												{% endif %}
+											</tr>
+											<tr>
+												<th>Vulnerabilities Processing Status</th>
+												{% if file_detail.vulnerabilities_process_status %}
+												<td>Processed</td>
+												{% elif file_detail.is_completed and not file_detail.vulnerabilities_process_status%}
+												<td>Processed</td>
+												{% else %}
+												<td>Processing</td>
+												{% endif %}
+											</tr>
+											{% if file_detail.error_message %}
+											<tr>
+												<th>Error</th>
+												<td>{{file_detail.error_message }}</td>
+											</tr>
+											{% endif %}
+										{% else %}
+										<tr>
+											<th>Hosts Not Found</th>
+											<td>{{file_detail.hosts_list}}</td>
+										</tr>
+										{% endif %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+            {% endif%}
+            {% if file_content%}
+            <!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>New Issues Found</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table-bordered table-hover table-condensed no-margin">
+									<col width="8%"/>
+                                    <col width="8%"/>
+                                    <col width="43%"/>
+                                    <col width="10%"/>
+                                    <col width="8%"/>
+                                    <col width="23%"/>
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Risk</th>
+											<th>Name</th>
+                                            <th>Host</th>
+                                            <th>Port</th>
+                                            <th>Identified</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for nessus_obj in file_content %}
+										<tr>
+											<td>{{nessus_obj.plugin_id}}</td>
+											<td>
+												{% if nessus_obj.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif nessus_obj.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif nessus_obj.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif nessus_obj.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif nessus_obj.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% else %}
+													<button class="btn btn-primary btn-xs btn-note">{{nessus_obj.risk}}</button>
+												{% endif %}
+											</td>
+											<td>{{nessus_obj.name}}</td>
+                                            <td>{{nessus_obj.host}}</td>
+                                            <td>{{nessus_obj.port}}</td>
+                                            <td>{{nessus_obj.first_identified}}</td>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+            {% endif %}
+        </div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

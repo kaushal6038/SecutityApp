@@ -1,0 +1,103 @@
+{% extends 'purpleleaf_app/base.html' %}
+{% block title %}
+	<title>Cloud - Purpleleaf</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+        {% if cloud_asset_data %}
+			<!-- Row starts -->
+			<div class="row gutter">
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel custom-display">
+                        <div class="panel-heading">
+                            <h3>
+                                {% for cloud_data in cloud_asset_data %}
+                                    {% if forloop.first %}
+                                        {{ cloud_data.bucket }}
+                                    {% endif %}
+                                {% endfor %}
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th class="notifications_heading">
+                                                Bucket
+                                            </th>
+                                            <th class="notifications_heading">
+                                                Unauthenticated Tests
+                                            </th>
+                                            <th class="notifications_heading">
+                                                Authenticated Tests
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cloud_data in cloud_asset_data %}
+                                            {% if cloud_data.bucket_name %}
+                                                <tr>
+                                                    <td>
+                                                        {{ cloud_data.bucket_name }}
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                        {% if cloud_data.unauthenticated_status %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% else %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                        {% if cloud_data.authenticated_status %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% else %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for cloud_data in cloud_storage_files %}
+                                            {% if cloud_data.file %}
+                                                {% if forloop.first %}
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <center>
+                                                            <b>Files</b>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                {% endif %}
+                                                <tr>
+                                                    <td colspan="4">{{ cloud_data.file }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row ends -->
+        {% else %}
+            <h3>No S3 Data found</h3>
+        {% endif %}
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

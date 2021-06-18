@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Encryption Definition - RedTree</title>
+{% endblock %}
+{% block content %}
+{% block extracss %}
+    <style type="text/css">
+        .dataTables_filter, .dataTables_info {
+            display: none;
+        }
+    </style>
+{% endblock %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Row starts -->
+            <div class="row gutter" style="display: table;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                    <div class="row gutter">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="notifications_heading">
+                                <a href="/encryption/definitions">
+                                    Ciphers
+                                </a>
+                            </label>
+                            <label class="notifications_heading">
+                                <a href="/encryption/definitions/ssh">
+                                    SSH
+                                </a>
+                            </label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label style="float: right; margin-top: -10px; margin-bottom: 10px;">
+                                <a href="/encryption/definitions/ciphers/update" class="btn btn-info">
+                                    Update Definitions
+                                </a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel" >
+                        <div class="panel-heading">
+                            <center>
+                                <h4>List all available ciphers</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" >
+                                <table id="cipher-datatable" class="table table-bordered table-hover table-condensed no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th class="no-sort">Id Hex</th>
+                                            <th class="no-sort cipher_th">
+                                                Name (OpenSSL)
+                                                <input type="text" class="datatable_input_openssl datatable_input_style" placeholder="Search OpenSSL" style="width: 200px;" />
+                                            </th>
+                                            <th class="no-sort cipher_th">
+                                                Name (IANA)
+                                                <input type="text" class="datatable_input_iana datatable_input_style" placeholder="Search IANA" style="width: 200px;" />
+                                            </th>
+                                            <th class="no-sort">KeyX</th>
+                                            <th class="no-sort">Encryption</th>
+                                            <th class="no-sort">Bits</th>
+                                            <th class="no-sort">RC4</th>
+                                            <th class="no-sort">CBC</th>
+                                            <th class="no-sort">Null</th>
+                                            <th class="no-sort">Export</th>
+                                            <th class="no-sort">Strength</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in enc_cache_ciphers %}
+                                            <tr>
+                                                <td>
+                                                    {{data.id_hex}}
+                                                </td>
+                                                <td>
+                                                    {% if data.name_openssl %}
+                                                        {{data.name_openssl}}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.name_iana %}
+                                                        {{data.name_iana}}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.keyx %}
+                                                        {{data.keyx}}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.enc %}
+                                                        {{ data.enc }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.bits %}
+                                                        {{ data.bits }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.rc4 %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            rc4
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.cbc %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            cbc
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.null %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            null
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.export %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            export
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                                {% if data.strength == "High" %}
+                                                    <td>
+                                                        <center>
+                                                            <button class="btn btn-high btn-xs">  
+                                                                High
+                                                            </button>
+                                                        </center>
+                                                    </td>
+                                                {% elif data.strength == "Medium" %}
+                                                    <td>
+                                                        <center>
+                                                            <button class="btn btn-medium btn-xs">  
+                                                                Medium
+                                                            </button>
+                                                        </center>
+                                                    </td>
+                                                {% elif data.strength == "Low" %}
+                                                    <td>
+                                                        <center>
+                                                            <button class="btn btn-low btn-xs">  
+                                                                Low
+                                                            </button>
+                                                        </center>
+                                                    </td>
+                                                {%endif%}
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row ends -->
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}
+{% block script %}
+    <script src="/static/js/cipher_datatable.js"></script>
+{% endblock %}

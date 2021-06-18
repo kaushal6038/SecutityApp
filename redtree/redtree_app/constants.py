@@ -1,0 +1,1 @@
+BANNER_PATTERN = "The remote web server type is :"

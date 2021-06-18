@@ -1,0 +1,705 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>Playground - RedTree</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <h3 class="vulnerability-color">PlayGround</h3>
+        <div class="top-bar clearfix">
+            <div class="top-bar clearfix">
+                <div class="row gutter" id="hide_playground">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div>
+                                <strong>{{ message|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- +++++++++++++++ Nessus edited +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">Nessus</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="nessus_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ nessus_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ nessus_form.nes_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ nessus_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="nessus_add_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="nessus_add_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/microservices/nessus/"  style="margin-left: 0; flex: 0 0 15%;">
+            Nessus Logs
+        </a>
+    </div>
+
+        <!-- +++++++++++++++ Masscan edited +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%;">Masscan</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="masscan_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ masscan_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ masscan_form.masscan_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%">
+             <p>{{ masscan_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="masscan_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="masscan_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/microservices/masscan/"  style="margin-left: 0; flex: 0 0 15%">
+            Masscan Logs
+        </a>
+    </div>
+
+        <!-- +++++++++++++++ Sslyze +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">Sslyze</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="sslyze_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ sslyze_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ sslyze_form.sslyze_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ sslyze_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="sslyze_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="sslyze_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/sslyze/"  style="margin-left: 0; flex: 0 0 15%;">
+            Sslyze Logs
+        </a>
+    </div>
+
+           <!-- +++++++++++++++ Sshyze +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">Sshyze</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="sshyze_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ sshyze_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ sshyze_form.sshyze_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ sshyze_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="sshyze_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="sshyze_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/sshyze/"  style="margin-left: 0; flex: 0 0 15%;">
+            Sshyze Logs
+        </a>
+    </div>
+
+        <!-- +++++++++++++++ Burp +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">Burp</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="burp_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ burp_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ burp_form.burp_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ burp_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="burp_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="burp_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/burp/"  style="margin-left: 0; flex: 0 0 15%">
+            Burp Logs
+        </a>
+    </div>
+
+        <!-- +++++++++++++++ Dns Enum +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%;">DnsEnum</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="dns_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ dnsenum_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ dns_form.dnsenum_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%">
+             <p>{{ dnsenum_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="dnsenum_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="dnsenum_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/dnsenum/"  style="margin-left: 0; flex: 0 0 15%">
+            Dnsenum Logs
+        </a>
+    </div>
+
+    <!-- +++++++++++++++ Screenshot +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%;">Screenshots</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="screenshot_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ screenshot_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ screenshot_form.screenshot_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%">
+             <p>{{ screenshot_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="screenshot_internal_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan Internal</button>
+                </form>
+            </div>
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="screenshot_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan External</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/screenshot/"  style="margin-left: 0; flex: 0 0 15%">
+            Screenshot Logs
+        </a>
+    </div>
+
+    <!-- +++++++++++++++ Cloud Storage +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%;">CloudStorage</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="cloudstorage_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ cloudstorage_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ cloudstorage_form.cloudstorage_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%">
+             <p>{{ cloudstorage_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="cloudstorage_external_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/cloudstorage/"  style="margin-left: 0; flex: 0 0 15%">
+            Cloudstorage Logs
+        </a>
+    </div>
+
+     <!-- +++++++++++++++ Whois +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">WHOIS</div>
+        <div style="margin-right: 10px; flex: 0 0 15%;">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="whois_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ whois_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ whois_form.whois_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ whois_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%;">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="whois_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan</button>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-logs" href="/logs/whois/"  style="margin-left: 0; flex: 0 0 15%;">
+            WHOIS Logs
+        </a>
+    </div>
+
+     <!-- +++++++++++++++ RDS SCAN+++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">RDS</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="rds_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ rds_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ rds_form.rds_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ rds_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="rds_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan</button>
+                </form>
+            </div>
+        </div>
+{#        <a class="btn btn-logs" href="/logs/screenshot/"  style="margin-left: 0">#}
+{#            Screenshot Logs#}
+{#        </a>#}
+    </div>
+
+    <!-- +++++++++++++++ APIGateway Scan+++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">APIGateway</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="apigateway_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ apigateway_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ apigateway_form.apigateway_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ apigateway_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="api_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Scan</button>
+                </form>
+            </div>
+        </div>
+{#        <a class="btn btn-logs" href="/logs/screenshot/"  style="margin-left: 0">#}
+{#            Screenshot Logs#}
+{#        </a>#}
+    </div>
+
+     <!-- +++++++++++++++ AWS Refresh +++++++++++++++ -->
+    <div class="nessus_width" style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <div style="margin-right: 10px; flex: 0 0 10%">AwsRefresh</div>
+        <div style="margin-right: 10px; flex: 0 0 15%">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                <input type="hidden" name="form-type" value="asset_refresh_form">
+                <div style="display: flex;width: 100%;align-items: stretch;">
+                    <div class="clickable-configuration fielddisplay" style="flex-grow: 1;">
+                        &nbsp;{{ awsasset_cron }}
+                    </div>
+                    <div class="clickable-configuration-data hidden" style="flex-grow: 1;">
+                        {{ asset_refresh_form.asset_refresh_job }}
+                    </div>
+                    <div class="clickable-configuration formfieldsubmit">
+                        <button type="button"
+                                class="btn btn-info edit-btn">Edit
+                        </button>
+                    </div>
+                    <div class="hidden clickable-configuration-data formfieldsubmit">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger cancel">Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+         <div class="" style="margin-right: 10px; flex: 0 0 15%;">
+             <p>{{ awsasset_description }}</p>
+         </div>
+        <div class="" style="display: flex; margin-right: 10px; flex: 0 0 20%">
+            <div class="" style="margin-right: 10px;">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="aws_asset_scan" value="true">
+                    <button class="btn btn-info scan-add-btn btn_border2">Refresh Asset</button>
+                </form>
+            </div>
+        </div>
+{#        <a class="btn btn-logs" href="/logs/screenshot/"  style="margin-left: 0">#}
+{#            Screenshot Logs#}
+{#        </a>#}
+    </div>
+
+
+    </div>
+	<!-- Container fluid ends -->
+
+             <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10" style="width: 700px;">
+                    <div class="panel">
+                         <div class="panel-heading">
+                            <h4>Jobs Activity</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Name</th>
+                                            <th>Total Run Count</th>
+                                            <th>Last Run Date</th>
+                                            <th>Next Run Date</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cron in all_cron %}
+
+                                        	<tr>
+
+                                        		<td>
+                                        			{{ cron.name|title }}
+                                        		</td>
+                                        		<td>
+                                                    {{ cron.total_run_count }}
+                                        		</td>
+                                        		<td>
+                                                    {{ cron.last_run_at }}
+                                        		</td>
+                                                <td>
+                                                    {{ cron.next_run_date }}
+                                        		</td>
+
+                                        	</tr>
+	 	                                {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+      $(document).ready( function() {
+        $('#hide_playground').delay(9000).fadeOut();
+      });
+    </script>
+
+    <script type="text/javascript" src="/static/js/scantime.js"></script>
+{% endblock %}

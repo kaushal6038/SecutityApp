@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        
+<title>404-Page not found</title>
+
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/fonts/icomoon/icomoon.css">
+		<link rel="stylesheet" href="/static/css/main.css" media="screen" />
+        <link rel="stylesheet" href="/static/css/datatables/dataTables.min.css">
+        <link rel="stylesheet" href="/static/css/datatables/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="/static/css/alertify/core.css" />
+        <link rel="stylesheet" href="/static/css/alertify/default.css" id="toggleCSS" />
+
+        <link rel="stylesheet" href="/static/css/maintenance.css" id="toggleCSS" />
+
+
+        
+        
+	</head>
+    <body>
+        <header>
+            <a href="/dashboard" class="logo">
+                <img src="/static/img/p-logo.png" alt="Purpleleaf Logo" />
+            </a>
+       
+        </header>
+
+
+        <div class="fixed-bg" style="background-color: #353C48;">
+        </div>
+        <div class="top-bar clearfix">
+            <div class="row gutter">
+                
+            </div>
+        </div>
+        <div class="maintenance-wrapper">
+            {% if messages %}
+                    {% for message in messages %}
+                        <div>
+                            <strong>{{ message|escape }}</strong>
+                        </div>
+                    {% endfor %}
+            {% else %}
+            <h1 class="heading">404</h1>
+            <h2>Page not found.</h2>
+            {% endif %}
+        </div>
+
+<!-- Dashboard Wrapper End -->
+
+
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/scrollup/jquery.scrollUp.js"></script>
+        <script src="/static/js/custom.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.flash.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/jszip.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/pdfmake.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/vfs_fonts.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.print.min.js"></script>
+        <script src="/static/js/alertify/alertify.js"></script>
+        
+        
+
+        
+    </body>
+</html>
+

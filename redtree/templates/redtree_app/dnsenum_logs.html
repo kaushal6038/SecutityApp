@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>RedTree - Playground</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<div class="col-lg-12 col-md-12">
+                 <h3> Dnsenum Logs </h3>
+        		<div class="panel custom-display">
+        			<div class="panel-body">
+        				<div class="table-responsive">
+        					<table class="table table-bordered table-hover table-condensed no-margin">
+        						<thead>
+        							<tr>
+        								<th>Age</th>
+        								<th>Status</th>
+        								<th>Domain</th>
+        								<th>Result</th>
+        								<th>Duration</th>
+        							</tr>
+        						</thead>
+        						<tbody>
+                                    {% for dnsenum in dnsenum_log %}
+            							<tr>
+            								<td>
+                                                {{dnsenum.created|get_microservices_log_age}}
+                                            </td>
+            								<td>{{dnsenum.status}}</td>
+            								<td>{{dnsenum.domain}}</td>
+                                            {% if dnsenum.result %}
+            								    <td>{{dnsenum.result}}</td>
+                                            {% elif dnsenum.message %}
+                                                <td>{{dnsenum.message}}</td>
+                                            {% else %}
+                                                <td>Scan is running</td>
+                                            {% endif %}
+                                            {% if dnsenum.is_completed %}
+            								    <td title="scan completed in {{dnsenum.task_duration}}">
+                                                {{dnsenum.task_duration}}</td>
+                                            {% else %}
+                                                <td title="scan is not completed yet.">{{dnsenum.task_duration}}</td>
+                                            {% endif %}
+
+            							</tr>
+                                    {% endfor %}
+        						</tbody>
+        					</table>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

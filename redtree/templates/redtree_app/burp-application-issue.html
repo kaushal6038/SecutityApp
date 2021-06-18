@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - Burp</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Row Starts -->
+
+        <div class="top-bar clearfix">
+            <div class="row gutter">
+                
+            </div>
+        </div>
+        <!-- Row Ends -->
+
+        <!-- Row starts -->
+        <div class="row gutter">
+            <div class="col-lg-12">
+                <a href="reprocess/" class="btn btn-info">
+                    Reprocess Vulnerabilities
+                </a>
+            </div>
+            <br><br><br>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="panel burp_table_width">
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h4>Scan Results</h4>                                
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed no-margin">
+                                <thead>
+                                    <tr>
+                                        <th>Count</th>
+                                        <th>Risk</th>
+                                        <th>Title</th>
+                                        <th>Type Index</th>
+                                        <th>Virtue Id</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for issue in scans_data %}
+                                    <tr>
+                                        <td class="burp_count">{{issue.instances}}</td>
+                                        <td>
+                                            {% if issue.risk == 'Critical' %}
+                                                <button class="btn btn-critical btn-xs">Critical</button>
+                                            {% elif issue.risk == 'high' %}
+                                                <button class="btn btn-high btn-xs">High</button>
+                                            {% elif issue.risk == 'medium' %}
+                                                <button class="btn btn-medium btn-xs">Medium</button>
+                                            {% elif issue.risk == 'low' %}
+                                                <button class="btn btn-low btn-xs">Low</button>
+                                            {% elif issue.risk == 'note' %}
+                                                <button class="btn btn-primary btn-xs btn-note">Note</button>
+                                            {% elif issue.risk == 'info' %}
+                                                <button class="btn btn-primary btn-xs btn-note">None</button>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a class="" href="/burp/{{issue.type_index}}">
+                                                {{issue.title}}
+                                            </a>
+                                        </td>
+                                        <td>{{ issue.type_index }}</td>
+                                        <td>
+                                            {% if issue.virtue_id %}
+                                                {{ issue.virtue_id }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row ends -->
+    </div>
+    <!-- Container fluid ends -->
+
+</div>
+
+<!-- Dashboard Wrapper End -->
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Applications - RedTree</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+    	<div class="panel custom-display">
+    		<div class="panel-heading">
+            	<h3>Closed Vulnerabilities</h3>
+            </div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table-bordered table-hover table-condensed no-margin" >
+						<thead>
+							<tr>
+								<th class="notifications_heading">Risk</th>
+								<th class="notifications_heading">Title</th>
+								<th class="notifications_heading">Host</th>
+								<th class="notifications_heading">Port</th>
+								<th class="notifications_heading">Date</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for vulnerability in vulnerabilities%}
+							<tr>
+								<td style="text-align:left;">{% if vulnerability.risk == 'Critical' %}
+									<button class="btn btn-critical btn-xs">Critical</button>
+								{% elif vulnerability.risk == 'High' %}
+									<button class="btn btn-high btn-xs ">High</button>
+								{% elif vulnerability.risk == 'Medium' %}
+									<button class="btn btn-medium btn-xs">Medium</button>
+								{% elif vulnerability.risk == 'Low' %}
+									<button class="btn btn-low btn-xs">Low</button>
+								{% elif vulnerability.risk == 'Note' %}
+									<button class="btn btn-primary btn-xs btn-note">Note</button>
+								{% endif %}
+								</td>
+								<td style="text-align:left;">{{vulnerability.title}}</td>
+								<td style="text-align:left;">{{vulnerability.host}}</td>
+								<td style="text-align:left;">{{vulnerability.port}}</td>
+								<td style="text-align:left;">{{vulnerability.archive_date}}</td>
+								</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- Container fluid ends -->
+ 
+</div>
+
+<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+    

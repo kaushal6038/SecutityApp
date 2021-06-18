@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+{% load markup_tags %}
+{% load markdown_tags %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>report</title>
+    <!-- <link rel="stylesheet" href="/static/css/style.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style type="text/css">
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      @font-face {
+        font-family: gotham;
+        src: url("{{ base_path }}/static/fonts/gotham/gotham-Book.ttf");
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6em;
+        font-family: gotham;
+      }
+
+      .gotham {
+        font-family: gotham;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      @font-face {
+        font-family: gotham-bold;
+        src: url("{{ base_path }}/static/fonts/gotham/gotham-Bold.ttf");
+      }
+
+      .gotham-bold {
+        font-family: gotham-bold;
+      }
+
+      @font-face {
+        font-family: Helvetica;
+      }
+
+      .helvetica {
+        font-family: Helvetica;
+      }
+
+      @font-face {
+        font-family: segoe-ui;
+        src: url("{{ base_path }}/static/fonts/segoe-ui/SEGOEUI.TTF");
+      }
+
+      .segoe {
+        font-family: segoe-ui;
+      }
+
+      .portrait {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content-inner {
+        padding: 0 40px;
+      }
+
+      .content-inner-narrow {
+        padding: 0 80px;
+      }
+      .content-inner-narrow-tech-findings {
+        padding: 20px 30px;
+      }
+
+      .page-triangle-blue-executive{
+        border-width: 660px 520px 0 0;
+        border-style: solid;
+        z-index: -1;
+        opacity: .1;
+        border-color: #003053 transparent transparent transparent;
+        position: absolute;
+      }
+
+      .page-triangle {
+        border-width: 660px 520px 0 391px;
+        border-style: solid;
+        z-index: -1;
+        opacity: .1;
+        border-color: #003053 transparent transparent transparent;
+        position: absolute;
+      }
+
+      .page-triangle.blue {
+        top: 0;
+        left: -57%;
+      }
+
+      .page-triangle.blue.small {
+        left: auto;
+        right: -5%;
+        border-width: 200px 120px 0 120px;
+      }
+
+      .page-triangle.pink {
+        border-width: 350px 280px 0 280px;
+        border-color: #a829aa transparent transparent transparent;
+        top: 0;
+        right: -20%;
+      }
+
+      .page-triangle.pink {
+        border-width: 350px 280px 0 280px;
+        border-color: #a829aa transparent transparent transparent;
+        top: 0;
+        right: -20%;
+      }
+
+      .page-triangle.green {
+        border-width: 0 280px 350px 280px;
+        border-color: transparent transparent #32a381 transparent;
+        bottom: 0;
+        left: -20%;
+      }
+
+      .page-triangle.yellow {
+        border-width: 600px 0 500px 0 500px;
+        border-color: #b28317 transparent transparent transparent;
+        top: 0;
+        right: -53%;
+      }
+
+      .content-inner-narrow table {
+        border: none !important;
+        border-collapse: collapse;
+      }
+
+      .content-inner-narrow table th {
+        border-collapse: collapse;
+      }
+
+      .content-inner-narrow table td {
+        border-collapse: collapse;
+        border: none;
+      }
+
+      .content-inner-narrow table tr {
+        background-color: #f0f0f0;
+      }
+
+      .content-inner-narrow table tr:nth-child(odd) {
+        background-color: #e1e1e1;
+      }
+
+      table td a {
+        color: #646464;
+        font-weight: 700;
+      }
+
+      #cover-page {
+        /*page: cover;*/
+        height: 13.778in !important;
+      }
+
+      #cover-page h1 {
+        margin: 0;
+      }
+
+      #cover-page h2 {
+        margin: 0;
+      }
+
+      #cover-page .column-left {
+        width: 33% !important;
+        float: left !important;
+        height: 13.778in !important;
+        padding: 20px !important;
+
+      }
+
+      #cover-page .column-left .logo {
+        width: 220px !important;
+        height: auto !important;
+        margin: 10% 0% 0% 11.55%;
+      }
+
+      #cover-page .column-right {
+        width: 67% !important; 
+        float: left !important;
+        justify-content: center;
+        padding: 40px;
+        background: #003053 !important;
+        height: 13.778in !important;
+        position: relative !important;
+      }
+      #cover-page .column-right .title {
+        padding-top: 1.9in; 
+      }
+      #cover-page .column-right p {
+        color: white;
+      }
+
+      .heading-first {
+        color: white;
+        font-size: 38px;
+        font-weight: 700;
+      }
+
+      #table1-container {
+        position: absolute;
+        bottom: 30px;
+        left: 40px;
+      }
+
+      #table1-container p {
+        font-size: 16px;
+        font-family: gotham;
+      }
+
+      #table1-container p.project-label {
+        font-size: 22px;
+      }
+
+      #table1-container .client-info {
+        margin-top: 20px;
+      }
+
+      #table1-container .client-info p {
+        color: #b4b4b4;
+      }
+
+      .report-label {
+        font-size: 40px;
+        color: white;
+      }
+
+      .top-heading {
+        padding: 15px 40px 10px;
+        width: 100%;
+        background-color: #003053;
+      }
+
+      .top-heading p {
+        color: white;
+        font-size: 36px;
+      }
+
+      .top-heading.tech p {
+        font-size: 26px;
+      }
+
+      .top-heading-small {
+        padding: 40px 80px 20px;
+      }
+
+      .top-heading-small > p {
+        color: #003053;
+        font-size: 38px;
+      }
+
+      .sub-head-desc {
+        padding: 15px 0;
+      }
+
+      .sub-head-desc p {
+        font-size: 12pt;
+      }
+
+      .head-desc {
+        padding: 30px 0 0;
+      }
+
+      .next-table {
+        margin-top: 40px;
+      }
+
+      .next-table.no-margin {
+        margin-top: 0;
+      }
+
+      .vul .tech-div-content, .rem .tech-div-content {
+        /*padding: 10px 20px;*/
+      }
+
+      .tech-top-bar > p {
+        text-align: center;
+        margin-top: 8px;
+        color: white;
+        font-family: gotham;
+        font-size: 14px;
+      }
+
+      .landscape_text-critical {
+        transform: rotate(-90deg) translate(-100%, 150%);
+        -webkit-transform-origin: center left;
+        position: absolute;
+        color: white;
+        margin-left: -7px;
+        font-family: gotham;
+        -webkit-transform: rotate(-90deg) translate(-100%, 150%);
+      }
+
+      .landscape_text-high {
+        transform: rotate(-90deg) translate(-100%, 150%);
+        -webkit-transform-origin: center left;
+        position: absolute;
+        color: white;
+        margin-left: -2px;
+        font-family: gotham;
+        -webkit-transform: rotate(-90deg) translate(0%, 150%);
+      }
+
+      .landscape_text {
+        transform: rotate(-90deg) translate(-100%, 150%);
+        -webkit-transform-origin: center left;
+        position: absolute;
+        color: white;
+        margin-left: -5px;
+        font-family: gotham;
+        -webkit-transform: rotate(-90deg) translate(0%, 150%);
+      }
+
+      .landscape_text-medium {
+        transform: rotate(-90deg) translate(-100%, 150%);
+        -webkit-transform-origin: center left;
+        position: absolute;
+        color: white;
+        margin-left: -5px;
+        font-family: gotham;
+        -webkit-transform: rotate(-90deg) translate(0%, 150%);
+      }
+
+      .landscape_text-low {
+        transform: rotate(270deg);
+        position: absolute;
+        margin-top: 65px;
+        margin-left: -25px;
+        color: black;
+        font-family: gotham;
+      }
+
+      .tech-div-top-heading {
+        font-size: 15pt;
+        margin-top: 10px;
+        font-family: Helvetica;
+      }
+
+      .tech-div-top-subheading {
+        font-size: 13pt;
+        font-weight: bold;
+      }
+
+      .tech-table-table1 {
+        margin-left: 40px;
+      }
+
+      .tech-table-table2 {
+        margin-left: 30px;
+      }
+
+      .tech-table-table3 {
+        margin-left: 0px;
+      }
+
+      .tech-div-vul-data_p {
+        font-size: 12px;
+        font-family: helvetica;
+        color: #919191;
+        /*margin-top: 10px;*/
+        white-space: normal;
+      }
+
+      .tech-div-vul-data_top_p {
+        font-size: 12px;
+        font-family: helvetica;
+        color: #919191;
+        margin-top: 10px;
+      }
+
+      #heading-first-2 {
+        color: white;
+        font-size: 40px;
+      }
+
+      .main-color {
+        color: #003053;
+      }
+
+      #table-top {
+        width: 100%;
+      }
+
+      #table1 {
+        width: 100%;
+      }
+
+      .table2 {
+        width: 100%;
+        border-color: #fff;
+      }
+
+      #table3 {
+        margin-left: 50px;
+        width: 90%;
+        border-color: #fff;
+      }
+
+      .td-style {
+        color: #C4C2C2;
+      }
+
+      .td-style1 {
+        padding: 7px;
+        font-size: 12pt;
+        text-align: center;
+        border-color: #fff;
+        color: #919191;
+      }
+
+      .td-style2 {
+        padding: 7px;
+        font-size: 12pt;
+        border-color: #fff;
+        color: #919191;
+      }
+
+      .page {
+        margin-top: 200px;
+      }
+
+      .next-to-table {
+        margin-top: 40px;
+      }
+
+      .sub-heading > p {
+        margin-top: 60px;
+        font-size: 30px;
+        color: #003053;
+      }
+
+      .tech-top-sub-heading > p {
+        font-size: 24px;
+        color: #003053;
+        margin-left: 50px;
+        margin-top: 40px;
+      }
+
+      .next-page-heading {
+        margin-top: 137px;
+      }
+
+      .heading-6-14 > p {
+        font-size: 26px;
+        color: #003053;
+      }
+
+      .tech-top-heading > p {
+        margin-top: 90px;
+        text-align: center;
+        color: #003053;
+        font-size: 65px;
+      }
+
+      .tech-top-heading > .content-top > ul > li, p {
+        font-size: 30px;
+      }
+
+      .heading {
+        color: #003053;
+        margin-top: 50px;
+      }
+
+      .paragraph {
+        font-size: 12pt;
+        margin-top: 40px;
+        color: #666666;
+      }
+
+      .conclusion .paragraph p {
+        font-size: 12pt;
+      }
+
+      .th-header {
+        padding: 8px 0px 8px 0px;
+        background: #003053;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .tech-table-th-header-1 {
+        background: #003053;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-family: gotham;
+      }
+
+      .next-heading {
+        margin-top: 420px;
+      }
+
+      .tech-top {
+        height: 250px;
+      }
+
+      .tech-top-bar-critical {
+        height: 22px;
+        background-color: #BF3D47;
+        font-family: gotham;
+      }
+
+      .tech-top-bar-critical > p {
+        text-align: center;
+        margin-top: 3px;
+        color: white;
+        font-family: gotham;
+        font-size: 14px;
+      }
+
+      .tech-top-bar {
+        height: 22px;
+        background-color: #A1665F;
+        font-family: gotham;
+      }
+
+      .tech-top-bar > p {
+        text-align: center;
+        margin-top: 3px;
+        color: white;
+        font-family: gotham;
+        font-size: 14px;
+      }
+
+      .tech-top-bar-medium {
+        height: 22px;
+        background-color: #D9A66D;
+        font-family: gotham;
+      }
+
+      .tech-top-bar-medium > p {
+        text-align: center;
+        margin-top: 3px;
+        color: white;
+        font-family: gotham;
+        font-size: 14px;
+      }
+
+      .tech-top-bar-low {
+        height: 22px;
+        font-family: gotham;
+      }
+
+      .tech-top-bar-low > p {
+        text-align: center;
+        margin-top: 3px;
+        color: white;
+        font-family: gotham;
+        font-size: 14px;
+      }
+
+      .tech-table-th {
+        text-align: center;
+        background: #6d6d6d;
+        color: #fff;
+        height: 20px;
+        font-size: 12px;
+        border-color: #6d6d6d !important;
+        padding: 6px 6px 0px 6px;
+        font-family: gotham;
+      }
+
+      .tech-table-td {
+        font-size: 11pt;
+        font-family: segoe-ui;
+        text-align: center;
+        margin: 0px 6px 0px 6px;
+        color: #808080;
+      }
+
+      .console {
+        border: 1px solid;
+        height: auto;
+        width: 94%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 23px;
+        background-color: #d4d4d4;
+      }
+
+      .console > p {
+        font-size: 12px;
+        color: #000;
+        padding: 0px;
+      }
+
+      .ul-content {
+        margin-top: 20px;
+      }
+
+      .ul-content > ul {
+        font-size: 12px;
+        margin-left: -25px;
+      }
+
+      .ul-content > ul > li, p {
+        font-size: 11pt;
+        font-family: Helvetica;
+        color: #919191;
+      }
+
+      .ol-content {
+        margin-top: -25px;
+        font-size: 12px;
+        font-family: Helvetica;
+        color: #919191;
+      }
+
+      .ol-content-low {
+        font-size: 12px;
+        font-family: Helvetica;
+        color: #919191;
+      }
+
+      .tech-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .tech-table > tbody > tr > td {
+        vertical-align: top;
+        border: 0.5px solid #A9A9A9 !important;
+      }
+
+      .tech-inside-table {
+        border-collapse: collapse;
+        margin-left: 15px;
+        border: 0.5px solid #A9A9A9;
+      }
+
+      .tech-inside-table > tbody > tr > td {
+        vertical-align: top;
+        border: 0.5px solid #A9A9A9;
+      }
+
+      .tech-inside-table > thead > tr > th {
+        vertical-align: top;
+        border: 0.5px solid #A9A9A9;
+      }
+
+      .tech-style-high {
+        background: #A1665F;
+      }
+      
+      .tech-style-critical {
+        background: #BF3D47;
+      }
+      .tech-style-medium {
+        background: #D9A66D;
+      }
+
+      .tech-style-low {
+        background: #337ab7;
+      }
+
+      .id {
+        width: 2%;
+      }
+
+      .vul {
+        width: 42.5%;
+        height: 35px;
+      }
+
+      .status {
+        width: 10%;
+      }
+
+      .rem {
+        width: 42.5%;
+      }
+
+      footer {
+        font-size: 12px;
+        color: #919191;
+        text-align: center;
+        padding-left: 50px;
+      }
+
+      @media print {
+
+        html, body {
+          width: 100% !important;
+          height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        @page port {
+          size: portrait;
+        }
+        .portrait {
+          page: port;
+          position: relative;
+          min-height: 100vh;
+        }
+        @page land {
+          size: letter landscape;
+          margin: 0.8cm;
+        }
+        .landscape {
+          page: land;
+          position: relative;
+        }
+        .landscape footer
+        .break {
+          page-break-before: always;
+        }
+
+        #cover-page {
+          /*page: cover;*/
+          height: 13.778in !important;
+        }
+
+        #cover-page h1 {
+          margin: 0;
+        }
+
+        #cover-page h2 {
+          margin: 0;
+        }
+
+        #cover-page .column-left {
+          width: 33% !important;
+          float: left !important;
+          height: 13.778in !important;
+          padding: 20px !important;
+
+        }
+
+        #cover-page .column-left .logo {
+          width: 220px !important;
+          height: auto !important;
+        }
+
+        #cover-page .column-right {
+          width: 67% !important; 
+          float: left !important;
+          justify-content: center;
+          padding: 40px;
+          background: #003053 !important;
+          height: 13.778in !important;
+          position: relative !important;
+        }
+        #cover-page .column-right .title {
+          padding-top: 2.4in; 
+        }
+        #cover-page .column-right p {
+          color: white;
+        }
+      }
+      .report-blank-vul-ht{
+        height: 200px;
+      }
+
+      .tech-div-top-subheading-affected-host {
+        /*font-weight: bold;*/
+        font-style: italic;
+      }
+
+      .div-mar-lt {
+        margin-left: 10px;
+      }
+
+      .host-color{
+        color: #666666;
+      }
+
+      #cover-page .column-right .pl-logo {
+        width: 350px !important;
+        height: auto !important;
+        margin: 9.5% 0% 0% 0%;
+      }
+      
+      #cover-page .column-right .pl-logo-ht {
+        padding-top: .1in; 
+      }
+
+      .li-font{
+        font-size: 12pt;
+        color: #666666;
+      }
+
+    </style>
+
+</head>
+<body style="border:0; margin: 0; padding: 0;">
+
+{% block content %}
+
+
+  <div id="cover-page" class="portrait" style="width: 100.3%; ">
+    <div class="column-left">
+      <!-- <img src="/static/img/report/logo.png" class="logo" /> -->
+      <img src="{{ base_path }}/static/img/report/logo.png" class="logo" />
+    </div>
+    <div class="column-right">
+      <div class="row pl-logo-ht">
+        <img src="{{ base_path }}/static/img/purpleLeaf_logo.png" class="pl-logo" />
+      </div>
+      <div class="row title">
+        <h1><font class="heading-first gotham-bold" >NETWORK</font></br>
+        <font id="heading-first-2" class="gotham-bold">PENETRATION TEST</font></h1>
+        <h2><font class="report-label gotham-bold">REPORT</font></h2>
+      </div>
+      <div class="row" id="table1-container">
+        <table id="table-top">
+          <tr>
+            <col width="60%" />
+            <col width="10%"/>
+            <col width="30%" />
+            <td class="td-style">
+              <p class="gotham-bold project-label">
+                <span class="gotham-bold">NETWORK PENETRATION TEST</span>
+              </p>
+              <p class="segoe">Prepared for {{external_report_data.client_info.name}}</p>
+              <div class="client-info">
+                <p class="segoe">{{external_report_data.client_info.testing_date}}</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p style="page-break-after: always" ></p>
+  <!-- END COVER PAGE -->
+
+  <!-- PAGE 1 (EXECUTIVE SUMMARY)-->
+  <div class="portrait">
+    <div class="top-heading">
+      <p class="gotham-bold">EXECUTIVE<span class="gotham"> SUMMARY</span></p>
+    </div>
+    <div class="page-triangle-blue-executive"></div>
+    <div class="content-inner-narrow">
+      <div class="sub-heading">
+        <p class="gotham-bold">ASSESSMENT<span class="gotham"> SCOPE</span></p>
+      </div>
+      <div class="sub-block">
+        <p class="paragraph helvetica">This assessment focused on the <font class="special-tag">{{external_report_data.client_info.name}}</font> external network. The findings in this report reflect the conditions found during the testing, and do not necessarily reflect current conditions.<br><br>
+          The external network was tested by <font class="special-tag">Virtue Security</font> subject matter experts using a host of commercial, open-source, and internally developed testing tools.
+        </p>
+      </div>
+      <div class="sub-heading">
+          <p class="gotham-bold">TESTING<span class="gotham"> DETAILS</span></p>
+      </div>
+      <div class="col-md-12 col-lg-12 host-color gotham">
+        <p class="paragraph gotham">Testing was performed against the following IP addresses:
+          <ul class="li-font">
+            {% for host in external_report_data.allhosts %}
+              <li>{{ host.host }}</p></li>
+            {% endfor %}
+          </ul>
+          <p class="li-font gotham">
+            All testing was conducted remotely from <font class="special-tag">Virtue Security</font> labs located in New York, NY. Credentials and URLs were provided by <font class="special-tag">
+            {{ external_report_data.client_info.name }}</font>.
+          </p>
+        </p>
+      </div>
+      <div class="next-table">
+        <table id="table1" border="1">
+          <thead><tr><th class="th-header gotham" colspan="2">DOCUMENT DETAILS</th></tr></thead>
+          <tbody>
+            <col width="40%" />
+            <col width="60%"/>
+            <tr>
+              <td class="td-style2 gotham">Owner</td>
+              <td class="td-style2 gotham">
+                  {{external_report_data.document_info.tester_name}}
+              </td>
+            </tr>
+            <tr>
+              <td class="td-style2 gotham">Office/Region</td>
+              <td class="td-style2 gotham">
+                  {{external_report_data.document_info.office}}
+              </td>
+            </tr>
+            <tr>
+              <td class="td-style2 gotham">Contact Number</td>
+              <td class="td-style2 gotham">
+                  {{external_report_data.document_info.contact_number}}
+              </td>
+            </tr>
+            <tr>
+              <td class="td-style2 gotham">E-mail Address</td>
+              <td class="td-style2 gotham">
+                  {{external_report_data.document_info.email}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- END PAGE 1 (EXECUTIVE SUMMARY) -->
+
+
+  <!-- PAGE 2 (APPLICATION EXPOSURE) -->
+  <!-- <div class="portrait">
+    <div class="page-triangle pink"></div>
+    <p style="page-break-before: always" ></p>
+    <div class="top-heading-small">
+      <p class="gotham-bold">APPLICATION<span class="gotham"> EXPOSURE</span></p>
+      <div class="sub-head-desc">
+          <p class="helvetica">Below is a list of web applications discovered during the security assessment of the <font class="special-tag">Acme Bank</font> external network. This list should be reviewed to ensure that these applications are intended to be public facing. Applications that are unknowingly exposed to the public are a common cause of security breaches. It is recommended that all applications that are not client facing be restricted at a network level to <font class="special-tag">Acme Bank</font> personnel.
+          </p>
+      </div>
+    </div>
+    <div class="content-inner-narrow">
+      <div class="next-table no-margin">
+        <table class="table2" border="1">
+          <col width="20%" />
+          <col width="8%" />
+          <col width="52%" />
+          <col width="20%"/>
+          <thead>
+            <tr>
+              <th class="th-header gotham">IP</th>
+              <th class="th-header gotham">PORT</th>
+              <th class="th-header gotham">APPLICATION TITLE</th>
+              <th class="th-header gotham">URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.1</td>
+              <td class="td-style1 segoe">80</td>
+              <td class="td-style2 segoe">Outlook Web Mail</td>
+              <td class="td-style2 segoe"><a href="http://10.0.0.1">http://10.0.0.1 </a></td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.2</td>
+              <td class="td-style1 segoe">443</td>
+              <td class="td-style2 segoe">Acme Bank Billing Dept.</td>
+              <td class="td-style2 segoe"><a href="http://10.0.0.2">http://10.0.0.2</a></td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.5</td>
+              <td class="td-style1 segoe">80</td>
+              <td class="td-style2 segoe">Credit Card Payment Application</td>
+              <td class="td-style2 segoe"><a href="http://10.0.0.5">http://10.0.0.5</a></td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.8</td>
+              <td class="td-style1 segoe">443</td>
+              <td class="td-style2 segoe">Firewall-1 Login </td>
+              <td class="td-style2 segoe"><a href="http://10.0.0.8">http://10.0.0.8</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="top-heading-small next-to-table">
+      <p class="gotham-bold">POINTS OF<span class="gotham"> REMOTE ACCESS</span></p>
+      <div class="sub-head-desc">
+        <p class="helvetica">Below is a list of services which allow remote access. As a best practice it is recommended to minimize the number of services which allow system level access. Ideally users should access remote resources through VPN connections that require multiple factors of authentication. If SSH is required, it is recommended that it be restricted at a network layer to specific IP addresses.</p>
+      </div>
+    </div>
+    <div class="content-inner-narrow">
+      <div class="next-table no-margin">
+        <table id="table3" border="1">
+          <col width="30%" />
+          <col width="20%" />
+          <col width="25%" />
+          <col width="25%"/>
+          <thead>
+            <tr>
+              <th class="th-header gotham">IP</th>
+              <th class="th-header gotham">PORT</th>
+              <th class="th-header gotham">PROTOCOL</th>
+              <th class="th-header gotham">SERVICE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.1</td>
+              <td class="td-style1 segoe">500</td>
+              <td class="td-style1 segoe">UDP</td>
+              <td class="td-style1 segoe">VPN</td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.8</td>
+              <td class="td-style1 segoe">500</td>
+              <td class="td-style1 segoe">UDP</td>
+              <td class="td-style1 segoe">VPN</td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">10.0.0.6</td>
+              <td class="td-style1 segoe">22</td>
+              <td class="td-style1 segoe">TCP</td>
+              <td class="td-style1 segoe">SSH</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+  <!-- END PAGE 2 (APPLICATION EXPOSURE) -->
+
+
+  <!-- PAGE 3 (VULNERABILITY SUMMARY) -->
+  {% if external_report_data.allvulnerabilities or internal_report_data.allvulnerabilities %}
+  <div class="portrait">
+    <p style="page-break-before: always" ></p>
+    <div class="top-heading">
+        <p class="gotham-bold">VULNERABILITY<span class="gotham"> SUMMARY</span></p>
+    </div>
+    <div class="content-inner-narrow">
+      <div class="sub-head-desc head-desc">
+        <p class="helvetica">Below is a list of the vulnerabilities discovered during the security assessment of the {{ external_report_data.client_info.client_name }} external network:
+        </p>
+      </div>
+      <div class="row next-table">
+        <table class="table2" border="1">
+          <col width="15%" />
+          <col width="40%" />
+          <col width="25%" />
+          <thead>
+            <tr>
+              <th class="th-header gotham">RISK</th>
+              <th class="th-header gotham">VULNERABILITY TITLE</th>
+              <th class="th-header gotham">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for vulnerability in external_report_data.allvulnerabilities %}
+            <tr>
+              <td class="td-style1 segoe">{{vulnerability.risk}}</td>
+              <td class="td-style2 segoe">{{vulnerability.title}}</td>
+              <td class="td-style1 segoe">Open</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="sub-head-desc head-desc">
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <!-- END PAGE 3 (VULNERABILITY SUMMARY) -->
+
+
+  <!-- PAGE 4 (FIREWALL ANALYSIS) -->
+  <!-- <div class="portrait">
+    <p style="page-break-before: always" ></p>
+    <div class="page-triangle green"></div>
+    <div class="top-heading">
+      <p class="gotham-bold">FIREWALL<span class="gotham"> ANALYSIS</span></p>
+    </div>
+    <div class="content-inner-narrow">
+      <div class="sub-head-desc head-desc">
+        <p class="helvetica">Network infrastructure was assessed to determine the presence and effectiveness of firewall technology. Firewalls are often a necessary layer of protection of network infrastructure and ensuring their resilience to non-standard and malformed network traffic is critical to ensuring the security of the systems they protect.
+        </p>
+      </div>
+      <div class="sub-head-desc">
+        <p class="helvetica">Virtue Security performed a range of tests in attempt to circumvent controls that may be in place by intermediate network firewalls. The primary goal of this testing is to identify services that were not identified or not accessible during traditional network discovery.
+        </p>
+      </div>
+      <div class="next-table">
+        <table class="table2" border="1">
+          <col width="25%" />
+          <col width="20%" />
+          <col width="55%" />
+          <thead class="gotham">
+            <tr>
+              <th class="th-header ">TEST CASE</th>
+              <th class="th-header ">RESULT</th>
+              <th class="th-header">OBJECTIVE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-style1 segoe">ACK Scan</td>
+              <td class="td-style1 segoe"><b>Pass</b></td>
+              <td class="td-style2 segoe">An “ACK scan” was performed in attempt to map firewall rules. While this scan does not identify open ports, it can determine if a port is firewalled or simply not open.<br><br><b>Results:</b> All ports were found to be in a filtered state.</td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">Xmas Scan</td>
+              <td class="td-style1 segoe"><b> Pass</b></td>
+              <td class="td-style2 segoe">An “Xmas scan” was performed in attempt to bypass firewall controls of non-stateful firewalls. Packets were set with FIN, PSH, and URG flags which has been known to “confuse” some firewall products and thus allow packets that would otherwise be blocked.<br><br><b>Results:</b> All ports were found to be in a filtered state.</td>
+            </tr>
+            <tr>
+              <td class="td-style1 segoe">H3</td>
+              <td class="td-style1 segoe"><b>Pass</b></td>
+              <td class="td-style2 segoe">“Source Port” scanning was performed to test for possible firewall misconfigurations. Scans were performed with packet source ports set to known open and allowed ports that were observed during network scanning.<br><br><b>Results:</b> Source port scanning was performed with ports 80, 443, 25, and 22. No additional ports were discovered.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+  <!-- END PAGE 4 (FIREWALL ANALYSIS) -->
+
+
+  <!-- PAGE 5 (TECHNICAL FINDINGS) -->
+  
+  <div class="portrait">
+    <p style="page-break-before: always" ></p>
+    <div class="tech top-heading">
+      <p class="gotham-bold">TECHNICAL FINDINGS<span class="gotham"> AND RECOMMENDATIONS</span></p>
+    </div>
+    {% if external_report_data.criticalvulnerabilities or internal_report_data.criticalvulnerabilities %}
+      <div class="content-inner-narrow-tech-findings">
+        <div class="page-triangle yellow"></div>
+        <table border="1" style="width: 100%; border-collapse: collapse; border: 0.5px solid #A9A9A9" >
+          <tbody>
+            <tr>
+              <td style="background: #BF3D47; vertical-align: top;" class="id">
+                <div style="height: 22px; background-color: #BF3D47; font-family: gotham;">
+                  <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham;font-size: 14px;">
+                    <b>ID</b>
+                  </p>
+                </div>
+              </td>
+              <td style="background: #BF3D47; vertical-align: top;" class="vul">
+                <div style="height: 22px; background-color: #BF3D47; font-family: gotham;">
+                  <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham;font-size: 14px;"><b>VULNERBILITY</b></p>
+                </div>
+              </td>
+              <!-- <td class="tech-style-critical status">
+                <div class="tech-top-bar-critical">
+                  <p><b>STATUS</b></p>
+                </div>
+              </td> -->
+              <!-- <td class="tech-style-critical rem">
+                <div class="tech-top-bar-critical">
+                  <p><b>REMEDIATION</b></p>
+                </div>
+              </td> -->
+            </tr>
+            {% for vulnerability in external_report_data.criticalvulnerabilities %}
+              {% if vulnerability.risk == 'Critical' %}
+                {% ifchanged vulnerability.title %}
+                <tr>
+                  <td class="tech-style-critical id">
+                    <div class="tech-div-content">
+                      <h5 class="landscape_text-critical">Critical Risk</h5>
+                    </div>
+                  </td>
+                  <br>
+                  <td class="vul">
+                    <div class="div-mar-lt">
+                      <div class="tech-div-content">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                          </div>
+                        </div>
+
+                        <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+
+                        <div class="row" >
+                          <div class="tech-table-table1">
+                            <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9;">
+                              <thead>
+                                <tr>
+                                  <th class="tech-table-th">IP ADDRESS</th>
+                                  <th class="tech-table-th">PORT</th>
+                                  {% if vulnerability.banner %}
+                                    <th class="tech-table-th">Banner</th>
+                                  {% endif %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for affected_host in vulnerability.affected_hosts %}
+                                <tr>
+                                  <td class="tech-table-td">{{affected_host.host}}</td>
+                                  <td class="tech-table-td">{{affected_host.port}}</td>
+                                  {% if vulnerability.banner %}
+                                    <td class="tech-table-td">{{affected_host.banner}}</td>
+                                  {% endif %}
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <br>
+                        <p class="tech-div-top-subheading">Description</p>
+                        <div class="row">
+                          <div class="tech-div-vul-data_p">
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.description|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          </div>
+                        </div>
+                        <p class="tech-div-top-subheading">Remediation</p>
+                        {% autoescape off %}
+                          <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                            {{vulnerability.remediation|convert_markdown}}
+                          </pre>
+                        {% endautoescape  %}
+                      </div>
+                    </div>
+                  </td>
+                  <!-- <td class="status">
+                    <div class="tech-div-content" style="top:0px;">
+                      <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                    </div>
+                  </td> -->
+                  <!-- <td class="rem">
+                    <div class="tech-div-content">
+                      <div>
+                        <p class="tech-div-vul-data_top_p">
+                          {{vulnerability.remediation|apply_markup:"markdown"}}
+                        </p>
+                        <br>
+                      </div>
+                    </div>
+                  </td> -->
+                </tr>
+                {% endifchanged %}
+              {% endif %}
+            {% endfor %}
+            {% for vulnerability in internal_report_data.criticalvulnerabilities %}
+              {% if vulnerability.risk == 'Critical' %}
+                {% ifchanged vulnerability.title %}
+                <tr>
+                  <td class="tech-style-critical id">
+                    <div class="tech-div-content">
+                      <h5 class="landscape_text-critical">Critical Risk</h5>
+                    </div>
+                  </td>
+                  <br>
+                  <td class="vul">
+                    <div class="div-mar-lt">
+                      <div class="tech-div-content">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                          </div>
+                        </div>
+
+                        <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+
+                        <div class="row" >
+                          <div class="tech-table-table1">
+                            <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9;">
+                              <thead>
+                                <tr>
+                                  <th class="tech-table-th">IP ADDRESS</th>
+                                  <th class="tech-table-th">PORT</th>
+                                  {% if vulnerability.banner %}
+                                    <th class="tech-table-th">Banner</th>
+                                  {% endif %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for affected_host in vulnerability.affected_hosts %}
+                                <tr>
+                                  <td class="tech-table-td">{{affected_host.host}}</td>
+                                  <td class="tech-table-td">{{affected_host.port}}</td>
+                                  {% if vulnerability.banner %}
+                                    <td class="tech-table-td">{{affected_host.banner}}</td>
+                                  {% endif %}
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <br>
+                        <p class="tech-div-top-subheading">Description</p>
+                        <div class="row">
+                          <div class="tech-div-vul-data_p">
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.description|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          </div>
+                        </div>
+                        <p class="tech-div-top-subheading">Remediation</p>
+                        {% autoescape off %}
+                          <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                            {{vulnerability.remediation|convert_markdown}}
+                          </pre>
+                        {% endautoescape  %}
+                      </div>
+                    </div>
+                  </td>
+                  <!-- <td class="status">
+                    <div class="tech-div-content" style="top:0px;">
+                      <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                    </div>
+                  </td> -->
+                  <!-- <td class="rem">
+                    <div class="tech-div-content">
+                      <div>
+                        <p class="tech-div-vul-data_top_p">
+                          {{vulnerability.remediation|apply_markup:"markdown"}}
+                        </p>
+                        <br>
+                      </div>
+                    </div>
+                  </td> -->
+                </tr>
+                {% endifchanged %}
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+        <div style="clear: both;"></div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% else %}
+      <div class="content-inner-narrow-tech-findings">
+        <table border="1" style="width: 100%; border-collapse: collapse; border: 0.5px solid #A9A9A9">
+          <tbody>
+            <tr>
+              <td class="id" style="background: #BF3D47; vertical-align: top;">
+                <div style="height: 22px; background-color: #BF3D47; font-family: gotham;">
+                  <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                    <b>ID</b>
+                  </p>
+                </div>
+              </td>
+              <td style="background: #BF3D47; vertical-align: top;" class="vul">
+                <div style="height: 22px; background-color: #BF3D47; font-family: gotham;">
+                  <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham;font-size: 14px;">
+                    <b>VULNERBILITY</b>
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="tech-style-critical id">
+                <div>
+                  <h5 class="landscape_text">Critical Risk</h5>
+                </div>
+              </td>
+              <td class="vul report-blank-vul-ht">
+                <div class="div-mar-lt">
+                  <p class="gotham">
+                    <i>
+                      &nbsp;&nbsp;
+                      No Critical Risk vulnerabilities were identified
+                    </i>
+                  </p>                    
+                </div>
+                <br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% endif %}
+
+    {% if external_report_data.highvulnerabilities or internal_report_data.highvulnerabilities %}
+      <div class="portrait">
+        <div class="page-triangle blue small"></div>
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%;border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #A1665F; vertical-align: top;">
+                  <div style="height: 22px; background-color: #A1665F; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #A1665F; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #A1665F; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+                <!-- <td class="tech-style-high status">
+                  <div class="tech-top-bar">
+                    <p><b>STATUS</b></p>
+                  </div>
+                </td>
+                <td class="tech-style-high rem">
+                  <div class="tech-top-bar">
+                    <p><b>REMEDIATION</b></p>
+                  </div>
+                </td> -->
+              </tr>
+                {% for vulnerability in external_report_data.highvulnerabilities %}
+                  {% if vulnerability.risk == 'High' %}
+                    {% ifchanged vulnerability.title %}
+                      <tr>
+                        <td class="tech-style-high id">
+                          <div>
+                            <h5 class="landscape_text-high">High Risk</h5>
+                          </div>
+                        </td>
+                        <td class="vul">
+                          <div class="div-mar-lt">
+                            <div class="tech-div-content">
+                              <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                              <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                              <div class="tech-table-table3">
+                                <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; width: 19%;">
+                                  <thead>
+                                    <tr>
+                                      <th class="tech-table-th">IP ADDRESS</th>
+                                      <th class="tech-table-th">PORT</th>
+                                      {% if vulnerability.banner %}
+                                        <th class="tech-table-th">Banner</th>
+                                      {% endif %}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for affected_host in vulnerability.affected_hosts %}
+                                      <tr>
+                                          <td class="tech-table-td">
+                                              {{affected_host.host}}
+                                          </td>
+                                          <td class="tech-table-td">
+                                              {{affected_host.port}}
+                                          </td>
+                                          {% if vulnerability.banner %}
+                                              <td class="tech-table-td" style="padding: 0mm 5mm;">
+                                                  {{affected_host.banner}}
+                                              </td>
+                                          {% endif %}
+                                      </tr>
+                                    {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <br>
+                            <p class="tech-div-top-subheading">Description</p>
+                            <div class="row">
+                              <div class="tech-div-vul-data_p">
+                                {% autoescape off %}
+                                  <pre style="white-space: pre-wrap; font-size: 12px; font-family:gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                    {{vulnerability.description|convert_markdown}}
+                                  </pre>
+                                {% endautoescape  %}
+                              </div>
+                            </div>
+                            <p class="tech-div-top-subheading">Remediation</p>
+                              {% autoescape off %}
+                                <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                                gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                  {{vulnerability.remediation|convert_markdown}}
+                                </pre>
+                              {% endautoescape  %}
+                          </div>
+                        </td>
+                        <!-- <td class="status">
+                          <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                        </td>
+                        <td class="rem">
+                          <div class="tech-div-content">
+                            <p class="tech-div-vul-data_top_p">
+                              {{vulnerability.remediation|apply_markup:"markdown"}}
+                            </p>
+                          </div>
+                        </td> -->
+                      </tr>
+                    {% endifchanged %}
+                  {% endif %}
+                {% endfor %}
+                {% for vulnerability in internal_report_data.highvulnerabilities %}
+                  {% if vulnerability.risk == 'High' %}
+                    {% ifchanged vulnerability.title %}
+                      <tr>
+                        <td class="tech-style-high id">
+                          <div>
+                            <h5 class="landscape_text-high">High Risk</h5>
+                          </div>
+                        </td>
+                        <td class="vul">
+                          <div class="div-mar-lt">
+                            <div class="tech-div-content">
+                              <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                              <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                              <div class="tech-table-table3">
+                                <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; width: 19%;">
+                                  <thead>
+                                    <tr>
+                                      <th class="tech-table-th">IP ADDRESS</th>
+                                      <th class="tech-table-th">PORT</th>
+                                      {% if vulnerability.banner %}
+                                        <th class="tech-table-th">Banner</th>
+                                      {% endif %}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for affected_host in vulnerability.affected_hosts %}
+                                      <tr>
+                                          <td class="tech-table-td">
+                                              {{affected_host.host}}
+                                          </td>
+                                          <td class="tech-table-td">
+                                              {{affected_host.port}}
+                                          </td>
+                                          {% if vulnerability.banner %}
+                                              <td class="tech-table-td" style="padding: 0mm 5mm;">
+                                                  {{affected_host.banner}}
+                                              </td>
+                                          {% endif %}
+                                      </tr>
+                                    {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <br>
+                            <p class="tech-div-top-subheading">Description</p>
+                            <div class="row">
+                              <div class="tech-div-vul-data_p">
+                                {% autoescape off %}
+                                  <pre style="white-space: pre-wrap; font-size: 12px; font-family:gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                    {{vulnerability.description|convert_markdown}}
+                                  </pre>
+                                {% endautoescape  %}
+                              </div>
+                            </div>
+                            <p class="tech-div-top-subheading">Remediation</p>
+                              {% autoescape off %}
+                                <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                                gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                  {{vulnerability.remediation|convert_markdown}}
+                                </pre>
+                              {% endautoescape  %}
+                          </div>
+                        </td>
+                        <!-- <td class="status">
+                          <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                        </td>
+                        <td class="rem">
+                          <div class="tech-div-content">
+                            <p class="tech-div-vul-data_top_p">
+                              {{vulnerability.remediation|apply_markup:"markdown"}}
+                            </p>
+                          </div>
+                        </td> -->
+                      </tr>
+                    {% endifchanged %}
+                  {% endif %}
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% else %}
+      <div class="portrait">
+        <div class="page-triangle blue small"></div>
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%; border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #A1665F; vertical-align: top;">
+                  <div style="height: 22px; background-color: #A1665F; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #A1665F; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #A1665F; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham;font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tech-style-high id">
+                  <div>
+                    <h5 class="landscape_text">High Risk</h5>
+                  </div>
+                </td>
+                <td class="vul report-blank-vul-ht">
+                  <div class="div-mar-lt">
+                    <p class="gotham">
+                      <i>
+                        &nbsp;&nbsp;
+                        No High Risk vulnerabilities were identified
+                      </i>
+                    </p>                    
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% endif %}
+
+    {% if external_report_data.mediumvulnerabilities or internal_report_data.mediumvulnerabilities %}
+      <div class="portrait">
+        <div class="page-triangle blue small"></div>
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%;border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #D9A66D; vertical-align: top;">
+                  <div style="height: 22px; background-color: #D9A66D; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #D9A66D; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #D9A66D; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+                <!-- <td class="tech-style-medium status">
+                  <div class="tech-top-bar-medium">
+                    <p><b>STATUS</b></p>
+                  </div>
+                </td>
+                <td class="tech-style-medium rem">
+                  <div class="tech-top-bar-medium">
+                    <p><b>REMEDIATION</b></p>
+                  </div>
+                </td> -->
+              </tr>
+                {% for vulnerability in external_report_data.mediumvulnerabilities %}
+                  {% if vulnerability.risk == 'Medium' %}
+                    {% ifchanged vulnerability.title %}
+                      <tr>
+                        <td class="tech-style-medium id">
+                          <div>
+                            <h5 class="landscape_text-medium">Medium Risk</h5>
+                          </div>
+                        </td>
+                        <td class="vul">
+                          <div class="div-mar-lt">
+                            <div class="tech-div-content">
+                              <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                              <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                              <div class="tech-table-table3">
+                                <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; width: 19%;">
+                                  <thead>
+                                    <tr>
+                                      <th class="tech-table-th">IP ADDRESS</th>
+                                      <th class="tech-table-th">PORT</th>
+                                      {% if vulnerability.banner %}
+                                        <th class="tech-table-th">Banner</th>
+                                      {% endif %}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for affected_host in vulnerability.affected_hosts %}
+                                      <tr>
+                                        <td class="tech-table-td">{{affected_host.host}}</td>
+                                        <td class="tech-table-td">{{affected_host.port}}</td>
+                                        {% if vulnerability.banner %}
+                                          <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.banner}}</td>
+                                        {% endif %}
+                                      </tr>
+                                    {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <br>
+                            <p class="tech-div-top-subheading">Description</p>
+                            <div class="row">
+                              <div class="tech-div-vul-data_p">
+                                {% autoescape off %}
+                                  <pre style="white-space: pre-wrap; font-size: 12px; font-family:gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                    {{vulnerability.description|convert_markdown}}
+                                  </pre>
+                                {% endautoescape  %}
+                              </div>
+                            </div>
+                            <p class="tech-div-top-subheading">Remediation</p>
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.remediation|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          </div>
+                        </td>
+                       <!--  <td class="status">
+                          <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                        </td>
+                        <td class="rem">
+                          <div class="tech-div-content">
+                            <p class="tech-div-vul-data_top_p">
+                              {{vulnerability.remediation|apply_markup:"markdown"}}
+                            </p>
+                          </div>
+                        </td> -->
+                      </tr>
+                    {% endifchanged %}
+                  {% endif %}
+                {% endfor %}
+                {% for vulnerability in internal_report_data.mediumvulnerabilities %}
+                  {% if vulnerability.risk == 'Medium' %}
+                    {% ifchanged vulnerability.title %}
+                      <tr>
+                        <td class="tech-style-medium id">
+                          <div>
+                            <h5 class="landscape_text-medium">Medium Risk</h5>
+                          </div>
+                        </td>
+                        <td class="vul">
+                          <div class="div-mar-lt">
+                            <div class="tech-div-content">
+                              <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                              <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                              <div class="tech-table-table3">
+                                <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; width: 19%;">
+                                  <thead>
+                                    <tr>
+                                      <th class="tech-table-th">IP ADDRESS</th>
+                                      <th class="tech-table-th">PORT</th>
+                                      {% if vulnerability.banner %}
+                                        <th class="tech-table-th">Banner</th>
+                                      {% endif %}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for affected_host in vulnerability.affected_hosts %}
+                                      <tr>
+                                        <td class="tech-table-td">{{affected_host.host}}</td>
+                                        <td class="tech-table-td">{{affected_host.port}}</td>
+                                        {% if vulnerability.banner %}
+                                          <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.banner}}</td>
+                                        {% endif %}
+                                      </tr>
+                                    {% endfor %}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <br>
+                            <p class="tech-div-top-subheading">Description</p>
+                            <div class="row">
+                              <div class="tech-div-vul-data_p">
+                                {% autoescape off %}
+                                  <pre style="white-space: pre-wrap; font-size: 12px; font-family:gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                    {{vulnerability.description|convert_markdown}}
+                                  </pre>
+                                {% endautoescape  %}
+                              </div>
+                            </div>
+                            <p class="tech-div-top-subheading">Remediation</p>
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.remediation|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          </div>
+                        </td>
+                       <!--  <td class="status">
+                          <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                        </td>
+                        <td class="rem">
+                          <div class="tech-div-content">
+                            <p class="tech-div-vul-data_top_p">
+                              {{vulnerability.remediation|apply_markup:"markdown"}}
+                            </p>
+                          </div>
+                        </td> -->
+                      </tr>
+                    {% endifchanged %}
+                  {% endif %}
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% else %}
+      <div class="portrait">
+        <div class="page-triangle blue small"></div>
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%; border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #D9A66D; vertical-align: top;">
+                  <div style="height: 22px; background-color: #D9A66D; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;"> 
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #D9A66D; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #D9A66D; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tech-style-medium id">
+                  <div>
+                    <h5 class="landscape_text">Medium Risk</h5>
+                  </div>
+                </td>
+                <td class="vul report-blank-vul-ht">
+                  <div class="div-mar-lt">
+                    <p class="gotham">
+                      <i>
+                        &nbsp;&nbsp;
+                        No Medium Risk vulnerabilities were identified
+                      </i>
+                    </p>                    
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% endif %}
+
+    {% if external_report_data.lowvulnerabilities or internal_report_data.lowvulnerabilities %}
+      <div class="portrait">
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%;border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #337ab7; vertical-align: top;">
+                  <div style="height: 22px; background-color: #337ab7; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #337ab7; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #337ab7; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+               <!--  <td class="tech-style-low status">
+                  <div class="tech-top-bar-low" >
+                    <p><b>STATUS</b></p>
+                  </div>
+                </td>
+                <td class="tech-style-low rem">
+                  <div class="tech-top-bar-low">
+                    <p>REMEDIATION</p>
+                  </div>
+                </td> -->
+              </tr>
+              {% for vulnerability in external_report_data.lowvulnerabilities %}
+                {% ifchanged vulnerability.title %}
+                  <tr>
+                    <td class="tech-style-low id">
+                      <div  class="tech-div-content">
+                        <h5 class="landscape_text">Low Risk</h5>
+                      </div>
+                    </td>
+                    <td class="vul">
+                      <div class="div-mar-lt">
+                        <div class="tech-div-content">
+                          <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                          <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                          <div class="tech-table-table3">
+                            <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; ">
+                              <thead>
+                                <tr>
+                                  <th class="tech-table-th">IP ADDRESS</th>
+                                  <th class="tech-table-th">PORT</th>
+                                  {% if vulnerability.banner %}
+                                    <th class="tech-table-th">Banner</th>
+                                  {% endif %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for affected_host in vulnerability.affected_hosts %}
+                                <tr>
+                                  <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.host}}</td>
+                                  <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.port}}</td>
+                                  {% if vulnerability.banner %}
+                                    <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.banner}}</td>
+                                  {% endif %}
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <br>
+                        <br>
+                        <p class="tech-div-top-subheading">Description</p>
+                        <div class="row">
+                          <!-- <div class="tech-div-vul-data_p"> -->
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.description|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          <!-- </div> -->
+                        </div>
+                        <p class="tech-div-top-subheading">Remediation</p>
+                        <div class="row">
+                          {% autoescape off %}
+                            <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                            gotham; color: #919191; margin: 0px 100px 0 0px;">
+                              {{vulnerability.remediation|convert_markdown}}
+                            </pre>
+                          {% endautoescape  %}
+                        </div>
+                      </div>
+                    </td>
+                    <!-- <td class="status">
+                      <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                    </td>
+                    <td class="rem">
+                      <div class="tech-div-content">
+                        <p class="tech-div-vul-data_top_p">
+                          {{vulnerability.remediation|apply_markup:"markdown"}}
+                        </p>
+                      </div>
+                    </td> -->
+                  </tr>
+                {% endifchanged %}
+              {% endfor %}
+              {% for vulnerability in internal_report_data.lowvulnerabilities %}
+                {% ifchanged vulnerability.title %}
+                  <tr>
+                    <td class="tech-style-low id">
+                      <div  class="tech-div-content">
+                        <h5 class="landscape_text">Low Risk</h5>
+                      </div>
+                    </td>
+                    <td class="vul">
+                      <div class="div-mar-lt">
+                        <div class="tech-div-content">
+                          <p class="tech-div-top-heading"><b>{{vulnerability.title}}</b></p>
+                          <p class="tech-div-top-subheading-affected-host">Affected IPs:</p>
+                          <div class="tech-table-table3">
+                            <table border="1" style="border-collapse: collapse; margin-left: 15px;border: 0.5px solid #A9A9A9; ">
+                              <thead>
+                                <tr>
+                                  <th class="tech-table-th">IP ADDRESS</th>
+                                  <th class="tech-table-th">PORT</th>
+                                  {% if vulnerability.banner %}
+                                    <th class="tech-table-th">Banner</th>
+                                  {% endif %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                              {% for affected_host in vulnerability.affected_hosts %}
+                                <tr>
+                                  <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.host}}</td>
+                                  <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.port}}</td>
+                                  {% if vulnerability.banner %}
+                                    <td class="tech-table-td" style="padding: 0mm 5mm;">{{affected_host.banner}}</td>
+                                  {% endif %}
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <br>
+                        <br>
+                        <p class="tech-div-top-subheading">Description</p>
+                        <div class="row">
+                          <!-- <div class="tech-div-vul-data_p"> -->
+                            {% autoescape off %}
+                              <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                              gotham; color: #919191; margin: 0px 100px 0 0px;">
+                                {{vulnerability.description|convert_markdown}}
+                              </pre>
+                            {% endautoescape  %}
+                          <!-- </div> -->
+                        </div>
+                        <p class="tech-div-top-subheading">Remediation</p>
+                        <div class="row">
+                          {% autoescape off %}
+                            <pre style="white-space: pre-wrap; font-size: 12px; font-family: 
+                            gotham; color: #919191; margin: 0px 100px 0 0px;">
+                              {{vulnerability.remediation|convert_markdown}}
+                            </pre>
+                          {% endautoescape  %}
+                        </div>
+                      </div>
+                    </td>
+                    <!-- <td class="status">
+                      <p class="helvetica" style="font-size:10px;text-align: center;">Open</p>
+                    </td>
+                    <td class="rem">
+                      <div class="tech-div-content">
+                        <p class="tech-div-vul-data_top_p">
+                          {{vulnerability.remediation|apply_markup:"markdown"}}
+                        </p>
+                      </div>
+                    </td> -->
+                  </tr>
+                {% endifchanged %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% else %}
+      <div class="portrait">
+        <div class="page-triangle blue small"></div>
+        <div class="content-inner-narrow-tech-findings">
+          <table border="1" style="width: 100%; border-collapse: collapse; border: 0.5px solid #A9A9A9">
+            <tbody>
+              <tr>
+                <td class="id" style="background: #337ab7; vertical-align: top;">
+                  <div style="height: 22px; background-color: #337ab7; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>ID</b>
+                    </p>
+                  </div>
+                </td>
+                <td style="background: #337ab7; vertical-align: top;" class="vul">
+                  <div style="height: 22px; background-color: #337ab7; font-family: gotham;">
+                    <p style="text-align: center; margin-top: 6px; color: white; font-family: gotham; font-size: 14px;">
+                      <b>VULNERBILITY</b>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tech-style-low id">
+                  <div>
+                    <h5 class="landscape_text">Low Risk</h5>
+                  </div>
+                </td>
+                <td class="vul report-blank-vul-ht">
+                  <div class="div-mar-lt">
+                    <p class="gotham">
+                      <i>
+                        &nbsp;&nbsp;
+                        No Low Risk vulnerabilities were identified
+                      </i>
+                    </p>                    
+                  </div>
+                  <br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="page-break-after: always" ></p>
+    {% endif %}
+  </div>
+
+  <!-- < conclusion page > -->
+  <div class="portrait conclusion">
+    <!-- <p style="page-break-after: always" ></p> -->
+    <div class="page-triangle blue"></div>
+    <div class="top-heading">
+        <p class="gotham-bold">CONCLUSIONS</p>
+    </div>
+    <div class="content-inner-narrow">
+      <div class="paragraph segoe-ui">
+        <p>
+          This vulnerability assessment is an analysis of the security posture as it was seen during the dates in which testing was conducted. Any future changes to the application or the infrastructure on which it resides may change the security posture from its current state. Additionally, as time passes, new types of attacks may arise which were previously unknown to the security industry. Because of this, Virtue Security recommends that all applications undergo recurring security testing within a reasonable timeframe.<br><br>Virtue Security also recommends that all issues identified in this report are remediated. Virtue Security makes a best effort to rank the severity of vulnerabilities; however, it is not possible for any assessment to guarantee that Low-risk issues cannot be used to significantly impact {{ external_report_data.client_info.client_name }}. All risk ratings in this report are a combination of industry standard ratings as well as considerations for unique business risk as identified by Virtue Security consultants. Special consideration should also be given to the fact that multiple low risk issues may compound into higher risk threats.<br><br>For most effective remediation, Virtue Security recommends developing processes or altering existing processes to include the fixes recommended in this report. Infrastructure related issues may be most effective when applied to baseline configurations which can be deployed across the organization. Application related fixes may be most effective with secure frameworks or reusable code that can be applied across the application or organization. As with any code or configuration change, all fixes should be thoroughly tested in non-operational environments.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- < end of conclusiion page> -->
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Retest - RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel custom-display">
+                        <div class="panel-heading">
+                            <h3>Retest Vulnerabilities</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Virtue ID</th>
+											<th>Risk</th>
+											<th>Title</th>
+											<th>Host</th>
+											<th>Port</th>
+											<th>Retest</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for issue in issues %}
+										<tr>
+											<td>
+												{{issue.vulnerability.virtue_id}}
+											</td>
+											<td>
+												{{issue.vulnerability.risk}}
+											</td>
+											<td>
+												<a href="/vulnerabilities/
+												{{issue.vulnerability.id}}">		 
+													{{issue.vulnerability.title}}
+												</a>
+											</td>
+											<td>
+												{{ issue.vulnerability.host.host }}
+											</td>
+											<td>
+												{{issue.vulnerability.port}}
+											</td>
+											<td>
+												<button type="button" class="btn btn-xs btn-info"
+												data-toggle="modal" data-target="#retestModal"
+												onclick="retest_vulnerability('{{issue.vulnerability.id}}');">
+												Retest
+												</button>
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+							<div id="retestModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Retest Note</h4>
+										</div>
+										<form  method="post" class="retest-form-action">
+											{% csrf_token %}
+											<div class="modal-body">
+												{{ form }}
+											</div>
+											<input type="hidden" name="vul_id" class="retest_vul_id">
+											<div class="modal-footer">
+												<button type="button" name="cancel" value="cancel" class="btn btn-default retest-cancel-btn" data-dismiss="modal">Cancel</button>
+												<button type="submit" name="leave" value="leave" class="btn btn-info">Leave Open</button>
+												<button type="submit" name="close" value="close" class="btn btn-danger">Close</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

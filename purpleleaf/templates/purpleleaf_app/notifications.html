@@ -1,0 +1,45 @@
+{% extends 'purpleleaf_app/base.html' %}
+  {% block title %}
+    <title>All Notifications - Purpleleaf </title>
+  {% endblock %}
+
+{% block content %}
+  <div class="dashboard-wrapper dashboard-wrapper-lg">
+    <div class="container-fluid">
+      <div class="row gutter">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+          <div class="panel custom-display">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table-bordered table-hover table-condensed no-margin" >
+                  <thead>
+                    <tr>
+                      <th class="notifications_heading">Retest_id</th>
+                      <th class="notifications_heading">Issue_id</th>
+                      <th class="notifications_heading">Issue</th>
+                      <th class="notifications_heading">Status</th>
+                      <th class="notifications_heading">Seen</th>
+                      <th class="notifications_heading">Created</th>
+                    </tr>
+                  </thead>
+                      <tbody>
+                        {% for notifications in allnotifications %}
+                          <tr>
+                            <td style="text-align:center;">{{ notifications.retest_id }}</td>
+                            <td style="text-align:center;">{{ notifications.issue_id }}</td>
+                            <td>                           {{ notifications.issue }}</td>
+                            <td style="text-align:center;">{{ notifications.status }}</td>
+                            <td style="text-align:center;">{{ notifications.seen }}</td>
+                            <td style="text-align:center;">{{ notifications.created_at }}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

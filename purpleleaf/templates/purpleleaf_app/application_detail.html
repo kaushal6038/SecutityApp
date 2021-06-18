@@ -1,0 +1,143 @@
+{% extends 'purpleleaf_app/base.html' %}
+{% block title %}
+    <title>Application - Purpleleaf</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+    	<h3 class="application-color"> Application Vulnerabilities </h3>
+    	<div class="row gutter">
+    		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="width: 570px;">
+    			<div class="panel">
+    				{% if datalist %}
+    				<div class="panel-heading">
+    					{% for data in datalist %}
+    						{% if forloop.first %}
+                        		<h3>{{data.network}}</h3>
+    						{% endif %}
+                        {% endfor %}	
+                    </div>
+                    {% endif %}
+                    <div class="panel-body">
+                    	<div class="table-responsive">
+                    		{% if datalist %}
+                    		<table class="table-bordered table-hover table-condensed no-margin">
+                    		{% else %}
+                    		<table class="table-bordered table-hover table-condensed no-margin" style="min-width: 523px;">
+                    		{% endif %}
+                    			{% if datalist %}
+                    			<thead>
+				                    <tr>
+				                        <th class="notifications_heading">Risk</th>
+				                        <th class="notifications_heading">Title</th>
+				                        <th class="notifications_heading">Instances</th>
+				                    </tr>
+                    			</thead>
+                    			<tbody>
+                    				<col width="20%" />
+				                    <col width="60%" />
+				                    <col width="20%" />
+				                    {% for data in datalist %}
+				                    	<tr>
+					                        <td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs ">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% endif %}
+											</td>
+					                        <td>
+					                        	<input type="hidden" id="application_id" value="{{application_id}}">
+                                                <a href="vulnerability/{{data.virtue_id}}">
+					                        		{{data.title}}
+					                        </td>
+					                        <td>
+					                        	{{data.instances}}
+					                    	</td>
+					                    </tr>
+					                {% endfor %}
+                    			</tbody>
+                    			{% else %}
+                    				<tr>
+                                        <th>
+                                        	<center>
+                                        		No vulnerabilities identified.
+                                        	</center>
+                                        </th>
+                                    </tr>
+                    			{% endif %}
+                    		</table>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+            	<div class="panel app_detail_width">
+            		<p class="app_detail_border">
+            			{{ app_obj.application_title }}
+            		</p>
+	            	{% if app_obj.s3_image %}
+		            	<p data-toggle="modal" data-target="#myModal">
+		                    <img src="{{ app_obj.s3_image }}" width="400" height="300">
+		                </p>
+	                {% else %}
+		                <p data-toggle="modal" data-target="#myModal">
+		                    <img src="/static/img/screenshot_error.png">
+		                </p>
+	                {% endif %}
+	                <p class="app_detail_border">
+	                	<b>First seen:</b>&nbsp;&nbsp;&nbsp;{{ app_obj.created }}
+	                	<br>
+	                	<b>Last seen:</b>&nbsp;&nbsp;&nbsp;{{ app_obj.last_seen }}
+	                	<br>
+	                	<b>Last scan:</b>&nbsp;&nbsp;&nbsp;{{ app_obj.last_scan }}
+	                </p>
+		        </div>
+            </div>
+        </div>    
+    </div>
+    <!-- Container fluid ends -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+    
+        <div class="modal-dialog" style="width: 50%;margin-left: 41%; margin-top: 5%">  
+            <div class="modal-content" style="margin-left:-45%">
+                <div class="modal-body" style="width: 100%;">
+                    {% if app_obj.s3_image %}
+                        <img src="{{ app_obj.s3_image }}" width="100%" height="90%">
+                    {% else %}
+                        <img src="/static/img/screenshot_error_full.png">
+                    {% endif %}
+                    <p class="app_detail_border">
+                        {% if app_obj.created %}
+                            <b>First seen:</b>
+                            &nbsp;&nbsp;&nbsp;{{ app_obj.created }}
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        {% endif %}
+                        {% if app_obj.last_seen %}
+                            <b>Last seen:</b>
+                            &nbsp;&nbsp;&nbsp;{{ app_obj.last_seen }}
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        {% endif %}
+                        {% if app_obj.last_scan %}
+                            <b>Last scan:</b>
+                            &nbsp;&nbsp;&nbsp;{{ app_obj.last_scan }}
+                            <br>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dashboard Wrapper End -->
+{% endblock %}

@@ -1,0 +1,72 @@
+{
+	"knowledgebase_api": {
+		"api": "http://kbdev1.purpleleaf.io/nessus/id/",
+		"kb_base_url": "http://kbdev1.purpleleaf.io",
+		"kb_auth_token": "243de8090386bd2411eb93aecdcce52a757c08f3"
+	},
+	"notifications": [{
+		"email": "elliott.frantz@virtuesecurity.com"
+	}],
+	"purpleLeaf": {
+		"client_name": "Acme Bank",
+		"client_legal_name": "Acme Bank Inc.",
+		"mailgun_api_key": "key-f4759de934fd01df346dddbc0e5bf724",
+		"hostname": "http://webpurpleleaf:8004",
+		"mailgun_base_url": "https://api.mailgun.net/v3/platform.purpleleaf.io",
+		"authentication_token": "9de934fd01df346d",
+		"twilio_account_sid": "ACe2973b4abae315400dc7bc943ae2e430",
+		"twilio_auth_key": "3715c8619e381b6a82edffcf76f6d4f1",
+		"twilio_account_number": "+19733632522",
+		"application_status": true,
+		"analytics_status": false,
+		"session_timeout_length": 43200,
+		"manual_hours_purchased": "40",
+		"manual_hours_remaining": "40",
+		"max_ips": "40"
+	},
+	"redtree": {
+		"app_configurations": {
+			"purpleleaf_auth_key": "9d1df346d",
+			"scanning_status": true
+		},
+		"image_upload": {
+			"storage_type": "S3",
+			"s3_access_token": "AKIAI2XHVTDTQC7JYZGQ",
+			"s3_secret_access_token": "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",
+			"s3_bucket_name": "purpleleaf-dev11",
+			"pre_signed_time_length": "10000"
+		}
+	},
+	"microservice": {
+		"microservice_settings": {
+			"s3_bucket_scan_url": "http://18.206.11.190:2223/scan",
+			"webscreenshot_app_url": "http://0.0.0.0:5000/post_url/",
+			"access_token": "AKIAIFYY77MPTLPF44HQ",
+			"secret_access_token": "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",
+			"scan_frequency": 1
+		},
+		"nessus_settings": {
+			"nessus_url": "https://127.0.0.1:8834/",
+			"nessus_username": "redtree",
+			"nessus_password": "redtree1234!",
+			"nessus_driver_url": "http://162.243.170.40:2226",
+			"max_simul_hosts": "500"
+		},
+		"sslyze_settings": {
+			"microservice_scan_url": "http://45.55.135.69:2224/scan/new",
+			"sslyze_max_simul_hosts": "10"
+		},
+		"burp_settings": {
+			"burp_url": "http://162.243.170.40:2222/scan/new"
+		},
+		"masscan_settings": {
+			"masscan_ip_address": "http://69.55.49.176:2225/scan/new",
+			"masscan_ports": "1-65535",
+			"masscan_maximum_hosts_per_scan": "10"
+		}
+	},
+	"appliance_settings": {
+		"appliance_ip": "167.172.225.139",
+		"network_type": "External"
+	}
+}

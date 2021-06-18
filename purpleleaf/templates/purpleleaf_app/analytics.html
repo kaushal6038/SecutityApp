@@ -1,0 +1,99 @@
+{% extends 'purpleleaf_app/base.html' %}
+	{% block title %}
+            <title>Analytics - Purpleleaf</title>
+    {% endblock %}
+    
+    {% block content %}
+		<!-- Dashboard Wrapper Start -->
+		<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+			<!-- Container fluid Starts -->
+			<div class="container-fluid">
+				<div class="row gutter">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<div class="panel-heading">
+								<h3>Firewall</h3>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<tbody>
+											<col width="20%" />
+                        					<col width="80%" />
+											<tr>
+												<td>
+													<a href="javascript:void(0);" id="risk_firewall"></a>
+												</td>
+												<td>
+													<p id="text_firewall">
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<div class="panel-heading">
+								<h3>Encryption Analysis</h3>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<tbody>
+											<col width="20%" />
+                        					<col width="80%" />
+											<tr>
+												<td>
+													<a id="risk_Encryption_Analysis" href="javascript:void(0);"></a>
+												</td>
+												<td>
+													<p id="text_Encryption_Analysis">
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel">
+							<div class="panel-heading">
+								<h3>Exposure Analysis</h3>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<tbody>
+											<col width="20%" />
+                        					<col width="80%" />
+											<tr>
+												<td>
+													<a id="risk_Exposure_Analysis" href="javascript:void(0);"></a>
+												</td>
+												<td>
+													<p id="text_Exposure_Analysis">
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Container fluid ends -->
+		</div>
+		<!-- Dashboard Wrapper End -->
+    {% endblock %}
+	{% block script %}
+		<script src="/static/js/analytic_data.js"></script>
+	{% endblock %}

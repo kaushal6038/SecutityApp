@@ -1,0 +1,52 @@
+{% extends 'purpleleaf_app/base.html' %}
+{% block title %}
+    <title>SSH Encryption - Purpleleaf</title>
+{% endblock %}
+    
+{% block content %}
+
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+    <div class="container-fluid">
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel custom-display">
+                    <h4 class="panel_margin">{{cipher}}</h4>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-condensed no-margin ">
+                                <thead>
+                                    <tr>
+                                        <th class="notifications_heading">Host</th>
+                                        <th class="notifications_heading">Port</th>
+                                        <th class="notifications_heading">Created</th>
+                                        <th class="notifications_heading">Last Seen</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cipher in ciphers %}
+                                        <tr>
+                                            <td>
+                                                {{ cipher.host }}
+                                            </td>
+                                            <td>
+                                                {{ cipher.port }}
+                                            </td>
+                                            <td>
+                                                {{ cipher.created }}
+                                            </td>
+                                            <td>
+                                                {{ cipher.modified }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+					</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

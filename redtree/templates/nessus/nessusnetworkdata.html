@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Vulnerabilities - Nessus</title>
+{% endblock %}
+{% block sidebar %}
+	<div class="vertical-nav">
+		<!-- Sidebar menu start -->
+		<ul class="menu clearfix">
+			<li >
+				<a href="/home">
+					<span class="menu-item">Home</span>
+				</a>
+			</li>
+			<li >
+				<a href="/nessus/upload">
+					<span class="menu-item">File Upload</span>
+				</a>
+			</li>
+			<li class="active selected">
+				<a href="/nessus">
+					<span class="menu-item">Nessus</span>
+				</a>
+			</li>
+			<li>
+          <a href="/vulnerabilities">
+              <span class="menu-item">Vulnerabilities</span>
+          </a>
+      </li>
+			<li>
+				<a href="/settings">
+					<span class="menu-item">Settings</span>
+				</a>
+			</li>
+			<li >
+				<a href="/report">
+					<span class="menu-item">Report</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest-history">
+					<span class="menu-item">History</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest">
+					<span class="menu-item">Retest</span>
+				</a>
+			</li>
+			<li>
+				<a href="/event-history">
+					<span class="menu-item">Event History</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Sidebar menu end -->
+	</div>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="custom-display">
+			<div class="top-bar clearfix">
+        <div class="row gutter">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<ul  id="mini-nav-right">
+				<li {% if not scanning_status %} title="{{scan_text}}" {% endif %}>
+					<a {% if scanning_status %} href="/nessus/reprocess/" class="btn btn-info" {% else %} class="btn reprocess-disable" {% endif %}>Reprocess Vulnerabilities</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			<ul class="right-stats" >
+				<li>
+					<select class="form-control" id="select-network">
+						<option value="all_network">All Networks</option>
+						{% for network in networks %}
+							<option value="{{ network.id }}" id="{{network.id}}">{{ network.network }}</option>
+						{% endfor %}
+					</select>
+				</li>
+			</ul>
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+			<ul class="right-stats" >
+				<li>
+					<input type="hidden" id="network_id" value="{{network_id}}">
+					<a href="/nessus/history" class="btn btn-info">History</a>
+				</li>
+			</ul>
+		</div>
+        </div>
+      </div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Vulnerabilities</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Risk</th>
+											<th>Name</th>
+											<th>Hosts</th>
+											<th>Virtue Id</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in ordered_sections %}
+										<tr>
+											<td>{{ data.plugin_id }}</td>
+											<td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% elif data.risk == 'None' %}
+													<button class="btn btn-primary btn-xs btn-note">None</button>
+												{% endif %}
+											</td>
+											<td >
+												<a class="vulnerabilities_id" href="/nessus/plugin/{{data.plugin_id}}">
+													{{ data.name }}
+												</a>
+											</td>
+											<td>{{ data.instances }}</td>
+											{% if data.virtue_id %}
+												<td>{{ data.virtue_id }}</td>
+											{% else %}
+												<td></td>
+											{% endif %}
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+
+{% endblock %}
+
+{% block script %}
+	<script src="/static/js/network.js"></script>
+{% endblock %}

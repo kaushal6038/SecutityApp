@@ -1,0 +1,513 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Cloud - Redtree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+            <h3 class="vulnerability-color">Cloud Assets</h3>
+			<!-- Row starts -->
+			<div class="row gutter" style="width: 750px;">
+                {% if s3_bucket_count %}
+				<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel height1 custom-display">
+						<div class="panel-heading">
+							<center>
+								<h4 >AWS S3 Buckets</h4>
+							</center>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="os">
+										<div id="s3_security_overview"></div>
+										<p class="no-margin">
+											{% if s3_bucket_count == 1 %}
+                                                {{ s3_bucket_count }} S3 Bucket
+                                            {% else %}
+                                                {{ s3_bucket_count }} S3 Buckets
+	   									    {% endif %}
+                                        </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                {% endif %}
+                {% if gateway_count %}
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" {% if s3_bucket_count %} style="margin-left: -55px" {% endif %}>
+                    <div class="panel height1 custom-display">
+                        <div class="panel-heading">
+                            <center>
+                                <h4>AWS API Gateways</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="os">
+                                        <div id="aws_api_gateways"></div>
+                                        <p class="no-margin">
+                                            {% if gateway_count == 1 %}
+                                                {{ gateway_count}} Gateway
+                                            {% else %}
+                                                {{ gateway_count}} Gateways
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if rds_databases_count %}
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" {% if s3_bucket_count or gateway_count %} style="margin-left: -35px" {% endif %}>
+                    <div class="panel height1 custom-display">
+                        <div class="panel-heading">
+                            <center>
+                                <h4>AWS RDS Databases</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="os">
+                                        <div id="aws_rds_databases"></div>
+                                        <p class="no-margin">
+                                            {% if rds_databases_count == 1 %}
+                                                {{ rds_databases_count }} Database
+                                            {% else %}
+                                                {{ rds_databases_count }} Databases
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+			</div>
+            
+			<div class="row gutter" style="display: inline-grid;">
+                {% if cloud_storage_data %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                         <div class="panel-heading">
+                            <h4>AWS S3 Buckets</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Bucket</th>
+                                            <th>Last Scanned</th>
+                                            <th>Unauthenticated Tests</th>
+                                            <th>Authenticated Tests</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cloud_data in cloud_storage_data %}
+                                        <input type="hidden" id="aws_access_{{forloop.counter}}" value="{{ cloud_data.aws_link.client_aws_access_token }}">
+                                        <input type="hidden" id="aws_secret_{{forloop.counter}}" value="{{ cloud_data.aws_link.client_aws_secret_token }}">
+                                        	<tr>
+                                                <td>
+                                                    <center>
+                                                        {{forloop.counter}}
+                                                    </center>
+                                                </td>
+                                        		<td>
+                                        			<a class="" href="/cloud/s3/{{ cloud_data.id }}">
+                                        				{{ cloud_data.bucket }}
+                                                    </a>
+                                        		</td>
+                                        		<td>
+                                                    {% if cloud_data.last_scan %}
+                                        			{{ cloud_data.last_scan }}
+                                                    {% else %}
+                                                    Scan Pending
+                                                    {% endif %}
+                                        		</td>
+                                        		<td>
+                                                    <center>
+                                        			{% if cloud_data.unauthenticated_data_status %}
+                                        				{% if cloud_data.unauthenticated_data_status == 'pass' %}
+                                        					<button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                        				{% elif cloud_data.unauthenticated_data_status == 'fail' %}
+	                                        				<button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+	                                        			{% endif %}
+                                        			{% endif %}
+                                                    </center>
+                                        		</td>
+                                        		<td>
+                                                    <center>
+                                        			{% if cloud_data.authenticated_data_status %}
+                                        				{% if cloud_data.authenticated_data_status == 'pass' %}
+                                        					<button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                        				{% elif cloud_data.authenticated_data_status == 'fail' %}
+	                                        				<button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+	                                        			{% endif %}
+                                        			{% endif %}
+                                                    </center>
+                                        		</td>
+                                        	</tr>
+	 	                                {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if cloud_storage_gcp_data %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                         <div class="panel-heading">
+                            <h4>GCP Buckets</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>Bucket</th>
+                                            <th>Last Scanned</th>
+                                            <th>Unauthenticated Tests</th>
+                                            <th>Authenticated Tests</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cloud_data in cloud_storage_gcp_data %}
+                                            <tr>
+                                                <td>
+                                                    <a class="" href="/cloud/s3/{{ cloud_data.id }}">
+                                                        {{ cloud_data.bucket }}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    {% if cloud_data.last_scan %}
+                                                    {{ cloud_data.last_scan }}
+                                                    {% else %}
+                                                    Scan Pending
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                    {% if cloud_data.unauthenticated_data_status %}
+                                                        {% if cloud_data.unauthenticated_data_status == 'pass' %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% elif cloud_data.unauthenticated_data_status == 'fail' %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                    {% if cloud_data.authenticated_data_status %}
+                                                        {% if cloud_data.authenticated_data_status == 'pass' %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% elif cloud_data.authenticated_data_status == 'fail' %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if cloud_storage_azure_data %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                         <div class="panel-heading">
+                            <h4>Azure Buckets</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>Bucket</th>
+                                            <th>Last Scanned</th>
+                                            <th>Unauthenticated Tests</th>
+                                            <th>Authenticated Tests</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cloud_data in cloud_storage_azure_data %}
+                                            <tr>
+                                                <td>
+                                                    <a class="" href="/cloud/s3/{{ cloud_data.id }}">
+                                                        {{ cloud_data.bucket }}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    {% if cloud_data.last_scan %}
+                                                    {{ cloud_data.last_scan }}
+                                                    {% else %}
+                                                    Scan Pending
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                    {% if cloud_data.unauthenticated_data_status %}
+                                                        {% if cloud_data.unauthenticated_data_status == 'pass' %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% elif cloud_data.unauthenticated_data_status == 'fail' %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                    {% if cloud_data.authenticated_data_status %}
+                                                        {% if cloud_data.authenticated_data_status == 'pass' %}
+                                                            <button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                                        {% elif cloud_data.authenticated_data_status == 'fail' %}
+                                                            <button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">fail
+                                                            </button>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if aws_obj %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>AWS API Gateways</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>API</th>
+                                            <th>Region</th>
+                                            <th>Status Code</th>
+                                            <th>Content</th>
+                                            <th>Last Scanned</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for aws in aws_obj%}
+                                        <tr>
+                                            <td>{{ aws.api_url }}</td>
+                                            <td>{{ aws.region }}</td>
+                                            <td>{{ aws.status_code }}</td>
+                                            <td>{{ aws.content }}</td>
+                                            <td>{{ aws.last_scan }}</td>
+
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if aws_rds_obj %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>AWS RDS Endpoints</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>Host</th>
+                                            <th>Port</th>
+                                            <th>Region</th>
+                                            <th>Last Scanned</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for aws_rds in aws_rds_obj%}
+                                        <tr>
+                                            <td>{{ aws_rds.host }}</td>
+                                            <td>{{ aws_rds.port }}</td>
+                                            <td>{{ aws_rds.region }}</td>
+                                            <td> {% if aws_rds.last_scan %}
+                                                    {{ aws_rds.last_scan }}
+                                                    {% else %}
+                                                    Scan Pending
+                                                    {% endif %}</td>
+                                            <td>
+                                               {% if aws_rds.scan_status %}
+                                        					<button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">pass
+                                                            </button>
+                                        				{% elif aws_rds.scan_status != None %}
+	                                        				<button class="btn btn-danger btn-transparent btn-xs cloud_padding_fail">public
+                                                            </button>
+                                                        {% elif aws_rds.last_scan and aws_rds.scan_status == None %}
+	                                        				<button class="btn btn-success btn-transparent btn-xs cloud_padding_pass">private
+                                                            </button>
+	                                        			{% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                </table>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if aws_domains_obj %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>AWS Domains</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th>Domain</th>
+                                            <th>Created</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for aws_domain in aws_domains_obj%}
+                                        <tr>
+                                            <td>{{ aws_domain.domain }}</td>
+                                            <td>{{ aws_domain.created_at }}</td>
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if client_aws_assets %}
+                <div class="col-lg-12 col-md-12 col-sm-10 col-xs-10">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>AWS Assets</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed no-margin" style="display: table-cell;">
+                                    <thead>
+                                        <tr>
+                                            <th class="aws_assets_heading">Description
+                                            </th>
+                                            <th class="aws_assets_heading">Access Token
+                                            </th>
+                                            <th class="aws_assets_heading">Secret Token
+                                            </th>
+                                            <th class="aws_assets_heading">Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for aws_asset in client_aws_assets %}
+                                        <tr>
+                                            <td>{{ aws_asset.token_description }}</td>
+                                            <td>
+                                                <div>
+                                                    <input type="password" class="form-control aws-token-input no-padding" id="aws_access_token_input_{{ forloop.counter }}" disabled value="{{ aws_asset.client_aws_access_token }}">
+                                                    <span class="aws-token-span">
+                                                        <p class="tooltips">
+                                                            <button type="button" style='background-color: Transparent;border: none;cursor:pointer;' onclick="copyToClipboard('access', {{ forloop.counter }})">
+                                                                <span class="tooltiptext tool-tip-access-{{ forloop.counter }} tool-tip-token">Copy to clipboard</span>
+                                                                <i class="fas fa-copy"></i>
+                                                            </button>
+                                                        </p>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="password" class="form-control aws-token-input" id="aws_secret_token_input_{{ forloop.counter }}" disabled value="{{ aws_asset.client_aws_secret_token }}">
+                                                <span class="aws-token-span">
+                                                    <p class="tooltips">
+                                                        <button type="button" style='background-color: Transparent;border: none;cursor:pointer;' onclick="copyToClipboard('secret', {{ forloop.counter }})">
+                                                            <span class="tooltiptext tool-tip-secret-{{ forloop.counter }} tool-tip-token">Copy to clipboard</span>
+                                                            <i class="fas fa-copy"></i>
+                                                        </button>
+                                                    </p>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                {% if aws_asset.scan_state == "Completed" %}
+                                                    Success
+                                                {% elif aws_asset.scan_state == "Error" %}
+                                                    Failed
+                                                {% elif aws_asset.scan_state == "Running" %}
+                                                    Loading
+                                                {% elif aws_asset.scan_state == "NotInitiated" %}
+                                                    Loading
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+    <!-- Dashboard Wrapper End -->
+
+{% endblock %}
+
+{% block script %}
+	<script>
+        var s3_bucket_count = '{{ s3_bucket_count }}';
+        var s3_pass_percentage = '{{ s3_pass_percentage }}';
+    </script>
+	<script src="/static/js/circliful/circliful.min.js"></script>
+    <script src="/static/js/circliful/circliful.custom.js"></script>
+{% endblock %}

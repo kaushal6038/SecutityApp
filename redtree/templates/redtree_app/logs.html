@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Logs - RedTree</title>
+{% endblock %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<table class="table-bordered table table-condensed ">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a class="" href="/logs/purpleleaf/">
+				                Purpleleaf Audit Log
+							</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        	<a class="" href="/logs/redtree/">
+				                Redtree Audit Log
+							</a>
+						</td>
+					</tr>
+					<tr>
+                        <td>
+                            <a class="" href="/logs/microservices/">
+				                Microservice Log
+							</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

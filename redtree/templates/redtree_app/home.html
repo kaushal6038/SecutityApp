@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Home - RedTree</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block extracss %}
+{% endblock %}
+
+{% block content %}
+
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row-gutter" style="display: -webkit-box">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel Vulnerabilities-chart">
+						<div class="panel-heading">
+							<h4 class="panel-title">Vulnerabilities (Last 30 Days) </h4>
+						</div>
+						<div class="panel-body">
+							<div id="vulnerabilitiesChart" class="chart-height1"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel height2 line-margin">
+						<div class="col-lg-10">
+						<div class="panel-heading">
+							<h4 class="panel-title">Line Graph</h4>	
+						</div>
+						<div class="panel-body" >
+							<div id="lineGraph" class="chart-height1"></div>
+						</div>
+						</div>
+						<div class="col-lg-2">
+							<a href="/logs/burp/"> Burp </a><br>
+							<a href="/logs/microservices/nessus/"> Nessus</a><br>
+							<a href="/logs/microservices/masscan/"> Masscan </a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row gutter" style="display: -webkit-box"> 
+				<div class="col-md-3">
+					<div class="panel panel-height">
+						<div class="panel-heading">
+							<h4 class="panel-title">Scope</h4>
+						</div>
+						<div class="panel-body panel-padding">
+							<div class="">
+								{% if ips_message %}
+								<span>{{ips_message}}</span><br>
+								{% endif %}
+								{% if application_message %}
+								<span>{{application_message}}</span><br>
+								{% endif %}
+								{% if assets_message %}
+								{{assets_message}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="panel panel-height">
+						<div class="panel-heading">
+							<h4 class="panel-title">Task Queue</h4>
+						</div>
+						<div class="panel-body panel-padding">
+							<div class="">
+								{% if nessus_message %}
+								<span><a href="/nessus/">{{nessus_message}}</span><br>
+								{% endif %}
+								{% if burp_message %}
+								<span><a href="/burp/">{{burp_message}}</a></span>
+								{% endif %}<br>
+								{% if test_queue_message %}
+								<span><a href="/queue/">{{test_queue_message}}</a></span>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="panel panel-height">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a href="/subdomains/"> Subdomains Enumerated </a>
+							</h4>
+						</div>
+						<div class="panel-body panel-padding">
+							<div class="subdomain-overflow">
+								{% if subdomains_data %}
+								{% for subdomain in subdomains_data %}
+								<span>{{subdomain.subdomain}}</span><br>
+								{% endfor %}
+								{% endif %}
+							</div>				
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="panel panel-height">
+						<div class="panel-body panel-padding">
+							<div class="">
+								<div class="table-responsive pl-user-event-overflow">
+									<table class="table table-bordered table-hover table-condensed no-margin ">
+										<thead>
+											<tr>
+												<!-- <th class="notifications_heading">Count</th> -->
+												<th>Age</th>
+												<th>User
+												<th>IP</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for data in pl_user_event %}
+											<tr>
+												<td>
+													<p style="font-size: 11px">
+														{{ data.created|get_notification_time }}
+													</p>
+												</td>
+												<td>
+													<p style="font-size: 11px">
+														{{ data.username }}
+													</p>
+												</td>
+												<td>
+													<p style="font-size: 11px">
+														{{ data.ip }}
+													</p>
+												</td>
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#hosts" data-toggle="tab">
+										Hosts ({% if total_host %}{{total_host}}{% else %}0{% endif %})
+									</a>
+								</li>
+								<li>
+									<a href="#network" data-toggle="tab">Network ({{total_networks}})</a>
+								</li>
+								<li>
+									<a href="#applications" data-toggle="tab">Applications ({{total_applications}})</a>
+								</li>
+								<li>
+									<a href="#domains" data-toggle="tab">Domains ({{total_domains}})</a>
+								</li>
+								<li>
+									<a href="#cloudassets" data-toggle="tab">Cloud Assets ({{total_assets}})</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane active" id="hosts">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 host_width">
+										<div class="host_table_container">
+											<table id="external_host_table" >
+												<div class="panel-heading">
+													<h4>External</h4>
+												</div>
+												{% for host in External_host_obj %}
+													<tr>
+														<td onmouseout="hideLabelClipboard({{host.id}})" onmouseover="showClipboard({{host.id}})">
+															<button class="host-button" id="{{host.id}}" onmouseout="hideClipboard({{host.id}})" onmouseover="showClipboard({{host.id}})" class="host-button" 	 onclick="javascript:IpTrackInfo(this)">
+																{% if host.host_type == "cidr" %}
+																	{{host.host}}
+																{% elif host.host_type == "loose_a" %}
+																	{{host.host}}
+																{% elif host.host_type == "loose_b" %}
+																	{{host.host}}
+																{% else %}
+																<a href="/host/{{host.related_host_id}}/">
+																	{{host.host}}
+																</a>
+																{% endif %}
+																
+															</button>
+															<input type="hidden" value="{{host.host}}" id="myInput-{{host.id}}">
+															<label style="width: 11px; margin-bottom: 0px;">
+															<p class="tooltips hidden" id="tool-tip-{{host.id}}" style="margin-left: -12px;">
+															<button class="clipboard-icon-style" onmouseover="VisibleClipboard({{host.id}})" onmouseout="clipboardOutFunc({{host.id}})" onclick="copyToClipboard({{host.id}})"><span class="tooltiptext" id="myTooltip-{{host.id}}">Copy to clipboard</span><i style="margin-left:-3px;" class="fas fa-copy"></i></button></p>
+															</label>
+															
+														</td>
+														{% if host.host_type != "ip" %}
+														<td>
+															<button class="host-button" id="{{host.id}}" onclick="javascript:IpTrackInfo(this)">
+																<span style="float: right; margin-left: -12px;margin-right: -3px;" class="glyphicon glyphicon-menu-right"></span>
+															</button>
+														</td>
+														<td>
+
+														</td>
+														{% endif %}
+													</tr>
+												{%endfor%}
+											</table>
+											<div class="external_data_right">
+												<table id="iptrackinfo"></table>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+										<div class="host_table_container" >
+											<table id="internal_host_table" >
+												<div class="panel-heading">
+													<h4>Internal</h4>
+												</div>
+												{% for host in Internal_host_obj %}
+													<tr>
+														<td  onmouseout="hideLabelClipboard({{host.id}})" onmouseover="showClipboard({{host.id}})">
+															<button class="host-button" id="{{host.id}}"  onmouseout="hideClipboard({{host.id}})" onmouseover="showClipboard({{host.id}})" onclick="javascript:in_IpTrackInfo(this)">
+																{% if host.host_type == "cidr" %}
+																	{{host.host}}
+																{% elif host.host_type == "loose_a" %}
+																	{{host.host}}
+																{% elif host.host_type == "loose_b" %}
+																	{{host.host}}
+																{% else %}
+																<a href="/host/{{host.related_host_id}}/">
+																	{{host.host}}
+																</a>
+																{% endif %}
+															</button>
+															<input type="hidden" value="{{host.host}}" id="myInput-{{host.id}}">
+															<label style="width: 11px; margin-bottom: 0px;">
+															<p class="tooltips hidden" id="tool-tip-{{host.id}}" style="margin-left: -12px;">
+															<button class="clipboard-icon-style" onmouseover="VisibleClipboard({{host.id}})" onmouseout="clipboardOutFunc({{host.id}})" onclick="copyToClipboard({{host.id}})"><span class="tooltiptext" id="myTooltip-{{host.id}}">Copy to clipboard</span><i style="margin-left:-3px;" class="fas fa-copy"></i></button></p>
+															</label>
+														</td>
+														{% if host.host_type != "ip" %}
+														<td>
+															<button class="host-button" id="{{host.id}}" onclick="javascript:in_IpTrackInfo(this)">
+															<span style="float: right;
+																margin-left: -12px;
+																margin-right: -3px;" class="glyphicon glyphicon-menu-right"></span>
+															</button>
+														</td>
+														{% else %}
+														<td>
+
+														</td>
+														{% endif %}
+													</tr>
+												{%endfor%}
+											</table>
+											<div class="internal_data_right">
+												<table id="in_iptrackinfo"></table>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="network">
+									<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+										<div class="row" id="add_app_url_id">
+											{% for network in networks %}
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<a href="{{ application_url_data.application_url }}">
+														{{ network.network }}
+													</a>
+												</div>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="applications">
+									<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+										<div class="row" id="add_app_url_id">
+											<table class="table">
+												<tbody>
+												{% for application_url_data in application_data %}
+													<tr>
+														<td style="vertical-align: middle;">
+															<a href="{{ application_url_data.application_url }}">
+															{{ application_url_data.application_url }}
+															</a>
+														</td>
+													</tr>
+												{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>	
+
+                                <div class="tab-pane" id="domains" >
+                                    <div class="row gutter">
+										<div class="panel custom-display">
+											<div class="panel-body">
+												<div class="table-responsive">
+													<table class="table 
+														table-bordered table-hover table-condensed no-margin">
+														<thead>
+															<th>Domain</th>
+															<th>Action</th>
+														</thead>
+														<tbody id="domain-table">
+														{% for domain in domain_data %}
+											                <tr id="domain_{{ domain.id }}">
+														    	<td >
+																	{{ domain.domain_name }}
+																</td>
+																<td>
+																	<a  class="remove" 
+																	onclick="delete_domain({{ domain.id }});">
+																		<span class="icon-bin">
+																		</span>
+																	</a>
+
+																</td>
+															</tr>
+														{% endfor %} 	
+														</tbody>
+													</table>	
+												</div>
+											</div>
+										</div>
+									</div>	
+								</div>
+										
+								<div class="tab-pane" id="cloudassets">
+									<div class="row gutter">
+										<div class="panel custom-display">
+											<div class="panel-body">
+												<div class="table-responsive">
+													<table class="table table-bordered table-hover table-condensed no-margin">
+														<thead>
+															<tr>
+																<th>Category</th>
+																<th>Bucket</th>
+															</tr>
+														</thead>
+														<tbody>
+														{% for data in cloud_asset_data %}
+															<tr>
+																<td>{{data.category}}</td>
+																<td style="white-space: nowrap;">{{data.bucket}}</td>
+															</tr>
+														{% endfor %}
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+{% csrf_token %}
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+{% block script %}
+
+
+    <script src="/static/js/sparkline/retina.js"></script>    
+	<script src="/static/js/ipsdata.js"></script>
+	<script src="/static/js/custom.js"></script>
+
+	<!-- D3 JS -->
+	<script src="/static/js/d3/d3.v3.min.js"></script>
+	<script src="/static/js/d3/d3.powergauge.js"></script>
+	<script type="text/javascript" src="/static/js/d3/d3-tip.min.js"></script>
+
+	<!-- C3 Graphs -->
+	<script src="/static/js/chart-colors.js"></script>
+	<script src="/static/js/c3/c3.min.js"></script>
+	<script src="/static/js/d3/d3.custom.js"></script>
+	
+{% endblock %}

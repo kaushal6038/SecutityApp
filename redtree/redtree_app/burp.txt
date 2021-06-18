@@ -1,0 +1,112 @@
+def get_burp_issues_count(serialized_data):
+    application_scan_data = ApplicationScanData.objects.all().values('application_fk','severity')
+    temp_dict = dict()
+    for issue in application_scan_data:
+        issues = {
+            'critical': 0,
+            'info':0,
+            'high': 0,
+            'medium': 0,
+            'low': 0,
+        }
+        if issue['application_fk'] in temp_dict:
+            temp_dict[issue['application_fk']][issue['severity']] += 1
+        else:
+            issues[issue['severity']] += 1
+            temp_dict[issue['application_fk']] = issues
+    for data in serialized_data:
+        if data['id'] in temp_dict:
+            temp_dict[data['id']]['Total'] = sum(temp_dict[data['id']].values())
+            issues_ex_info = temp_dict[data['id']].copy()
+            issues_ex_info.pop('info')
+            data['TotalExInfo'] = sum(issues_ex_info.values())
+            data['burp_issues_count'] = temp_dict[data['id']]
+        else:
+            data['TotalExInfo'] = 0
+            data['burp_issues_count'] = {
+                'Critical': 0,
+                'High': 0,
+                'Medium': 0,
+                'Low': 0,
+                'Total':0
+            }
+    return serialized_data
+
+@login_required
+def burpdata(request):
+    log_user_activity(request)
+    if request.method == "POST":
+        add_kb_article_form = AddKbBurpArticleForm(request.POST)
+        burp_plugin_array = request.POST.get('burp_plugin_array')
+        burp_plugin_list = list()
+        if burp_plugin_array:
+            burp_plugin_list = burp_plugin_array.split(',')
+        if add_kb_article_form.is_valid():
+            article_type = add_kb_article_form.cleaned_data.get('article_type')
+            title = add_kb_article_form.cleaned_data.get('title')
+            description = add_kb_article_form.cleaned_data.get('description')
+            remediation = add_kb_article_form.cleaned_data.get('remediation')
+            triage = add_kb_article_form.cleaned_data.get('triage')
+            risk = add_kb_article_form.cleaned_data.get('risk')
+            slug = add_kb_article_form.cleaned_data.get('slug')
+            data = {
+                'article_type': article_type,
+                'title': title,
+                'description': description,
+                'remediation': remediation,
+                'triage': triage,
+                'risk': risk,
+                'slug': slug,
+                'burp_plugin_list': burp_plugin_list
+            }
+            api_obj = ApiList.objects.first()
+            if api_obj:
+                url = "{}/api/add-kb-burp-article/".format(
+                    api_obj.kb_base_url
+                )
+            else:
+                url = None
+            headers = {
+                'Content-Type': 'application/json',
+                'Accept':'application/json',
+                'Authorization': 'Token {}'.format(
+                    api_obj.kb_auth_token
+                )
+            }
+            try:
+                article_response = requests.post(
+                    url,
+                    json=data,
+                    headers=headers
+                )
+            except:
+                article_response = None
+            if article_response and article_response.status_code == 200:
+                response_data = article_response.json()
+                virtue_id = response_data.get('data').get('virtue_id')
+                ApplicationScanData.objects.filter(
+                    type_index__in=burp_plugin_list
+                ).update(virtue_id=virtue_id)
+    type_indexs = ApplicationScanData.objects.values_list('type_index', flat=True)
+    burp_data = get_sorted_burpdata(type_indexs)
+    applications = Applications.objects.all().order_by('-id')
+    serializer = BurpDetailSerializer(applications, many=True)
+    serialized_data = get_burp_issues_count(serializer.data)
+    for data in serialized_data:
+        if data.get('scanning_enabled'):
+            scan_status = "Active"
+        else:
+            scan_status = "Inactive"
+        data['scan_status'] = scan_status
+
+    add_kb_article_form = AddKbBurpArticleForm()
+    context = {
+        'scans_data': burp_data,
+        "applications": serialized_data,
+        "form": add_kb_article_form,
+    }
+    return render(
+        request,
+        "redtree_app/burpdata.html",
+        context
+    )

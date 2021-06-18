@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load markup_tags %}
+{% block title %}
+	<title>Vulnerability - {{vulnerability.title}}</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			{% if host %}
+            <div class="top-bar clearfix vulnerability-width">
+                <div class="row gutter">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <div class="page-title">
+                            <h3>{{ vulnerability.title}} <span class="icon-chevron-right"></span> {{host.host}}</h3>
+                        </div>
+                    </div>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+						<ul class="right-stats" id="mini-nav-right">
+							<li>
+								<button onclick="deleteVulnerability(this);" value="{{vulnerability.virtue_id}}" class="btn btn-danger">Delete</button>
+							</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel vulnerability-width">
+                        <div class="panel-heading">
+                            <h3>Description</h3>
+                        </div>
+						<div class="panel-body">
+							{% autoescape off %}
+								<pre class="markdown-css">
+	                            	{{ vulnerability.formatted_description|safe }}
+	                        	</pre>
+							{% endautoescape %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+            <!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel vulnerability-width">
+                        <div class="panel-heading">
+                            <h3>Remediation</h3>
+                        </div>
+						<div class="panel-body">
+							{% autoescape off %}
+								<pre class="markdown-css">
+ 	                          		{{ vulnerability.formatted_remediation|safe }}
+ 	                          	</pre>
+							{% endautoescape %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+            <!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel vulnerability-width">
+                        <div class="panel-heading">
+                            <h3>Affected Hosts</h3>
+                        </div>
+						<div class="panel-body">
+                            <div class="table-responsive col-lg-12 col-md-12 custom-display">
+								<table class="table-bordered table-hover table-condensed no-margin fixed" style="white-space: nowrap;">
+									<thead>
+										<tr>
+											<th>Host</th>
+											<th>Port</th>
+											{% if banner %}
+												<th>Banner</th>
+											{% endif %}
+											<th>Last Seen</th>
+											<th>Created</th>
+											<th>Detail</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for vulnerability in affected_hosts %}
+										<tr>
+											<td>
+												<a href="/vulnerabilities/host/{{ host.id }}/">
+													{{vulnerability.host_ip}}
+												</a>
+											</td>
+											<td>{{vulnerability.port}}</td>
+											{% if banner %}
+												<td>{{vulnerability.banner}}</td>
+											{% endif %}
+											<td>{{ vulnerability.modified }}</td>
+											<td>{{ vulnerability.created }}</td>
+											<td><a href="/vulnerabilities/{{vulnerability.id}}/">view</a></td>
+											<td>
+												<a href="/vulnerabilities/edit/{{vulnerability.id}}/" class="btn btn-info btn-xs">Edit</a>
+												<a href="/vulnerability-delete/{{vulnerability.id}}" class="btn btn-danger btn-xs">Delete</a>
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+			{% else %}
+			<h2>No record found.</h2>
+			{% endif %}
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+{% block script %}
+	<script src="/static/js/ipsdata.js"></script>
+{% endblock %}

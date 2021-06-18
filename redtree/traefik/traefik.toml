@@ -1,0 +1,20 @@
+logLevel = "INFO"
+defaultEntryPoints = ["http", "https"]
+
+# Connection to docker host system (docker.sock)
+[docker]
+endpoint = "unix:///var/run/docker.dock"
+domain = "localdomainexample.com"
+watch = true
+exposedByDefault = false
+network = "traefik"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+        certFile = "/certs/cert.crt"
+        keyFile = "/certs/cert.key"

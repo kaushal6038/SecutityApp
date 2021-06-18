@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>RedTree - Screenshot Logs</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<div class="col-lg-10 col-md-10">
+                <h3> Screenshot Logs </h3>
+        		<div class="panel custom-display">
+        			<div class="panel-body">
+        				<div class="table-responsive">
+        					<table class="table table-bordered table-hover table-condensed no-margin">
+        						<thead>
+        							<tr>
+        								<th>Age</th>
+        								<th>Status</th>
+        								<th>Application</th>
+        								<th>Result/Error</th>
+        								<th>Duration</th>
+        							</tr>
+        						</thead>
+        						<tbody>
+                                    {% for logs in screenshot_logs %}
+            							<tr>
+            								<td>
+                                                {{ logs.created|get_microservices_log_age}}
+                                            </td>
+            								<td>{{logs.status}}</td>
+            								<td>{{logs.application}}</td>
+                                            {% if logs.result %}
+            								    <td style="word-break: break-all;">{{logs.result|linebreaks}}</td>
+                                            {% elif logs.message %}
+                                                <td style="word-break: break-all;">{{logs.message|linebreaks}}</td>
+                                            {% else %}
+                                                <td>Scan is running</td>
+                                            {% endif %}
+                                            {% if logs.is_completed %}
+            								    <td title="scan completed in {{logs.task_duration}}">
+                                                {{logs.task_duration}}</td>
+                                            {% else %}
+                                                <td title="scan is running from {{logs.task_duration}} time">{{logs.task_duration}}</td>
+                                            {% endif %}
+            							</tr>
+                                    {% endfor %}
+        						</tbody>
+        					</table>
+                        <nav>
+                             <ul class="pagination">
+                                {% if screenshot_logs.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ screenshot_logs.previous_page_number }}">Previous</a></li>
+                                {% endif %}
+                                {% for page in paginator.page_range %}
+                                    <li class="page-item {% if page == screenshot_logs.number %}active{% endif %}">
+                                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% if screenshot_logs.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ screenshot_logs.next_page_number }}">Next</a></li>
+                                {% endif %}
+                             </ul>
+                        </nav>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

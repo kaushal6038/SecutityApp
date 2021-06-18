@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Nessus - {{issue_detail.name|safe}}</title>
+{% endblock %}
+{% block sidebar %}
+	<div class="vertical-nav">
+		<!-- Sidebar menu start -->
+		<ul class="menu clearfix">
+			<li >
+				<a href="/home">
+					<span class="menu-item">Home</span>
+				</a>
+			</li>
+			<li >
+				<a href="/nessus/upload">
+					<span class="menu-item">File Upload</span>
+				</a>
+			</li>
+			<li class="active selected">
+				<a href="/nessus">
+					<span class="menu-item">Nessus</span>
+				</a>
+			</li>
+			<li>
+                <a href="/vulnerabilities">
+                    <span class="menu-item">Vulnerabilities</span>
+                </a>
+            </li>
+			<li >
+				<a href="/settings">
+					<span class="menu-item">Settings</span>
+				</a>
+			</li>
+			<li >
+				<a href="/report">
+					<span class="menu-item">Report</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest-history">
+					<span class="menu-item">History</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest">
+					<span class="menu-item">Retest</span>
+				</a>
+			</li>
+			<li>
+				<a href="/event-history">
+					<span class="menu-item">Event History</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Sidebar menu end -->
+	</div>
+{% endblock %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+		{% if issue_detail %}
+			<div class="top-bar clearfix nessus-width">
+                <div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="page-title">
+							<h3>{{issue_detail.name}}</h3>
+						</div>
+					</div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul  class="right-stats" id="mini-nav-right">
+							<li>
+								<a  href="/nessus/plugin/{{issue_detail.plugin_id}}" class="btn btn-info">Back</a>
+							</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel nessus-width">
+						<div class="panel-heading">
+							<h3>Synposis</h3>
+						</div>
+						<div class="panel-body">
+							<p>
+                               {{issue_detail.synopsis|escape}}
+                            </p>
+						</div>
+					</div>
+					<div class="panel nessus-width">
+						<div class="panel-heading">
+							<h3>Description</h3>
+						</div>
+						<div class="panel-body">
+							<p>
+                                {{issue_detail.description|escape}}
+                            </p>
+						</div>
+					</div>
+					{% if issue_detail.plugin_output %}
+					<div class="panel nessus-width">
+						<div class="panel-heading">
+							<h3>Plugin Output</h3>
+						</div>
+						<div class="panel-body ">
+							
+                        		{% autoescape off %}
+                        		<pre class="markdown-css plugin-output">
+                                    	{{issue_detail.plugin_output|safe}}
+                            </pre>
+                                {% endautoescape %}
+						</div>
+					</div>
+					{% endif %}
+					<div class="panel nessus-width">
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table id="nessus-issue_detailtable" class="table-bordered table-hover table-condensed no-margin fixed">
+									<thead>
+										<tr>
+											<th>Host</th>
+											<th>Risk</th>
+											<th>Protocol</th>
+											<th>Port</th>
+                                            <th>Svc Name</th>
+                                            {% if issue_detail.banner %}
+                                            	<th>Banner</th>
+                                            {% endif %}
+											<th>Identified</th>
+											<th>Confirmed</th>
+											<th>File</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{{ issue_detail.host }}</td>
+											<td>{{ issue_detail.risk }}</td>
+											<td >{{ issue_detail.protocol }}</td>
+											<td>{{ issue_detail.port }}</td>
+                                            <td>{{ issue_detail.svc_type }}</td>
+                                            {% if issue_detail.banner %}
+                                            	<td>{{issue_detail.banner}}</td>
+                                            {% endif %}
+											<td>{{ issue_detail.first_identified }}</td>
+											{% if issue_detail.date_confirmed %}
+												<td>{{ issue_detail.date_confirmed }}</td>
+											{% else %}
+											<td></td>
+											{% endif %}
+											<td>
+												<a href="/nessus/file/{{issue_detail.linked_file.file_code}}">View</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		{% else %}
+			<h3>No Detail Found</h3>
+		{% endif %}
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

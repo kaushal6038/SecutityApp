@@ -1,0 +1,521 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Appliance Settings- RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+                        <div class="panel-heading">
+                            <h4>Appliance({{ appliance_data }}) Settings</h4>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Microservice Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type" value="clientconfmicro">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>S3 Bucket Scan Url</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;
+                                                {{ micro_conf_form.instance.s3_bucket_scan_url }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ micro_conf_form.s3_bucket_scan_url }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aws Access Key</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;
+                                                {{ micro_conf_form.instance.access_token }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ micro_conf_form.access_token }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ micro_conf_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Aws Secret Key</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                {{ micro_conf_form.instance.secret_access_token }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ micro_conf_form.secret_access_token }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ micro_conf_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Nessus Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="client_nessus_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>Url</td>
+                                            <td class="form-control clickable-configuration fielddisplay">
+                                                &nbsp;{{ nessus_settings_form.instance.nessus_url }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ nessus_settings_form.nessus_url }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ nessus_settings_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Username</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ nessus_settings_form.instance.nessus_username }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ nessus_settings_form.nessus_username }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ nessus_settings_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ nessus_settings_form.instance.nessus_password }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ nessus_settings_form.nessus_password }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ nessus_settings_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nessus Driver Url</td>
+                                            <td class="form-control clickable-configuration fielddisplay">
+                                                &nbsp;{{ nessus_settings_form.instance.nessus_driver_url }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ nessus_settings_form.nessus_driver_url }}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nessus Max Simul Hosts</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ nessus_settings_form.instance.max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ nessus_settings_form.max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{nessus_settings_form.submit}}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Sslyze Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="sslyze_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>Sslyze Scan API</td>
+                                            <td class="form-control clickable-configuration fielddisplay">
+                                                &nbsp;{{ sslyze_form.instance.microservice_scan_url }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ sslyze_form.microservice_scan_url }}
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>Sslyze Max Simul Hosts</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ sslyze_form.instance.sslyze_max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ sslyze_form.sslyze_max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ sslyze_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Sshyze start -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Sshyze Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="sshyze_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>Sshyze Scan API</td>
+                                            <td class="form-control clickable-configuration fielddisplay">
+                                                &nbsp;{{ sshyze_form.instance.sshyze_scan_url }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ sshyze_form.sshyze_scan_url }}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Sshyze Max Simul Hosts</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ sshyze_form.instance.sshyze_max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ sshyze_form.sshyze_max_simul_hosts }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ sshyze_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Sshyze end -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Burp Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="burp_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        
+                                        <tr>
+                                            <td>Burp Url</td>
+                                            <td class="setting-text-css
+                                            fielddisplay form-control">
+                                                &nbsp;{{ burp_form.instance.burp_url }}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- DnsEnum start -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>DnsEnum Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="dnsenum_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        
+                                        <tr>
+                                            <td>DnsEnum Url</td>
+                                            <td class="setting-text-css
+                                            fielddisplay form-control">
+                                                &nbsp;{{ dnsenum_form.instance.dnsenum_url }}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- DnsEnum end -->
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Masscan Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type"
+                                       value="masscan_form">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        
+                                        <tr>
+                                            <td>IP address</td>
+                                            <td class="form-control clickable-configuration fielddisplay">
+                                                &nbsp;{{ masscan_settings_form.instance.masscan_ip_address }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ masscan_settings_form.masscan_ip_address }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ports</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ masscan_settings_form.instance.masscan_ports }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ masscan_settings_form.masscan_ports }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ masscan_settings_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maximum hosts per scan</td>
+                                            <td class="clickable-configuration fielddisplay">
+                                                &nbsp;{{ masscan_settings_form.instance.masscan_maximum_hosts_per_scan }}
+                                            </td>
+                                            <td class="clickable-configuration-data hidden">
+                                                {{ masscan_settings_form.masscan_maximum_hosts_per_scan }}
+                                            </td>
+                                            <td class="clickable-configuration formfieldsubmit">
+                                                <button type="button"
+                                                        class="btn btn-info edit-btn">Edit
+                                                </button>
+                                            </td>
+                                            <td class="hidden clickable-configuration-data formfieldsubmit">
+                                                {{ masscan_settings_form.submit }}
+                                                <button type="button"
+                                                        class="btn btn-danger cancel">Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Screenshot Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type" value="clientconfmicroscreenshot">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>Webscreenshot API</td>
+                                            <td class="setting-text-css fielddisplay form-control">
+                                                &nbsp;{{ web_screenshot_form.instance.webscreenshot_app_url}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>Cloudstorage Settings</h4>
+                        </div>
+                        <div class=" panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="form-type" value="">
+                                <div class="col-lg-10">
+                                    <table class="configurationtable">
+                                        <col width="17%"/>
+                                        <col width="43%"/>
+                                        <col width="40%"/>
+                                        <tbody>
+                                        <tr>
+                                            <td>Cloudstorage API</td>
+                                            <td class="setting-text-css fielddisplay form-control">
+                                                &nbsp;{{ cloudstorage_form.instance.cloudstorage_url}}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends 'purpleleaf_app/base.html' %}
+	{% block title %}
+            <title>AffectedHosts - {{vulnerability.title}}</title>
+    {% endblock %}
+    
+    {% block content %}
+		<div class="dashboard-wrapper dashboard-wrapper-lg">
+			{% if hosts %}
+			<!-- Container fluid Starts -->
+			<div class="container-fluid">
+
+				<div class="top-bar clearfix">
+					<div class="row gutter" >
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<div class="page-title">
+								<h3>{{ vulnerability.title}}</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row gutter">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel vulnerability-width vulnerability_banner_width">
+							<div class="panel-heading">
+								<h3>Description</h3>
+							</div>
+							<div class="panel-body">
+								{% autoescape off %}
+									<pre class="markdown-css">
+										{{ vulnerability.formatted_description|safe }}
+									</pre>
+								{% endautoescape %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row ends -->
+				<!-- Row starts -->
+				<div class="row gutter">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel vulnerability-width vulnerability_banner_width">
+							<div class="panel-heading">
+								<h3>Remediation</h3>
+							</div>
+							<div class="panel-body">
+								{% autoescape off %}
+							   		<pre class="markdown-css">
+							   			{{ vulnerability.formatted_remediation|safe}}
+							   		</pre>
+							   	{% endautoescape %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row starts -->
+				{% if evidence_count >= 1 %}
+					<div class="row gutter">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="panel vulnerability-width vulnerability_banner_width">
+		                        <div class="panel-heading">
+		                            <h3>Evidence</h3>
+		                        </div>
+								<div class="panel-body">
+									{% if evidence_count == 1 %}
+										{% for vulnerability in hosts %}
+											{% if vulnerability.vul_evidence %}
+												{% autoescape off %}
+													<pre class="markdown-css">
+					 	                          		{{ vulnerability.vul_evidence|safe }}
+					 	                          	</pre>
+												{% endautoescape %}
+											{% endif %}
+										{% endfor %}
+									{% elif evidence_count > 1 %}
+										<div class="table-responsive col-lg-12 col-md-12" >
+											<table class="table-bordered table-hover table-condensed no-margin fixed" style="margin-top: -100px;">
+											<thead>
+												<tr>
+													<th style="text-align: center;">Example Evidence</th>
+												</tr>
+											</thead>
+											<tbody>
+											{% for vulnerability in hosts %}
+											{% if vulnerability.vul_evidence %}
+											<tr>
+												{% autoescape off %}
+													<pre class="markdown-css">
+														<th class="markdown-evidence-css">
+					 	                          		{{ vulnerability.vul_evidence|safe }}
+					 	                          		</th>
+					 	                          	</pre>
+												{% endautoescape %}
+											</tr>
+											{% endif %}
+											{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+				<!-- Row ends -->
+				<!-- Row starts -->
+				<div class="row gutter">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="panel vulnerability-width vulnerability_banner_width">
+							<div class="panel-heading">
+								<h3>Affected Hosts</h3>
+							</div>
+							<div class="panel-body">
+								<div class="table-responsive col-lg-8 col-md-8 vulnerability-host-width ">
+									<table id="pleaf-datatable" class=" table-bordered table-hover table-condensed no-margin fixed">
+										{% if banner %}
+											<col width="15%"/>
+											<col width="8%"/>
+											<col width="20%"/>
+											<col width="19%"/>
+											<col width="19%"/>
+											<col width="9.5%"/>
+											<col width="9.5%"/>
+										{%else%}
+											<col width="20%"/>
+											<col width="10%"/>
+											<col width="25%"/>
+											<col width="25%"/>
+											<col width="10%"/>
+											<col width="10%"/>
+										{%endif%}
+										<thead>
+											<tr>
+												<th>Host</th>
+												<th class="host_align">Port</th>
+												{% if banner %}
+													<th class="host_align">Banner</th>
+												{% endif %}
+												<th class="host_align">Last Seen</th>
+												<th class="host_align">Created</th>
+												<th class="host_align">Detail</th>
+												<th class="host_align">Retest</th>
+											</tr>
+										</thead>
+										<tbody>
+										{% for host in hosts %}
+
+											<tr>
+												<td>
+													<a href="/vulnerabilities/host/{{host.host.id}}/">
+														{{host.host.host}}
+													</a>
+												</td>
+												<td class="host_align">{{host.port}}</td>
+												{% if banner %}
+													<td class="host_align">{{host.banner}}</td>
+												{% endif %}
+												<td class="host_align">{{ host.modified }}</td>
+												<td class="host_align">
+													{{ host.created }}
+												</td>
+												<td class="host_align">
+													<a href="/vulnerabilities/{{host.virtue_id}}/{{host.id}}">view</a>
+												</td>
+												{% if host.retest_status == "Closed" %}
+												<td class="host_align">Closed</td>
+												{% elif host.retest_status == "Requested"%}
+												<td class="host_align">Requested</td>
+												{% else%}
+												<td id="btn-retest-td-{{host.id}}" class="host_align">
+													<button id="btn-retest-{{host.id}}" class="btn btn-xs btn-info" onclick="addRetest('{{host.id}}')">Retest</button>
+												</td>
+												{% endif %}
+											</tr>
+										{% endfor %}
+										</tbody>
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row ends -->
+			</div>
+			<!-- Container fluid ends -->
+			{% else %}
+			<h3>No Details found.</h3>
+			{% endif %}
+
+		</div>
+    {% endblock %}
+
+{% block script %}
+	<script type="text/javascript" src="/static/js/retest.js"></script>
+{% endblock %}

@@ -1,0 +1,452 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Applications - RedTree</title>
+{% endblock %}
+
+{% block extracss %}
+	<link href="/static/markdownx/markdownx.css" type="text/css" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Row Starts -->
+        
+        <div class="top-bar clearfix">
+            <div class="col-lg-12">
+                <div class="row gutter">
+                    <button data-toggle="modal" data-target="#applicationAddModal" class="btn btn-info application-add-button" type="button">Add Application</button>
+                    {% if chart_exist %}
+                    <div class="col-lg-9 app_width">
+                        <div class="panel Vulnerabilities-chart">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Application Vulnerabilities (Last 30 Days) </h4>
+                            </div>
+                            <div class="panel-body">
+                                <div id="appvulnerabilitiesChart" class="chart-height1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="row gutter">
+                    <!--Application Vulnerability table starts here-->
+                    <div class="col-lg-9 app_width">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3>Application Vulnerabilities</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table-bordered table-hover table-condensed no-margin">
+                                        <col width="18%" />
+                                        <col width="64%" />
+                                        <col width="18%" />
+                                        <thead>
+                                            <tr>
+                                                <th>Risk</th>
+                                                <th>Title</th>
+                                                <th>Instances</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for data in application_vulnerabilities %}
+                                            <tr>
+                                                <td>
+                                                    {% if data.risk == 'Critical' %}
+                                                        <button class="btn btn-critical btn-xs">Critical</button>
+                                                    {% elif data.risk == 'High' %}
+                                                        <button class="btn btn-high btn-xs">High</button>
+                                                    {% elif data.risk == 'Medium' %}
+                                                        <button class="btn btn-medium btn-xs">Medium</button>
+                                                    {% elif data.risk == 'Low' %}
+                                                        <button class="btn btn-low btn-xs">Low</button>
+                                                    {% elif data.risk == 'Note' %}
+                                                        <button class="btn btn-primary btn-xs btn-note">Note</button>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <a href="vulnerabilities/{{data.virtue_id}}">
+                                                        {{data.title}}
+                                                    </a>
+                                                <td>
+                                                    {{data.instances}}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Application Vulnerability table ends here-->
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-9 app_table_width">
+                        <div class="panel custom-display">
+                            <div class="panel-heading">
+                                <h3>Applications</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table-bordered table table-condensed ">
+                                    <tbody>
+                                        <tr>
+                                            <td class="application_align">
+                                                <center>
+                                                    Vulnerabilities
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Unprocessed Burp
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Applications
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Last Scanned
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Screenshot
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Active
+                                                </center>
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    Scope
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        {% for application in applications %}
+                                        <tr class="app_image" id="{{forloop.counter}}" value="{{ application.id }}">
+                                            <input type="hidden" 
+                                            id="app_title_{{ application.id }}" 
+                                            value="{{ application.application_title }}">
+                                            <input type="hidden" 
+                                            id="app_first_seen_{{ application.id }}" 
+                                            value="{{ application.created }}">
+                                            <input type="hidden" 
+                                            id="app_last_scan_{{ application.id }}" 
+                                            value="{{ application.last_scan }}">
+                                            <input type="hidden" 
+                                            id="app_last_seen_{{ application.id }}" 
+                                            value="{{ application.last_seen }}">
+                                            <td class="application_align">
+                                                <center>
+                                                    {% if application.vulnerabilities_count.Total != 0 %}
+                                                        {% if application.vulnerabilities_count.Critical or application.vulnerabilities_count.Critical != 0 %}
+                                                            <button class="btn btn-critical-count btn-xs">
+                                                                {{ application.Critical }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.vulnerabilities_count.High or application.vulnerabilities_count.High != 0 %}
+                                                            <button class="btn btn-high-count btn-xs">
+                                                                {{ application.vulnerabilities_count.High }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.vulnerabilities_count.Medium or application.vulnerabilities_count.Medium != 0 %}
+                                                            <button class="btn btn-medium-count btn-xs">
+                                                                {{ application.vulnerabilities_count.Medium }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.vulnerabilities_count.Low or application.vulnerabilities_count.Low != 0 %}
+                                                            <button class="btn btn-low-count btn-xs">
+                                                                {{ application.vulnerabilities_count.Low }}
+                                                            </button>
+                                                        {% endif %}
+                                                    {% else %}
+                                                </center>
+                                                <center>
+                                                    <button class="btn btn-default btn-transparent 
+                                                        btn-transparent-font" >
+                                                        {% if not application.last_scan %}
+                                                            Scan pending
+                                                        {% else %}
+                                                            No issues
+                                                        {% endif %}
+                                                    </button>
+                                                </center>
+                                                    {% endif %}
+                                            </td>
+
+                                            <td class="application_align">
+                                                <center>
+                                                    {% if application.unprocessed_burp_issues_count.Total != 0 %}
+                                                        {% if application.unprocessed_burp_issues_count.critical > 0 %}
+                                                            <button class="btn btn-critical-count btn-xs">
+                                                                {{ application.unprocessed_burp_issues_count.critical }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.unprocessed_burp_issues_count.high > 0 %}
+                                                            <button class="btn btn-high-count btn-xs">
+                                                                {{ application.unprocessed_burp_issues_count.high }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.unprocessed_burp_issues_count.medium > 0 %}
+                                                            <button class="btn btn-medium-count btn-xs">
+                                                                {{ application.unprocessed_burp_issues_count.medium }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.unprocessed_burp_issues_count.low > 0 %}
+                                                            <button class="btn btn-low-count btn-xs">
+                                                                {{ application.unprocessed_burp_issues_count.low }}
+                                                            </button>
+                                                        {% endif %}
+                                                        {% if application.unprocessed_burp_issues_count.info > 0 %}
+                                                            <button class="btn btn-primary btn-info-count btn-xs">
+                                                                {{ application.unprocessed_burp_issues_count.info }}
+                                                            </button>
+                                                        {% endif %}
+                                                    {% else %}
+                                                </center>
+                                                    {% endif %}
+                                            </td>
+
+                                            <td class="application_align" style="position: relative;">
+                                                <a href="/application/{{application.id}}/"><span id="application_title_{{application.id}}">{{application.application_title|default_if_none:""}}</span>
+                                                <br>
+                                                {{application.application_url}}
+                                                </a>
+                                                <button id="{{application.id}}" value="{{application.application_title}}" onclick="open_application_title(this);" class="application_title_edit clipboard-icon-style" type="button"><i class="fas fa-edit"></i></button>
+                                            </td>
+
+                                            <td class="application_align" >
+                                                <center style="width: 99px;">
+                                                    {% if application.last_scan %}
+                                                        {{ application.last_scan }}
+                                                    {% endif %}
+                                                </center>
+                                            </td>
+
+                                            <td id="td-{{forloop.counter}}" class="application_align">
+                                                <center>
+                                                    {% if application.s3_image %}
+                                                        <img src="{{application.s3_image}}" id="s3-{{forloop.counter}}"  width="50" height="50" data-toggle="modal" data-target="#myModal-{{forloop.counter}}">
+                                                    {% else %}
+                                                        <img src="/static/img/screenshot_error.png" width="60" height="50" style="margin-left: -5px;" data-toggle="modal" data-target="#myModal-{{forloop.counter}}">
+                                                    {% endif %}
+                                                </center>
+                                            </td>
+
+                                            <div class="modal fade" id="myModal-{{forloop.counter}}" role="dialog">
+                                                <div class="modal-dialog" style="width: 50%;margin-left: 41%; margin-top: 5%">
+                                                    <div class="modal-content" style="margin-left:-45%">
+                                                        <div class="modal-body" style="width: 100%;">
+                                                            <p class="app_detail_border">
+                                                                {{ application.application_title }}
+                                                            </p>
+                                                            {% if application.s3_image %}
+                                                                <img src="{{application.s3_image}}" width="100%" height="90%">
+                                                            {% else %}
+                                                                <img src="/static/img/screenshot_error_full.png">
+                                                            {% endif %}
+                                                            <p class="app_detail_border">
+                                                                {% if application.created %}
+                                                                    <b>First seen:</b>
+                                                                    &nbsp;&nbsp;&nbsp;{{ application.created }}
+                                                                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                                {% endif %}
+                                                                {% if application.last_seen %}
+                                                                    <b>Last seen:</b>
+                                                                    &nbsp;&nbsp;&nbsp;{{ application.last_seen }}
+                                                                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                                                {% endif %}
+                                                                {% if application.last_scan %}
+                                                                    <b>Last scan:</b>
+                                                                    &nbsp;&nbsp;&nbsp;{{ application.last_scan }}
+                                                                    <br>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <td class="application_align">
+                                                {% if application.scanning_enabled %}
+                                                <center>
+                                                    <button id="app_{{application.id}}" onclick="update_app_status(this);" 
+                                                        value="Active" 
+                                                        class="btn btn-success sucess_active_button btn-transparent btn-xs ">
+                                                        <span id="app_scan_status_{{application.id}}">
+                                                            Active
+                                                        </span>
+                                                    </button>
+                                                </center>
+                                                {% else %}
+                                                <center>
+                                                    <button id="app_{{application.id}}" onclick="update_app_status(this);" 
+                                                        value="Inactive" 
+                                                        class="btn btn-danger btn-transparent btn-xs ">
+                                                        <span id="app_scan_status_{{application.id}}">
+                                                            Inactive
+                                                        </span>
+                                                    </button>
+                                                </center>
+                                                {% endif %}
+                                            </td>
+                                            <td class="application_align">
+                                                <center>
+                                                    {% if application.scope == "black" %}
+                                                    <button id="application_scope_{{ application.id}}" value="{{application.scope}}" type="button" onclick="updateApplicationScope(this)" class="application_scope_button black_scope_button" style="width: max-content;">
+                                                        Black Box
+                                                    </button>
+                                                    {% else %}
+                                                    <button id="application_scope_{{ application.id}}" value="{{application.scope}}" type="button" onclick="updateApplicationScope(this)" class="application_scope_button gray_scope_button" style="width: max-content;">
+                                                        Gray Box
+                                                    </button>
+                                                    {% endif %}
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div id="show_and_hide_image" style="position:fixed;  {% if chart_exist %} top: 30%; {% endif %}">
+
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <!-- Row Ends -->
+    </div>
+    <!-- Container fluid ends -->
+    {% if application_page.has_other_pages %}
+        <center>
+        <ul class="pagination">
+        {% if application_page.has_previous %}
+                <li>
+                    <a href="?page={{ application_page.previous_page_number }}">
+                        &laquo;
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in application_page.paginator.page_range %}
+                {% if application_page.number == i %}
+                    <li class="active">
+                        <span>
+                            {{ i }}
+                            <span class="sr-only">
+                                (current)
+                            </span>
+                        </span>
+                    </li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if application_page.has_next %}
+                <li>
+                    <a href="?page={{ application_page.next_page_number }}">
+                        &raquo;
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+        </center>
+    {% endif %}
+</div>
+
+<!-- Modal to edit application starts here-->
+<div id="applicationTitleModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Application</h4>
+            </div>
+            <form id="editApplicationTitleForm" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="edit_application_title_id" name="application_id">
+                <div class="modal-body">
+                    <div class="application-modal-body">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button name="leave" value="leave" class="btn btn-info">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Ends Here-->
+
+<!-- Modal to add application starts here-->
+<div id="applicationAddModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Application</h4>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    {{ form.as_p }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button class="btn btn-info">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Ends Here-->
+
+<!-- Dashboard Wrapper End -->
+{% endblock %}
+{% block script %}
+    <script src="/static/js/applications.js"></script>
+    <script src="/static/js/sparkline/retina.js"></script>    
+    <!-- D3 JS -->
+    <script src="/static/js/d3/d3.v3.min.js"></script>
+    <script src="/static/js/d3/d3.powergauge.js"></script>
+    <script type="text/javascript" src="/static/js/d3/d3-tip.min.js"></script>
+    <script type="text/javascript" src="/static/markdownx/markdownx.js"></script>
+
+    <!-- C3 Graphs -->
+    <script type="text/javascript">
+        var page='application'
+    </script>
+    <script src="/static/js/chart-colors.js"></script>
+    <script src="/static/js/c3/c3.min.js"></script>
+    <script src="/static/js/app_vul_risk.js"></script>
+{% endblock %}
+    

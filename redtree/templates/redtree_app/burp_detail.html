@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - Burp-Detail</title>
+{% endblock %}
+
+{% block content %}
+
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+		{% if issue %}
+			<div class="top-bar clearfix">
+                <div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="page-title">
+							<h3>{{ issue.name }}</h3>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul  class="right-stats" id="mini-nav-right">
+							<li>
+								<a  href="/burp" class="btn btn-info">Back</a>
+							</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Description</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.description|escape}}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Confidence</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.confidence|escape}}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Caption</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.caption|escape }}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table id="nessus-issue_detailtable" class="table-bordered table-hover table-condensed no-margin fixed">
+									<thead>
+										<tr>
+											<th>Origin</th>
+											<th>Serial Number</th>
+											<th>Severity</th>
+											<th>Created</th>
+											<th>Evidence</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for issue in burp_data %}
+										<tr>
+											<td>
+												{% if issue.application_fk %}
+                                                    <a href="/application/{{issue.application_fk.id}}/">{{ issue.origin}}</a></td>
+                                                {% else %}
+                                                    <a href="/application/{{issue.application.application.id}}/">{{ issue.origin}}</a></td>
+                                                {% endif %}
+                                            </td>
+											<td>
+												<a href="application/{{issue.id}}/">
+													{{ issue.serial_number}}
+												</a>
+											</td>
+											<td>
+												{% if issue.severity == 'Critical' %}
+                                                	<button class="btn btn-critical btn-xs">Critical</button>
+                                            	{% elif issue.severity == 'high' %}
+                                                	<button class="btn btn-high btn-xs">High</button>
+                                            	{% elif issue.severity == 'medium' %}
+                                                	<button class="btn btn-medium btn-xs">Medium</button>
+                                            	{% elif issue.severity == 'low' %}
+                                                	<button class="btn btn-low btn-xs">Low</button>
+                                            	{% elif issue.severity == 'note' %}
+                                                	<button class="btn btn-primary btn-xs btn-note">Note</button>
+                                            	{% elif issue.severity == 'info' %}
+                                                	<button class="btn btn-primary btn-xs btn-note">None</button>
+                                            	{% endif %}
+											</td>
+											<td>{{ issue.created}}</td>
+											{% if issue.evidences %}
+											<td><a href="{{ issue.id }}/">View</a></td>
+											{% else %}
+											<td>--</td>
+											{% endif %}
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<h3>No Detail Found</h3>
+		{% endif %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - Playground</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Row Starts -->
+
+        <div class="top-bar clearfix">
+            <div class="row gutter">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Events</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+                                    <col width="16.5%" />
+									<col width="16.5%" />
+									<col width="16.5%" />
+									<col width="16.5%" />
+									<col width="16.5%" />
+								    <col width="16.5%" />
+                                    <thead>
+										<tr>
+											<th>Service Name</th>
+											<th>Service Type</th>
+											<th>Targets</th>
+											<th>Scans</th>
+											<th>Status</th>
+											<th>Created</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for event in events %}
+										<tr>
+
+											<td>{{ event.service_name }}</td>
+											<td>{{ event.service_type }}</td>
+											<td>{{ event.targets }}</td>
+											<td>{{ event.scans_created }}</td>
+                                            <td>{{event.status}}</td>
+                                            <td>{{event.created}}</td>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <!-- Row Ends -->
+    </div>
+    <!-- Container fluid ends -->
+
+</div>
+
+<!-- Dashboard Wrapper End -->
+{% endblock %}

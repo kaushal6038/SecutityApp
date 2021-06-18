@@ -1,0 +1,111 @@
+{% extends 'purpleleaf_app/base.html' %}
+	{% block title %}
+            <title>Settings- Purpleleaf</title>
+    {% endblock %}
+    
+    {% block content %}
+    {% load tz %}
+	{% get_current_timezone as TIME_ZONE %}
+		<!-- Dashboard Wrapper Start -->
+		<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+			<!-- Container fluid Starts -->
+			<div class="container-fluid">
+                <!-- Row starts -->
+				<div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="panel">
+							<div class="panel-heading">
+                                <div class="error-alert" id="error-alert">
+								{% if form.non_field_errors %}
+                                    {% for error in form.non_field_errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if message %}
+                                    <div class="alert alert-info">
+                                        <strong>{{ message }}</strong>
+                                    </div>
+                                {% endif %}
+                                </div>
+							</div>
+							<div class="panel-body">
+								<form method="post"  class="form-horizontal">
+                                    {% csrf_token %}
+									<fieldset>
+										<input type="hidden" value="change_password" name="form_type">
+										<legend>Change Your Password</legend>
+                                        <div class="form-group row gutter">
+											<label class="col-lg-6 control-label">Password</label>
+											<div class="col-lg-6">
+												{{form.password.errors}}
+                                                {{form.password}}
+											</div>
+										</div>
+										<div class="form-group row gutter">
+											<label class="col-lg-6 control-label">New Password</label>
+											<div class="col-lg-6">
+												{{form.new_password.errors}}
+                                                {{form.new_password}}
+											</div>
+										</div>
+										<div class="form-group row gutter">
+											<label class="col-lg-6 control-label">Retype Password</label>
+											<div class="col-lg-6">
+                                                {{form.confirm_password}}
+											</div>
+										</div>
+									</fieldset>
+									<div class="form-group row gutter">
+										<div class="col-lg-6 col-lg-offset-6">
+											<button type="submit" class="btn btn-success">Submit</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <!-- ROW END -->
+
+                <!-- Row starts -->
+				<div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="panel">
+							<div class="panel-body">
+								<form method="post"  class="form-horizontal">
+                                    {% csrf_token %}
+									<fieldset>
+									<input type="hidden" value="timezone" name="form_type">
+										<legend>Time Zone(Current: {{TIME_ZONE}})  </legend>
+                                        <div class="form-group row gutter">
+											<label class="col-lg-6 control-label">{{timezoneform.timezone.label}}</label>
+											<div class="col-lg-6">
+                                                {{timezoneform.timezone}}
+											</div>
+										</div>
+									</fieldset>
+									<div class="form-group row gutter">
+										<div class="col-lg-6 col-lg-offset-6">
+											<button type="submit" class="btn btn-success">Set</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+                <!-- ROW END -->
+
+			</div>
+			<!-- Container fluid ends -->
+		</div>
+		<!-- Dashboard Wrapper End -->
+    {% endblock %}
+    {% block script %}
+        <script src="/static/js/bsvalidator/bootstrapValidator.js"></script>
+        <script src="/static/js/bsvalidator/custom-validations.js"></script>
+    {% endblock %}

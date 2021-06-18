@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Vulnerabilities - RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			
+			<div class="top-bar clearfix">
+				<h3 class="vulnerability-color">Vulnerabilities</h3>
+				<div class="row gutter" style="margin-top: -50px;">
+               	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+               	</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<ul class="right-stats" id="mini-nav-right">
+							<li>
+								<a href="/vulnerability/create" class="btn btn-info">Create New Vulnerability</a>
+							</li>
+						</ul>
+						<ul class="right-stats" id="mini-nav-right">
+							<li>
+								<a href="/vulnerabilities/update" class="btn btn-info">Update Vulnerabilities</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="width: 570px;">
+					<div class="panel">
+                        <div class="panel-heading">
+                            <h3>External Vulnerabilities</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table-bordered table-hover table-condensed no-margin">
+									<col width="18%" />
+									<col width="64%" />
+									<col width="18%" />
+									<thead>
+										<tr>
+											<th>Risk</th>
+											<th>Title</th>
+											<th>Instances</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in external_vulnerabilities %}
+										<tr>
+											<td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% endif %}
+											</td>
+											<td>
+												<a href="/vulnerabilities/external/{{data.virtue_id}}">{{data.title}}</a>
+											</td>
+											<td>
+												{{data.instances}}
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3" style="margin-left: 25px;">
+				{% if external_network %}
+					<div class="panel custom-display" style="min-width: 315px;">
+                        <div class="panel-heading">
+                            <h3>External Networks</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table-bordered table-hover table-condensed no-margin">
+									<thead>
+					                    <tr>
+					                        <th class="notifications_heading">#</th>
+					                        <th class="notifications_heading">
+					                        	Network
+					                        </th>
+					                        <th class="notifications_heading">
+					                        	Hosts
+					                    	</th>
+					                        <th class="notifications_heading">
+					                        	Active
+					                    	</th>
+					                        <th class="notifications_heading">
+					                        	vulnerabilities
+					                        </th>
+					                    </tr>
+				                	</thead>
+									<tbody>
+									{% for network in external_network %}
+										<tr>
+											<td>{{forloop.counter}}</td>
+											<td>
+												<a href="/vulnerabilities/network/{{network.id}}">{{network.network}}</a>
+											</td>
+											<td>
+												<center>
+													{{network.ip_count}}
+												</center>
+											</td>
+											<td>
+												<center>
+													{{network.vulnerabilities.active_ips_count}}
+												</center>
+											</td>
+											<td >
+                                                <center>
+                                                    {% if network.vulnerabilities.critical or network.vulnerabilities.critical != 0 %}
+                                                        <button class="btn btn-critical-count btn-xs">
+                                                            {{ network.vulnerabilities.critical }}
+                                                        </button>
+                                                    {% endif %}
+                                                    {% if network.vulnerabilities.high or network.vulnerabilities.high != 0 %}
+                                                        <button class="btn btn-high-count btn-xs">
+                                                            {{ network.vulnerabilities.high }}
+                                                        </button>
+                                                    {% endif %}
+                                                    {% if network.vulnerabilities.medium or network.vulnerabilities.medium != 0 %}
+                                                        <button class="btn btn-medium-count btn-xs">
+                                                            {{ network.vulnerabilities.medium }}
+                                                        </button>
+                                                    {% endif %}
+                                                    {% if network.vulnerabilities.low or network.vulnerabilities.low != 0 %}
+                                                        <button class="btn btn-low-count btn-xs">
+                                                            {{ network.vulnerabilities.low }}
+                                                        </button>
+                                                    {% endif %}
+                                                </center>
+                                            </td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class="row gutter">
+				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="width: 570px;">
+					<div class="panel">
+                        <div class="panel-heading">
+                            <h3>Internal Vulnerabilities</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table-bordered table-hover table-condensed no-margin">
+									<col width="18%" />
+									<col width="64%" />
+									<col width="18%" />
+									<thead>
+										<tr>
+											<th>Risk</th>
+											<th>Title</th>
+											<th>Instances</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in internal_vulnerabilities %}
+										<tr>
+											<td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% endif %}
+											</td>
+											<td>
+												<a href="/vulnerabilities/internal/{{data.virtue_id}}">{{data.title}}</a>
+											</td>
+											<td>
+												{{data.instances}}
+											</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3" style="margin-left: 25px;">
+					{% if internal_network %}
+						<div class="panel custom-display" style="min-width: 315px;">
+	                        <div class="panel-heading">
+	                            <h3>Internal Networks</h3>
+	                        </div>
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table-bordered table-hover table-condensed no-margin">
+										<thead>
+						                    <tr>
+						                        <th class="notifications_heading">#</th>
+						                        <th class="notifications_heading">
+						                        	Network
+						                        </th>
+						                        <th class="notifications_heading">
+						                        	Hosts
+						                        </th>
+						                        <th class="notifications_heading">
+						                        	Active
+						                        </th>
+						                        <th class="notifications_heading">
+						                        	vulnerabilities
+						                        </th>
+						                    </tr>
+					                	</thead>
+										<tbody>
+										{% for network in internal_network %}
+											<tr>
+												<td>{{forloop.counter}}</td>
+												<td>
+													<a href="/vulnerabilities/network/{{network.id}}">{{network.network}}</a>
+												</td>
+												<td>
+													<center>
+														{{network.ip_count}}
+													</center>
+												</td>
+												<td>
+													<center>
+														{{network.vulnerabilities.active_ips_count}}
+													</center>
+												</td>
+												<td >
+	                                                <center>
+	                                                    {% if network.vulnerabilities.critical or network.vulnerabilities.critical != 0 %}
+                                                            <button class="btn btn-critical-count btn-xs">
+                                                                {{ network.vulnerabilities.critical }}
+                                                            </button>
+	                                                    {% endif %}
+	                                                    {% if network.vulnerabilities.high or network.vulnerabilities.high != 0 %}
+	                                                        <button class="btn btn-high-count btn-xs">
+	                                                            {{ network.vulnerabilities.high }}
+	                                                        </button>
+	                                                    {% endif %}
+	                                                    {% if network.vulnerabilities.medium or network.vulnerabilities.medium != 0 %}
+	                                                        <button class="btn btn-medium-count btn-xs">
+	                                                            {{ network.vulnerabilities.medium }}
+	                                                        </button>
+	                                                    {% endif %}
+	                                                    {% if network.vulnerabilities.low or network.vulnerabilities.low != 0 %}
+	                                                        <button class="btn btn-low-count btn-xs">
+	                                                            {{ network.vulnerabilities.low }}
+	                                                        </button>
+	                                                    {% endif %}
+	                                                </center>
+	                                            </td>
+											</tr>
+										{% endfor %}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+
+			</div>
+			<!-- Row ends -->
+
+
+
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

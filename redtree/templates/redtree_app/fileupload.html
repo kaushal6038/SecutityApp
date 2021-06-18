@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Fileupload - RedTree</title>
+{% endblock %}
+{% block extracss %}
+	<link rel="stylesheet" href="/static/css/dropzone.min.css" />
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+
+			<!-- Row starts -->
+		<div class="top-bar clearfix">
+            <div class="row gutter">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ message|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+			<div class="row gutter">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Upload Nessus Scan</h3>
+						</div>
+						<div class="panel-body">
+							<form method="post" id="myform" class="dropzone" action="/nessus/upload" enctype="multipart/form-data">
+								{% csrf_token %}
+							</form>
+						</div>
+					</div>
+					<div class="panel">
+						<div class="panel-heading">
+						<h3>Upload Massscan</h3>
+						</div>
+						<div class="panel-body">
+							<form method="post" id="myform" class="dropzone" action="/nessus/upload-masscan" enctype="multipart/form-data">
+								{% csrf_token %}
+							</form>
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="masscan-visibility" hidden>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Masscan Response</h3>
+						</div>
+						<div class="masscan_ips_not_found"></div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<thead>
+											<tr>
+												<th>Ports status</th>
+											</tr>
+										</thead>
+										<tbody id="masscan-port-data">
+										</tbody>
+									</table>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<br>
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<col width="33.3%" />
+										<col width="33.3%" />
+										<col width="33.3%" />
+										<thead>
+											<tr>
+												<th>Host</th>
+												<th>Port</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody id="masscan-table">
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6" id="nessus-visibility" hidden>
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Nessus Response</h3>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+									<table class="table table-bordered table-hover table-condensed no-margin">
+										<thead>
+											<tr>
+												<th>These hosts not found</th>
+											</tr>
+										</thead>
+										<tbody id="nessus-host-not-found">
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row gutter">
+				<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel custom-display">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Nessus Files</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Total Found</th>
+											<th>Total New</th>
+											<th>File Name</th>
+											<th>File Status</th>
+											<th>Date</th>
+                                            <th>Detail</th>
+                                            <th>status</th>
+                                            <th>Action</th>
+										</tr>
+									</thead>
+									<tbody id="nessus-files-tb">
+									
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+
+			<div class="row gutter">
+				<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel custom-display">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Host Discovery</h4>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Host</th>
+											<th>Port</th>
+											<th>State</th>
+											<th>Date</th>
+											<th>Protocol</th>
+										</tr>
+									</thead>
+									<tbody id="masscan-hosts-data">
+									
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+{% block script %}
+   	<script src="/static/js/custom.js"></script>
+   	<script src="/static/js/nessus-upload.js"></script>
+    <script src="/static/js/dropzone.js"></script>
+{% endblock %}

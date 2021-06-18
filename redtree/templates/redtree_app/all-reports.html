@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>RedTree - Report</title>
+{% endblock %}
+
+{% block content %}
+
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+            <!-- Row Starts -->
+
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <div class="panel custom-display">
+                        <div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th>File</th>
+                                            <th>Created</th>
+                                            <th>Detail</th>
+											<th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for file in report_files %}
+                                        <tr>
+                                            <td>{{file.filename}}</td>
+                                            <td>{{file.created}}</td>
+                                            <td>
+                                                <a href="/media/{{file.file}}">view</a>
+                                            </td>
+											<td>
+												<a href="/delete-report/{{file.id}}" class="btn btn-danger">Delete</a>
+											</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row Ends -->
+        </div>
+		<!-- Container fluid ends -->
+	</div>
+
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

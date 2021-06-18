@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Event Log - RedTree</title>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel custom-display">
+                        <div class="panel-heading">
+                            <h3>Redtree Error Log</h3>
+                        </div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover table-condensed no-margin">
+
+									<thead>
+										<tr>
+											<th>Ago</th>
+											<th style="white-space: nowrap;">Issue Type</th>
+											<th>Notification Message</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for event in redtree_error_log %}
+										<tr>		
+											<td>{{event.created|timesince}}</td>
+											<td>{{event.issue_type}}</td>
+											<td>{{event.notification_message}}</td>
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+
+
+{% endblock %}

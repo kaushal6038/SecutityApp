@@ -1,0 +1,319 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Nessus - Redtree</title>
+{% endblock %}
+{% block extracss %}
+	<link href="/static/css/jquery-ui.css" rel="Stylesheet"></link>
+	<link href="/static/markdownx/markdownx.css" type="text/css" media="all" rel="stylesheet" />
+    <style type="text/css">
+        .dataTables_filter, .dataTables_info {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block sidebar %}
+	<div class="vertical-nav">
+		<!-- Sidebar menu start -->
+		<ul class="menu clearfix">
+			<li >
+				<a href="/home">
+					<span class="menu-item">Home</span>
+				</a>
+			</li>
+			<li >
+				<a href="/nessus/upload">
+					<span class="menu-item">File Upload</span>
+				</a>
+			</li>
+			<li class="active selected">
+				<a href="/nessus">
+					<span class="menu-item">Nessus</span>
+				</a>
+			</li>
+			<li>
+                <a href="/vulnerabilities">
+                    <span class="menu-item">Vulnerabilities</span>
+                </a>
+            </li>
+			<li >
+				<a href="/settings">
+					<span class="menu-item">Settings</span>
+				</a>
+			</li>
+			<li >
+				<a href="/report">
+					<span class="menu-item">Report</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest-history">
+					<span class="menu-item">History</span>
+				</a>
+			</li>
+			<li>
+				<a href="/retest">
+					<span class="menu-item">Retest</span>
+				</a>
+			</li>
+			<li>
+				<a href="/event-history">
+					<span class="menu-item">Event History</span>
+				</a>
+			</li>
+		</ul>
+		<!-- Sidebar menu end -->
+	</div>
+{% endblock %}
+
+{% block content %}
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="custom-display">
+
+			<div class="top-bar clearfix">
+                <div class="row gutter">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul  id="mini-nav-right">
+							<li {% if not scanning_status %} title="{{scan_text}}" {% endif %}>
+								<a {% if scanning_status %} href="/nessus/reprocess/" class="btn btn-info" {% else %} class="btn reprocess-disable" {% endif %}>Reprocess Vulnerabilities</a>
+							</li>
+						</ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    	<ul class="right-stats" >
+							<li>
+								<select class="form-control" id="select-network">
+									<option value="">All Networks</option>
+									{% for network in networks %}
+										<option value="{{ network.id }}">{{ network.network }}</option>
+									{% endfor %}
+								</select>
+							</li>
+
+						</ul>
+                    </div>
+					
+                </div>
+            </div>
+			<!-- Row starts -->
+			<div class="row gutter">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="panel-heading">
+								<h4>Vulnerabilities</h4>								
+							</div>
+							<div class="table-responsive" style="overflow-x: hidden;">
+								<table id="nessus-data-datatable" class="table table-bordered table-hover table-condensed no-margin">
+									<col width="5%" />
+									<col width="7%" />
+									<col width="72%" />
+									<col width="5%" />
+									<col width="11%" />
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Risk</th>
+											<th>
+												Name
+												<input type="text" class="datatable_input" placeholder="Search" />
+											</th>
+											<th>Hosts</th>
+											<th>Virtue Id</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for data in ordered_sections %}
+										<tr>
+											<td>{{ data.plugin_id }}</td>
+											<td>
+												{% if data.risk == 'Critical' %}
+													<button class="btn btn-critical btn-xs">Critical</button>
+												{% elif data.risk == 'High' %}
+													<button class="btn btn-high btn-xs">High</button>
+												{% elif data.risk == 'Medium' %}
+													<button class="btn btn-medium btn-xs">Medium</button>
+												{% elif data.risk == 'Low' %}
+													<button class="btn btn-low btn-xs">Low</button>
+												{% elif data.risk == 'Note' %}
+													<button class="btn btn-primary btn-xs btn-note">Note</button>
+												{% elif data.risk == 'None' %}
+													<button class="btn btn-primary btn-xs btn-note">None</button>
+												{% endif %}
+											</td>
+											<td >
+												<a class="vulnerabilities_id" href="/nessus/plugin/{{data.plugin_id}}">
+													{{ data.name }}
+												</a>
+											</td>
+											<td>{{ data.instances }}</td>
+											{% if data.virtue_id %}
+												<td id="plugin-{{data.plugin_id}}" >{{ data.virtue_id }}</td>
+											{% else %}
+												<td id="plugin-{{data.plugin_id}}" style="min-width: 131px;">
+													<ul class="right-stats" id="mini-nav-right">
+														<li>
+															<button type="button" style="height: 23px;
+														" class="btn btn-default btn-transparent 
+                                                        btn-transparent-font plugin_id_value" data-toggle="modal" data-target="#addKbArticleModal" value="{{ data.plugin_id }}">
+																Create
+															</button>
+
+												<button type="button" style="height: 23px;
+													" class="btn btn-default btn-transparent 
+                                                    btn-transparent-font plugin_id_value"
+                                                    data-toggle="modal"  data-target="#KbArticleMap" data-plugin_id="{{data.plugin_id}}" id="plugin-map-{{data.plugin_id}}" data-name="{{data.name}}" onclick="kbmapdata(this);">
+															Map
+													</button>
+														</li>
+													</ul>
+												</td>
+											{% endif %}
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="addKbArticleModal" class="modal fade" role="dialog">
+				<div class="modal-dialog" id="add-kb-width">
+					<!-- Modal content -->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Create New Article</h4>
+
+							<button class="close" style="color:#8e9fb1; margin: -25px 14px;" aria-label="Close" name="cancel" value="cancel" data-dismiss="modal"><span aria-hidden="true" style="font-size: x-large;">×</span></button>
+						</div>
+						<form  method="post">
+							{% csrf_token %}
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="panel">
+											<div class="panel-body">
+												<div class="form-group">
+													<div class="row gutter">
+														<div class="col-md-4">
+															<label class="control-label">Type</label>
+															{{form.article_type}}
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="row gutter">
+														<div class="col-md-12">
+															<label class="control-label">Title</label>
+															{{form.title}}
+														</div>
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label class="control-label">Description</label>
+													{{form.description}}
+												</div>
+												<div class="form-group">
+													<label class="control-label">Remediation</label>
+													{{form.remediation}}
+												</div>
+												<div class="row">
+													<div class="form-group col-lg-6 col-md-6" style="margin-left: -16px;">
+														<div class="form-group col-lg-3 col-md-3">
+															<label class="control-label">Triage</label>
+															{{form.triage}}
+														</div>
+														<div class="form-group col-lg-3 col-md-3">
+															<label class="control-label">Risk</label>
+															{{form.risk}}
+														</div>
+														<div class="form-group col-lg-3 col-md-3">
+															<label class="control-label">Slug</label>
+															{{form.slug}}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="form-group col-lg-2 col-md-2">
+														<label class="control-label">Nessus Plugin ID</label>
+														<input type="text" autocomplete="off" class="form-control" id="nessus_plugin_id" />
+													</div>
+													<div class="form-group col-lg-1 col-md-1">
+														<button class="btn btn-default" id="nessus_plugin_save" onclick="nessusPlugInData();" type="button" style="margin-top:30px;">Add</button>
+													</div>
+													<div class="form-group col-lg-9 col-md-9">
+														<label class="control-label">&nbsp;</label>
+														<input type="text" class="form-control" id="nessus_plugin_array" name="nessus_plugin_array" readonly>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" name="cancel" value="cancel" class="btn btn-default retest-cancel-btn" data-dismiss="modal">Cancel</button>
+								<button type="submit" class="btn btn-success btn-margin new_article_button">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="KbArticleMap" class="modal fade" role="dialog">
+				<div class="modal-dialog" id="map-width">
+					<!-- Modal content -->
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="panel">
+										<div class="panel-body">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<input type="text" class="form-control" id="nessus-title" name="" readonly>
+												<input type="hidden" id="modal-pluginid" value="">
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label class="control-label">&nbsp;</label>
+												<input type="text" class="form-control" id="nessus-search" name="" >
+											</div>
+											<br>
+										</br>
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 32px;">
+												<div class="table-responsive">
+													<table class="table table-bordered table-hover table-condensed no-margin">
+														<tbody id="modal-table">
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>		
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<!-- Row ends -->
+
+
+
+		</div>
+		<!-- Container fluid ends -->
+
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+{% block script %}
+	<script src="/static/js/network.js"></script>
+	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/nessus_data_datatable.js"></script>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Encryption Prototype Detail - Redtree</title>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper dashboard-wrapper-lg">
+	<div class="container-fluid">
+		<h3 class="encryption-color">Encryption <span class="icon-chevron-right"></span> Protocol <span class="icon-chevron-right"></span> {{ protocol }}</h3>
+		<div class="row gutter">
+			<div class="col-lg-5 col-md-10 col-sm-10 col-xs-10" style="max-width: 540px; min-width: 480px;">
+				<br>
+				<div class="panel" style="display: table;  min-width: 420px; max-width: 480px;">
+					<div class="panel-heading">
+	                    <h3>Hosts supporting {{ protocol }}</h3>
+	                </div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover table-condensed no-margin ">
+								<thead>
+									<tr>
+										<!-- <th class="notifications_heading">Count</th> -->
+										<th class="notifications_heading">IP</th>
+										<th class="notifications_heading">Port</th>
+										<th class="notifications_heading">Ciphers</th>
+										<th class="notifications_heading">Protocol</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for cipher in host_ciphers %}
+									<tr>
+										<!-- <td>{{cipher.cipher_count}}</td> -->
+										<td style="word-break: break-all;">
+											{% if cipher.host_id %}
+												<a href="/host/{{ cipher.host_id }}/">
+													{{cipher.host}}
+												</a>
+											{% else %}
+												{{cipher.host}}
+											{% endif %}
+										</td>
+										<td>{{cipher.port}}</td>
+										<td>{{cipher.cipher_count}}</td>
+										<td id="protocol">
+											{% if protocol == 'TLSv1_1' %}
+												<button class=" btn-xs {{ protocol }}">
+													TLS 1.1
+												</button>
+											
+											{% elif protocol == 'TLSv1_2' %}
+												<button class=" btn-xs {{ protocol }}">
+													TLS 1.2
+												</button>
+
+											{% elif protocol == 'TLSv1_3' %}
+												<button class=" btn-xs {{ protocol }}">
+													TLS 1.3
+												</button>
+
+											{% elif protocol == 'TLSv1' %}
+												<button class=" btn-xs {{ protocol }}">
+													TLS 1.0
+												</button>
+
+											{% elif protocol == 'SSLv2' %}
+												<button class=" btn-xs {{ protocol }}">
+													SSLv2
+												</button>
+
+											{% elif protocol == 'SSLv3' %}
+												<button class=" btn-xs {{ protocol }}">
+													SSLv3
+												</button>
+
+											{% else %}
+												<button class=" btn-xs {{ protocol }}">
+													{{protocol}}
+												</button>
+											{% endif %}
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-10 col-sm-10 col-xs-10">
+				<br>
+				<div class="panel" style="display: table; min-width: 350px;">
+					<div class="panel-heading">
+	                    <h3>Supported {{ protocol }} Ciphers</h3>
+	                </div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover table-condensed no-margin ">
+								<thead>
+									<tr>
+										<!-- <th class="notifications_heading">Count</th> -->
+										<th class="notifications_heading">Ciphers</th>
+										<th class="notifications_heading">Key size</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for cipher in supported_ciphers %}
+									<tr>
+										<!-- <td>{{cipher.cipher_count}}</td> -->
+										<td>
+											<a href="/encryption/cipher/{{ cipher.cipher }}">
+												{{ cipher.cipher }}
+											</td>
+										<td>{{ cipher.key_size }}</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

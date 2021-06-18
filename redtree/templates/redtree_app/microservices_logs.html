@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - Microservices Logs</title>
+{% endblock %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<table class="table-bordered table table-condensed ">
+                <tbody>
+                	<tr>
+                        <td>
+                            <a href="/logs/burp/">
+                                Burp Logs
+                            </a>
+                            <a href="/logs/delete/" class="btn btn-info logs-delete-btn">
+                                Clear logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/logs/cloudstorage/">
+                                Cloudstorage Logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/logs/dnsenum/">
+                                Dnsenum Logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="" href="/logs/microservices/masscan/">
+                                Masscan Logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="" href="/logs/microservices/nessus/">
+				                Nessus Logs
+							</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/logs/screenshot/">
+                                Screenshot Logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/logs/sshyze/">
+                                Sshyze Logs
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/logs/sslyze/">
+                                Sslyze Logs
+                            </a>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <a href="/logs/whois/">
+                                WhoIs Logs
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

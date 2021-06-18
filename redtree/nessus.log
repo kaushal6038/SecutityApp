@@ -1,0 +1,87 @@
+2020-05-27 10:35:52,263 - nessus - INFO - File recieved.Saving....
+2020-05-27 10:35:52,265 - nessus - INFO - Generating file code...
+2020-05-27 10:35:52,266 - nessus - INFO - File Code 95fb0c211b28a0da87a7ddf855fda2a5
+2020-05-27 10:35:52,267 - nessus - INFO - file code generated.
+2020-05-27 10:35:52,274 - nessus - INFO - File saved.Processing the file
+2020-05-27 10:35:52,275 - nessus - INFO - Processing file....
+2020-05-27 10:35:52,293 - nessus - INFO - Starting: etree.iterparse(xml_content)
+2020-05-27 10:35:52,295 - nessus - INFO - Complete: etree.iterparse(xml_content)
+2020-05-27 10:35:52,295 - nessus - INFO - Checking file hosts..
+2020-05-27 10:35:52,295 - nessus - INFO - Starting: Checking hosts in db.
+2020-05-27 10:35:52,353 - nessus - INFO - Complete: Checking hosts in db.
+2020-05-27 10:35:52,354 - nessus - INFO - File accepted. Processing xml of file
+2020-05-27 10:35:52,394 - nessus - INFO - Starting: Processing issue from xml_content.
+2020-05-27 10:35:52,395 - nessus - INFO - Complete: Processing issue from xml_content.
+2020-05-27 10:35:52,420 - nessus - INFO - Issues: total 0, detected 0, undetected 0, duplicate 0.
+2020-05-27 10:35:52,429 - nessus - INFO - XML processed successfully.
+2020-05-27 10:35:52,430 - nessus - INFO - Processing Applications and Vulnerabilities.
+2020-05-27 10:35:52,441 - nessus - INFO - Processing .....
+2020-05-27 10:35:52,443 - nessus - INFO - Processing Applications from nessus issues for plugin 24260.....
+2020-05-27 10:35:52,445 - nessus - INFO - Processing Applications from nessus issues for plugin 24260.....
+2020-05-27 10:35:52,446 - nessus - INFO - Processing vulnerabilities from nessus issues.
+2020-05-27 10:35:52,451 - nessus - INFO - Querying kb for the articles....
+2020-05-27 10:35:53,225 - nessus - INFO - Processing response from kb.
+2020-05-27 10:35:53,226 - nessus - INFO - Processing vulnerabilities.
+2020-05-27 10:35:53,273 - nessus - INFO - Vulnerability scan complete. No new issues found.
+2020-05-27 10:35:53,340 - nessus - INFO - Vulnerabilities processing completed.
+2020-05-27 10:36:25,269 - nessus - INFO - Processing .....
+2020-05-27 10:36:25,273 - nessus - INFO - Processing Applications from nessus issues for plugin 24260.....
+2020-05-27 10:36:25,274 - nessus - INFO - Processing Applications from nessus issues for plugin 24260.....
+2020-05-27 10:36:25,275 - nessus - INFO - Processing vulnerabilities from nessus issues.
+2020-05-27 10:36:25,276 - nessus - INFO - Querying kb for the articles....
+2020-05-27 10:36:26,176 - nessus - INFO - Processing response from kb.
+2020-05-27 10:36:26,176 - nessus - INFO - Processing vulnerabilities.
+2020-05-27 10:36:26,214 - nessus - INFO - Vulnerability scan complete. No new issues found.
+2020-05-27 10:36:26,224 - nessus - INFO - Vulnerabilities processing completed.
+2020-05-27 10:51:55,009 - nessus - INFO - File recieved.Saving....
+2020-05-27 10:51:55,010 - nessus - INFO - Generating file code...
+2020-05-27 10:51:55,014 - nessus - INFO - File Code c0147f5a2f363b4d0e9f9782239d95a9
+2020-05-27 10:51:55,014 - nessus - INFO - file code generated.
+2020-05-27 10:51:55,020 - nessus - INFO - File saved.Processing the file
+2020-05-27 10:51:55,021 - nessus - INFO - Processing file....
+2020-05-27 10:51:55,035 - nessus - INFO - Starting: etree.iterparse(xml_content)
+2020-05-27 10:51:55,036 - nessus - INFO - Complete: etree.iterparse(xml_content)
+2020-05-27 10:51:55,036 - nessus - INFO - Checking file hosts..
+2020-05-27 10:51:55,036 - nessus - INFO - Starting: Checking hosts in db.
+2020-05-27 10:51:55,046 - nessus - INFO - Checking host:qa3app09 in db.
+2020-05-27 10:51:55,052 - nessus - INFO - Host:qa3app09 not found in db.
+2020-05-27 10:51:55,057 - nessus - INFO - Checking host:qa3app06 in db.
+2020-05-27 10:51:55,063 - nessus - INFO - Host:qa3app06 not found in db.
+2020-05-27 10:51:55,064 - nessus - INFO - Checking host:qa3app05 in db.
+2020-05-27 10:51:55,069 - nessus - INFO - Host:qa3app05 not found in db.
+2020-05-27 10:51:55,084 - nessus - INFO - Checking host:qa3app04 in db.
+2020-05-27 10:51:55,089 - nessus - INFO - Host:qa3app04 not found in db.
+2020-05-27 10:51:55,090 - nessus - INFO - Checking host:qa3app03 in db.
+2020-05-27 10:51:55,096 - nessus - INFO - Host:qa3app03 not found in db.
+2020-05-27 10:51:55,098 - nessus - INFO - Checking host:qa3app02 in db.
+2020-05-27 10:51:55,102 - nessus - INFO - Host:qa3app02 not found in db.
+2020-05-27 10:51:55,105 - nessus - INFO - Checking host:qa3app01 in db.
+2020-05-27 10:51:55,112 - nessus - INFO - Host:qa3app01 not found in db.
+2020-05-27 10:51:55,118 - nessus - INFO - Complete: Checking hosts in db.
+2020-05-27 10:51:55,118 - nessus - ERROR - Hosts ['qa3app09', 'qa3app06', 'qa3app05', 'qa3app04', 'qa3app03', 'qa3app02', 'qa3app01'] not found in db. File rejected.
+2020-05-27 10:55:36,032 - nessus - INFO - File recieved.Saving....
+2020-05-27 10:55:36,033 - nessus - INFO - Generating file code...
+2020-05-27 10:55:36,036 - nessus - INFO - File Code b10255cfdf8511a19515e317feeaa3f2
+2020-05-27 10:55:36,036 - nessus - INFO - file code generated.
+2020-05-27 10:55:36,043 - nessus - INFO - File saved.Processing the file
+2020-05-27 10:55:36,044 - nessus - INFO - Processing file....
+2020-05-27 10:55:36,056 - nessus - INFO - Starting: etree.iterparse(xml_content)
+2020-05-27 10:55:36,060 - nessus - INFO - Complete: etree.iterparse(xml_content)
+2020-05-27 10:55:36,060 - nessus - INFO - Checking file hosts..
+2020-05-27 10:55:36,061 - nessus - INFO - Starting: Checking hosts in db.
+2020-05-27 10:55:36,068 - nessus - INFO - Checking host:qa3app09 in db.
+2020-05-27 10:55:36,075 - nessus - INFO - Host:qa3app09 not found in db.
+2020-05-27 10:55:36,079 - nessus - INFO - Checking host:qa3app06 in db.
+2020-05-27 10:55:36,090 - nessus - INFO - Host:qa3app06 not found in db.
+2020-05-27 10:55:36,092 - nessus - INFO - Checking host:qa3app05 in db.
+2020-05-27 10:55:36,095 - nessus - INFO - Host:qa3app05 not found in db.
+2020-05-27 10:55:36,097 - nessus - INFO - Checking host:qa3app04 in db.
+2020-05-27 10:55:36,100 - nessus - INFO - Host:qa3app04 not found in db.
+2020-05-27 10:55:36,116 - nessus - INFO - Checking host:qa3app03 in db.
+2020-05-27 10:55:36,119 - nessus - INFO - Host:qa3app03 not found in db.
+2020-05-27 10:55:36,122 - nessus - INFO - Checking host:qa3app02 in db.
+2020-05-27 10:55:36,127 - nessus - INFO - Host:qa3app02 not found in db.
+2020-05-27 10:55:36,131 - nessus - INFO - Checking host:qa3app01 in db.
+2020-05-27 10:55:36,136 - nessus - INFO - Host:qa3app01 not found in db.
+2020-05-27 10:55:36,138 - nessus - INFO - Complete: Checking hosts in db.
+2020-05-27 10:55:36,139 - nessus - ERROR - Hosts ['qa3app09', 'qa3app06', 'qa3app05', 'qa3app04', 'qa3app03', 'qa3app02', 'qa3app01'] not found in db. File rejected.

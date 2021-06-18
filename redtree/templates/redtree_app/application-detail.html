@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>RedTree - Application Detail</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Row Starts -->
+            {% if application %}
+            <div class="row gutter">
+                <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6" style="width: 570px;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3>{{application.application_title}}</h3>
+                            <h5>URL: <a href="/application/{{application.id}}/">{{ application.application_url}}</a></h5>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <table class="table-bordered table-hover table-condensed no-margin">
+                                    
+                                {% if app_vul_obj %}
+                                    <col width="18%" />
+                                    <col width="64%" />
+                                    <col width="18%" />
+                                    <thead>
+                                        <tr>
+                                            <th>Risk</th>
+                                            <th>Title</th>
+                                            <th>Instances</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for app in app_vul_obj %}
+                                        <tr>
+                                             <td>
+                                                {% if app.risk == 'Critical' %}
+                                                    <button class="btn btn-critical btn-xs">Critical</button>
+                                                {% elif app.risk == 'High' %}
+                                                    <button class="btn btn-high btn-xs">High</button>
+                                                {% elif app.risk == 'Medium' %}
+                                                    <button class="btn btn-medium btn-xs">Medium</button>
+                                                {% elif app.risk == 'Low' %}
+                                                    <button class="btn btn-low btn-xs">Low</button>
+                                                {% elif app.risk == 'Note' %}
+                                                    <button class="btn btn-primary btn-xs btn-note">Note</button>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <input type="hidden" id="application_id" value="{{application.id}}">
+                                                <a href="vulnerability/{{app.virtue_id}}">
+                                                    {{app.title}}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{app.instances}}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                {% else %}
+                                    <tr>
+                                        <th style="width: 525px;">
+                                            <center>
+                                                No Vulnerabilities
+                                            </center>
+                                        </th>
+                                    </tr>
+                                {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3>Unprocessed Burp Issues</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <table class="table-bordered table-hover table-condensed no-margin">
+                                {% if unprocessed_burp %}
+                                    <col width="18%" />
+                                    <col width="64%" />
+                                    <col width="18%" />
+                                    <thead>
+                                        <tr>
+                                            <th>Risk</th>
+                                            <th>Title</th>
+                                            <th>Instances</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for issue in unprocessed_burp %}
+                                        <tr>
+                                             <td>
+                                                {% if issue.severity == 'Critical' %}
+                                                    <button class="btn btn-critical btn-xs">Critical</button>
+                                                {% elif issue.severity == 'high' %}
+                                                    <button class="btn btn-high btn-xs">High</button>
+                                                {% elif issue.severity == 'medium' %}
+                                                    <button class="btn btn-medium btn-xs">Medium</button>
+                                                {% elif issue.severity == 'low' %}
+                                                    <button class="btn btn-low btn-xs">Low</button>
+                                                {% elif issue.severity == 'note' %}
+                                                    <button class="btn btn-primary btn-xs btn-note">Note</button>
+                                                {% elif issue.severity == 'info' %}
+                                                    <button class="btn btn-primary btn-xs btn-note">None</button>
+                                                {% endif %}
+                                            </td>
+                                            <td><a href="/burp/{{ issue.type_index }}/application/{{issue.id}}">
+                                                {{ issue.name }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ issue.instances }}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                {% else %}
+                                    <tr>
+                                        <th style="width: 525px;">
+                                            <center>
+                                                No Burp Issues
+                                            </center>
+                                        </th>
+                                    </tr>
+                                {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
+                    <div class="panel app_detail_width">
+                        <p class="app_detail_border">
+                            {{ application.application_title }}
+                        </p>
+                        {% if application.s3_image %}
+                            <p data-toggle="modal" data-target="#myModal">
+                                <img src="{{ application.s3_image }}" width="400" height="300">
+                            </p>
+                        {% else %}
+                            <p data-toggle="modal" data-target="#myModal">
+                                <img src="/static/img/screenshot_error_full.png">
+                            </p>
+                        {% endif %}
+                        <p class="app_detail_border">
+                            {% if application.created %}
+                                <b>First seen:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.created }}
+                                <br>
+                            {% endif %}
+                            {% if application.last_seen %}
+                                <b>Last seen:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.last_seen }}
+                                <br>
+                            {% endif %}
+                            {% if application.last_scan %}
+                                <b>Last scan:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.last_scan }}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row ends -->
+            {% else %}
+            <h3>No details found.</h3>
+            {% endif %}
+        </div>
+       
+        <!-- Container fluid ends -->
+    <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+        
+            <div class="modal-dialog" style="width: 50%;margin-left: 41%; margin-top: 5%">  
+                <div class="modal-content" style="margin-left:-45%">
+                    <div class="modal-body" style="width: 100%;">
+                        {% if application.s3_image %}
+                            <img src="{{ application.s3_image }}" width="100%" height="90%">
+                        {% else %}
+                            <img src="/static/img/screenshot_error_full.png">
+                        {% endif %}
+                        <p class="app_detail_border">
+                            {% if application.created %}
+                                <b>First seen:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.created }}
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            {% endif %}
+                            {% if application.last_seen %}
+                                <b>Last seen:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.last_seen }}
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            {% endif %}
+                            {% if application.last_scan %}
+                                <b>Last scan:</b>
+                                &nbsp;&nbsp;&nbsp;{{ application.last_scan }}
+                                <br>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

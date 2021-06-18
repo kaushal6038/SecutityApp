@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>RedTree - Masscan Logs</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<div class="col-lg-12 col-md-12">
+                 <h3> Masscan Logs </h3>
+        		<div class="panel custom-display">
+        			<div class="panel-body">
+        				<div class="table-responsive">
+        					<table class="table table-bordered table-hover table-condensed no-margin">
+        						<thead>
+        							<tr>
+        								<th>Age</th>
+                                        <th>Scan Type</th>
+        								<th>Status</th>
+        								<th>Ips</th>
+        								<th>Result/Error</th>
+        								<th>Duration</th>
+        							</tr>
+        						</thead>
+        						<tbody>
+                                    {% for masscan in masscan_log %}
+            							<tr>
+                                            <td>
+                                                {{masscan.created|get_microservices_log_age}}
+                                            </td>
+            								<td>{{masscan.network_type}}</td>
+            								<td>{{masscan.status}}</td>
+            								<td>{{masscan.ips}}</td>
+                                            {% if masscan.result %}
+            								    <td style="word-break: break-all;">
+                                                    {{masscan.result|linebreaks}}
+                                                </td>
+                                            {% elif masscan.message %}
+                                                <td style="word-break: break-all;">
+                                                    {{masscan.message|linebreaks}}
+                                                </td>
+                                            {% else %}
+                                                <td>Scan is running</td>
+                                            {% endif %}
+                                            {% if masscan.is_completed %}
+            								    <td title="scan completed in {{masscan.task_duration}}" style="white-space: nowrap;">
+                                                {{masscan.task_duration}}</td>
+                                            {% else %}
+                                                <td title="scan is running from {{masscan.task_duration}} time" style="white-space: nowrap;">{{masscan.task_duration}}</td>
+                                            {% endif %}
+            							</tr>
+                                    {% endfor %}
+        						</tbody>
+        					</table>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

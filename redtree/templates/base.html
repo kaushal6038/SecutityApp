@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        {% block title %}
+            <title>FileUpload</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/fonts/icomoon/icomoon.css">
+		<link rel="stylesheet" href="/static/css/main.css" media="screen" />
+        <link rel="stylesheet" href="/static/css/datatables/dataTables.min.css">
+        <link rel="stylesheet" href="/static/css/datatables/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="/static/css/alertify/core.css" />
+        <link rel="stylesheet" href="/static/css/alertify/default.css" id="toggleCSS" />
+        <link rel="stylesheet" href="/static/css/jquery.growl.css">
+        <link href="/static/css/c3/c3.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/css/circliful/circliful.css" />
+        <link href="/static/css/all.min.css" rel="stylesheet">
+
+        {% block extracss %}
+        {% endblock %}
+	</head>
+    <body>
+        <header>
+            <div id="scanning-bar">
+                <label id="scanning-text" class="scanning-text-margin"></label>
+            </div>
+            <!-- Logo starts -->
+            <div class="navbar-header" >
+                <a class="navbar-brand" href="/home" style="font-size:24px;">Redtree{% if environment_name %} - {{environment_name}}{% endif %}</a>
+            </div>
+           
+            <!-- Logo ends -->
+
+            <!-- Header actions starts -->
+
+            <ul id="header-actions" class="clearfix">
+               <!--  <li class="list-box hidden-xs dropdown">
+                    <a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-warning2"></i>
+                    </a>
+                    <span  id="notification-icon"></span>
+                    <ul class="dropdown-menu imp-notify hidden" id="notification-ul" >
+                        <li>
+                            <div class="details">
+                                <a href="/retest" id="update-notification"><span id="notifications-count"></span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="list-box hidden-xs dropdown">
+                    <button class="btn btn-default btn-transparent" style="margin-top: 12px;" data-toggle="modal" data-target="#hours">Log Hours</button>
+                    <div class="modal fade" id="hours" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <form action="/log-hours/" method="post">
+                                    {% csrf_token %}
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Option Testing Hours</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p style = "margin-right: 434px;">Optional Testing Note</p>
+                                        <textarea class="form-control" rows="6" name="notes" required></textarea>
+                                        <br>
+                                        <p style = "margin-right: 441px;">Time Spent(In Hour)</p>
+                                        <select class="form-control" name="time_spent" style="width: 250px;" required>
+                                            <option value="">Select Time</option>
+                                            <option value=".15">.15</option>
+                                            <option value=".30">.30</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                      <input type="submit" class="btn btn-default" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-box hidden-xs dropdown">
+                    <a id="drop2" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-warning2"></i>
+                    </a>
+                    <span  id="notification-icon"></span>
+                    <ul class="dropdown-menu imp-notify hidden dropdown-style" id="notification-ul">
+                    </ul>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="list-box user-admin hidden-xs dropdown">
+                    <div class="admin-details">
+                        <div class="name">{{user.username}}</div>
+                        <div class="designation"></div>
+                    </div>
+                    <a href="/user-logout" class="logout hidden-xs">
+                        <i class="logout glyphicon glyphicon-log-out"></i> Logout
+                    </a>
+                </li>
+                <li>
+                    <button type="button" id="toggleMenu" class="toggle-menu">
+                        <i class="collapse-menu-icon"></i>
+                    </button>
+                </li>
+                {% endif %}
+            </ul>
+            <!-- Header actions ends -->
+        </header>
+
+
+    	<div class="vertical-nav">
+            <!-- Sidebar menu start -->
+            <ul class="menu clearfix">
+                <li {% if request.path == "/home/"  %} class="active selected" {% endif %}>
+                    <a href="/home">
+                        <span class="menu-item">Home</span>
+                    </a>
+                </li>
+                <li {% if "/queue" in request.path  %} class="active selected" {% endif %}>
+                    <a href="/queue">
+                        <span class="menu-item">Testing Queue {% if test_vul_count %}({{test_vul_count}}){% endif %}</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/nessus/upload"  %} class="active selected" {% endif %}>
+                    <a href="/nessus/upload">
+                        <span class="menu-item">File Upload</span>
+                    </a>
+                </li>
+                <li {% if "/nessus/" in request.path and request.path != "/nessus/upload" and request.path != "/playground/nessus/" and request.path != "/logs/microservices/nessus/" %} class="active selected" {% endif %}>
+                    <a href="/nessus">
+                        <span class="menu-item">Nessus</span>
+                    </a>
+                </li>
+                <li {% if request.path|slice:":5" == "/burp" %} class="active selected" {% endif %}>
+                    <a href="/burp">
+                        <span class="menu-item">Burp</span>
+                    </a>
+                </li>
+                <li {% if "/vulner" in request.path  %} class="active selected" {% endif %}>
+                    <a href="/vulnerabilities">
+                        <span class="menu-item">Vulnerabilities</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/applications/"  %} class="active selected" {% endif %}>
+                    <a href="/applications">
+                        <span class="menu-item">Applications</span>
+                    </a>
+                </li>
+                <li {% if "/cloud/" in request.path %} class="active selected" {% endif %}>
+                    <a href="/cloud">
+                        <span class="menu-item">Cloud</span>
+                    </a>
+                </li>
+                <li {% if "/settings/" in request.path %} class="active selected" {% endif %}>
+                    <a href="/settings">
+                        <span class="menu-item">Settings</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/report/"  %} class="active selected" {% endif %}>
+                    <a href="/report">
+                        <span class="menu-item">Report</span>
+                    </a>
+                </li>
+                <li {% if "/encryption" in request.path  %} class="active selected" {% endif %}>
+                    <a href="/encryption/">
+                        <span class="menu-item">Encryption</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/retest-history"  %} class="active selected" {% endif %}>
+                    <a href="/retest-history">
+                        <span class="menu-item">History</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/retest/"  %} class="active selected" {% endif %}>
+                    <a href="/retest">
+                        <span class="menu-item">Retest {% if retest_count %}({{retest_count}}){% endif %}</span>
+                    </a>
+                </li>
+                <li {% if request.path == "/event-history"  %} class="active selected" {% endif %}>
+                    <a href="/event-history">
+                        <span class="menu-item">Event History</span>
+                    </a>
+                </li>
+                <li {% if "/playground" in request.path  %} class="active selected" {% endif %}>
+                    <a href="/playground">
+                        <span class="menu-item">Playground</span>
+                    </a>
+                </li>
+                <li {% if "/logs" in request.path  %} class="active selected"
+                    {% endif %}>
+                    <a href="/logs">
+                        <span class="menu-item">Logs</span>
+                    </a>
+                </li>
+                <li {% if "/archive" in request.path  %} class="active selected"
+                    {% endif %}>
+                    <a href="/archive">
+                        <span class="menu-item">Archived</span>
+                    </a>
+                </li>
+                <li {% if "/unscanned-ports" in request.path  %} class="active selected"
+                    {% endif %}>
+                    <a href="/unscanned-ports">
+                        <span class="menu-item">Unscanned Ports</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Sidebar menu end -->
+        </div>
+
+
+        {% block content %}
+        {% endblock %}
+
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/scrollup/jquery.scrollUp.js"></script>
+        <script src="/static/js/custom.js"></script>
+        <script type="text/javascript" src="/static/markdownx/markdownx.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.flash.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/jszip.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/pdfmake.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/vfs_fonts.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="/static/js/datatables/buttons.print.min.js"></script>
+        <script src="/static/js/alertify/alertify.js"></script>
+
+
+        {% block script %}
+
+
+        {% endblock %}
+        {% include 'growl_notifications.html' %}
+    </body>
+</html>

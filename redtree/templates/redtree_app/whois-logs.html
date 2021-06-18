@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>RedTree - whois Logs</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<div class="col-lg-12 col-md-12">
+                <h3> Whois Logs </h3>
+        		<div class="panel custom-display">
+        			<div class="panel-body">
+        				<div class="table-responsive">
+        					<table class="table table-bordered table-hover table-condensed no-margin">
+        						<thead>
+        							<tr>
+        								<th>Age</th>
+        								<th>Status</th>
+        								<th>Ip</th>
+        								<th>Result/Error</th>
+        								<th>Duration</th>
+        							</tr>
+        						</thead>
+        						<tbody>
+                                    {% for whois in whois_logs %}
+            							<tr>
+            								<td>
+                                                {{whois.created|get_microservices_log_age}}
+                                            </td>
+            								<td>{{whois.status}}</td>
+            								<td>
+                                                {% if whois.domain_host %}
+                                                    {{whois.domain_host}}
+                                                {% else %}
+                                                    {{whois.host}}
+                                                {% endif %}
+                                            </td>
+                                            {% if whois.result %}
+            								    <td>{{whois.result}}</td>
+                                            {% elif whois.message %}
+                                                <td>{{whois.message}}</td>
+                                            {% else %}
+                                                <td>Scan is running</td>
+                                            {% endif %}
+                                            {% if whois.is_completed %}
+            								    <td title="scan completed in {{whois.task_duration}}">
+                                                {{whois.task_duration}}</td>
+                                            {% else %}
+                                                <td title="scan is running from {{whois.task_duration}} time">{{whois.task_duration}}</td>
+                                            {% endif %}
+            							</tr>
+                                    {% endfor %}
+        						</tbody>
+        					</table>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

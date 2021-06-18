@@ -1,0 +1,625 @@
+
+/****** HOST ******/
+.host-row {
+	margin-bottom: 15px;
+	width: 600px;
+}
+
+.host-delete-btn{
+    margin: 7px 0px 0px 0px !important;
+    padding: 1px 3px 1px 3px;
+    border-radius: 4px;
+}
+
+/* The container */
+.host-delete-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.host-delete-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.host-delete-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 11px;
+    width: 11px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-left: 11px;
+}
+
+/* On mouse-over, add a grey background color */
+.host-delete-label:hover input ~ .host-delete-checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.host-delete-label input:checked ~ .host-delete-checkmark {
+    background-color: #ffffff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.host-delete-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.host-delete-label input:checked ~ .host-delete-checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.host-delete-label .host-delete-checkmark:after {
+    left: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #333232;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: red;
+}
+
+.host-select {
+	margin-top: 12px;
+}
+
+/*/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+
+.map-margin{
+	margin-top: 58px;
+}
+
+.height2 {
+  height: 317px; 
+}
+
+.map-text {
+	text-align: left !important;
+}
+
+.chart-height1 {
+  position: relative;
+  height: 225px;
+  overflow: hidden; 
+}
+
+.host-error-color {
+	color: red;
+}
+
+.net-width{
+	width:200px;
+}
+
+
+/****** NETWORK ******/
+
+@media (min-width: 1100px) and (max-width: 1299px){
+  .net_width {
+    width: 1280px;
+  }
+}
+
+@media (min-width: 1300px){
+    .net_width{
+        width: 1300px;
+    }
+}
+
+.net_margin{
+  margin: 4px 0px 0px 20px;
+}
+
+.net_margin_top{
+  margin-top: 3%;
+}
+
+.net-style{
+	width:125px; 
+	margin-top: 8px;
+}
+
+.network_margin_top{
+    margin-top: 33px;
+}
+
+.network_margin_left{
+	margin-left: 145%;
+}
+
+
+/****** APPLICATION ******/
+.application-width{
+	width: 600px;
+}
+
+.application-net-style{
+	width: 137px; 
+	margin-top: 0px;
+}
+
+.application_network_margin_top{
+    margin-top: 2px;
+}
+
+@media (min-width: 1100px) and (max-width: 1600px){
+    .application-table-width{
+        display: table;
+        word-break: break-all;
+    }
+    .domain-table-width{
+        display: table;
+        word-break: break-all;
+    }
+    .assets-table-style {
+        word-break: break-all;
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+}
+
+@media (min-width: 1300px) and  (max-width: 1399px){
+    .domain-table-width{
+        display: table;
+        /* margin-left: 90px; */
+    }
+    .sub-domain-table{
+        /* margin-left: 90px; */
+    }
+}
+
+@media (min-width: 1401px) and  (max-width: 1499px){
+    .domain-table-width{
+        display: table;
+        /* margin-left: 40px; */
+    }
+    .sub-domain-table{
+        /* margin-left: 40px; */
+    }
+}
+
+@media (min-width: 1500px) and  (max-width: 1699px){
+    .domain-table-width{
+        display: table;
+        /* margin-left: -10px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -10px; */
+    }
+}
+
+@media (min-width: 1700px) and  (max-width: 1800px){
+    .application-table-width{
+        display: table;
+        margin-left: -100px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -50px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -50px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+}
+
+@media (min-width: 1801px) and (max-width: 2000px){
+    .application-table-width{
+        display: table;
+        margin-left: -200px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -100px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -100px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -70px;
+    }
+}
+
+@media (min-width: 2001px) and (max-width: 2200px){
+    .application-table-width{
+        display: table;
+        margin-left: -200px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -150px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -150px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -70px;
+    }
+}
+
+@media (min-width: 2201px) and (max-width: 2400px){
+    .application-table-width{
+        display: table;
+        margin-left: -350px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -200px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -200px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -250px;
+    }
+}
+
+@media (min-width: 2401px) and (max-width: 2600px){
+    .application-table-width{
+        display: table;
+        margin-left: -350px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -250px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -250px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -250px;
+    }
+}
+
+@media (min-width: 2601px) and (max-width: 2800px){
+    .application-table-width{
+        display: table;
+        margin-left: -500px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -400px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -400px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -450px;
+    }
+}
+
+@media (min-width: 2801px) and (max-width: 3000px){
+    .application-table-width{
+        display: table;
+        margin-left: -500px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -450px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -450px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -450px;
+    }
+}
+
+@media (min-width: 3001px) and (max-width: 3250px){
+    .application-table-width{
+        display: table;
+        margin-left: -700px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -500px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -500px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -550px;
+    }
+}
+
+@media (min-width: 3251px) and (max-width: 3500px){
+    .application-table-width{
+        display: table;
+        margin-left: -700px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -600px; */
+    }
+    .sub-domain-table{
+        /* margin-left: -600px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -550px;
+    }
+}
+
+
+@media (min-width: 3501px) and (max-width: 4000px){
+    .application-table-width{
+        display: table;
+        margin-left: -900px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -900px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -650px;
+    }
+}
+
+@media (min-width: 4001px) and (max-width: 4500px){
+    .application-table-width{
+        display: table;
+        margin-left: -1100px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -1100px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -750px;
+    }
+}
+
+@media (min-width: 4501px) and (max-width: 5000px){
+    .application-table-width{
+        display: table;
+        margin-left: -1300px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -1300px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -850px;
+    }
+}
+
+@media (min-width: 5001px){
+    .application-table-width{
+        display: table;
+        margin-left: -1500px;
+    }
+    .domain-table-width{
+        display: table;
+        /* margin-left: -1500px; */
+    }
+    .cloud-asset-table-width{
+        display: table;
+    }
+    .cloud-asset-table-margin-left{
+        margin-left: -950px;
+    }
+}
+
+.application-heading {
+    padding-right: 13px !important;
+    padding-left: 13px !important;
+}
+
+
+/****** DOMAIN ******/
+.domain-row-width{
+	width: 100%;
+}
+
+.domain-net-style{
+	/* width: 137px;  */
+	margin-top: 0px;
+}
+
+@media (min-width: 1100px) and (max-width: 1600px){
+    .domain-table-style {
+        word-break: break-all;
+    }
+}
+
+.domains-heading {
+    padding-right: 13px !important;
+    padding-left: 13px !important;
+}
+
+
+/****** CLOUD ASSETS ******/
+.aws_assets_heading {
+    padding-right: 13px !important;
+    padding-left: 13px !important;
+
+}
+
+.aws_margin{
+    margin: 0 0 18px -12px;
+}
+
+.input_asset{
+  width: 230px; 
+  margin: -30px 0px 0px 100px;
+}
+
+.input_asset1{
+    width: 230px; 
+    -webkit-text-security: disc; 
+    margin: -28px 0px 0px 100px;
+}
+
+.load_asset_btn{
+  float: left; 
+  margin-left: 350px; 
+  margin-top: -37px;
+}
+
+.cloud-asset-textarea-width{
+    max-width: 465px;
+}
+
+.cloud-asset-category-dropdown-width{
+    width: 220px;
+}
+
+.assets_width{
+    min-width: 250px;
+}
+@media screen and (min-width: 4001px)
+{
+    .domain_container_left{
+        width:15%;
+    }
+}
+@media (min-width: 3001px) and (max-width: 4000px)
+{
+    .domain_container_left{
+        width:20%;
+    }
+}
+@media (min-width: 2001px) and (max-width: 3000px)
+{
+    .domain_container_left{
+        width:30%;
+    }
+}
+@media (min-width: 1801px) and (max-width: 2000px)
+{
+    .domain_container_left{
+        width:40%;
+    }
+}
+@media (min-width: 1501px) and (max-width: 1800px)
+{
+    .domain_container_left{
+        width:45%;
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1500px)
+{
+    .domain_container_left{
+        width:50%;
+    }
+}
+#domain_button{
+    margin-top: 10px;
+}
+#domain_input_id{
+    margin-top: 5px;
+}
+.domain-net-style{
+    margin-top: 5px;
+}
+@media screen and (min-width: 4001px)
+{
+    .add_application_width{
+        width:20%;
+    }
+    .added_application_width{
+        width:20%;
+    }
+}
+@media (min-width: 3001px) and (max-width: 4000px)
+{
+    .add_application_width{
+        width:25%;
+    }
+    .added_application_width{
+        width:25%;
+    }
+}
+@media (min-width: 2001px) and (max-width: 3000px)
+{
+    .add_application_width{
+        width:30%;
+    }
+    .added_application_width{
+        width:30%;
+    }
+}
+@media (min-width: 1501px) and (max-width: 2000px)
+{
+    .add_application_width{
+        width:40%;
+    }
+    .added_application_width{
+        width:40%;
+    }
+}
+@media (min-width: 1401px) and (max-width: 1500px)
+{
+    .add_application_width{
+        width:45%;
+    }
+    .added_application_width{
+        width:45%;
+    }
+}

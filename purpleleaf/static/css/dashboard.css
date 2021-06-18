@@ -1,0 +1,8423 @@
+
+@media (min-width: 600px) and (max-width: 649px) {
+
+  .dash12 {
+    width: 230px !important;
+    margin-left: 39.5%;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+    margin-left: -72%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -5.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -11% !important;
+    margin-left: 85% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 6% !important;
+    margin-left: 18%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5.1%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -9%;
+    width: unset !important;
+    margin-top: -1.1%;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 699px) {
+
+  .dash12 {
+    width: 230px !important;
+    margin-left: 40.5%;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+    margin-left: -74%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -5.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -11% !important;
+    margin-left: 91% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 6% !important;
+    margin-left: 18%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -89.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5.1%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -1%;
+    width: unset !important;
+    margin-top: -1.1%;
+  }
+}
+
+
+@media (min-width: 700px) and (max-width: 749px) {
+
+  .dash12 {
+    width: 230px !important;
+    margin-left: 41%;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+    margin-left: -72%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -6.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -9% !important;
+    margin-left: 97% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 6% !important;
+    margin-left: 6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5.1%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 7%;
+    width: unset !important;
+    margin-top: -1.1%;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 799px) {
+
+  .dash12 {
+    width: 230px !important;
+    margin-left: 41.7%;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+    margin-left: -72%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -5.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -9% !important;
+    margin-left: 100% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 6% !important;
+    margin-left: 1.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5.1%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 14%;
+    width: unset !important;
+    margin-top: -1.1%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 849px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -6.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -8% !important;
+    margin-left: 63% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 5% !important;
+    margin-left: 2%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -10%;
+    width: unset !important;
+    margin-top: 0.7%;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 899px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -6.1%
+  }
+
+  .appliance-container {
+    width: 50vw !important;
+    margin-top: -8% !important;
+    margin-left: 64% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 5% !important;
+    margin-left: -1%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -5% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -6%;
+    width: unset !important;
+    margin-top: 0.7%;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 949px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -6.1%
+  }
+
+  .appliance-container {
+    width: 30vw !important;
+    margin-top: -7% !important;
+    margin-left: 67% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 5% !important;
+    margin-left: -6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: 0.7%;
+  }
+}
+
+
+@media (min-width: 950px) and (max-width: 991px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -6.1%
+  }
+
+  .appliance-container {
+    width: 30vw !important;
+    margin-top: -7% !important;
+    margin-left: 70% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 5% !important;
+    margin-left: -11%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 4%;
+    width: unset !important;
+    margin-top: 0.7%;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 999px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 30vw !important;
+    margin-top: -6% !important;
+    margin-left: 76.8% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 5% !important;
+    margin-left: 9%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 10%;
+    width: unset !important;
+    margin-top: 0.7%;
+  }
+}
+
+
+@media (min-width: 1000px) and (max-width: 1049px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 30vw !important;
+    margin-top: -6% !important;
+    margin-left: 77% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -83.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 11.1%;
+    width: unset !important;
+    margin-top: 1.7%;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1099px) {
+
+  .dash12 {
+    width: 230px !important;
+  }
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -6% !important;
+    margin-left: 80% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -87.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 17%;
+    width: unset !important;
+    margin-top: 1.7%;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1115px) {
+
+  .dash12 {
+    width: 230px !important;
+
+  }
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -6% !important;
+    margin-left: 84% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -90.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 21.5%;
+    width: unset !important;
+    margin-top: 1.7%;
+  }
+}
+
+@media (min-width: 1116px) and (max-width: 1149px) {
+
+  .dash12 {
+    width: 230px !important;
+
+  }
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -6% !important;
+    margin-left: 84% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -90.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 24.5%;
+    width: unset !important;
+    margin-top: 1.7%;
+  }
+}
+
+
+@media (min-width: 1150px) and (max-width: 1199px) {
+
+  .dash12 {
+    width: 230px !important;
+
+  }
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -5% !important;
+    margin-left: 86% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 4%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -90.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -3% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 27.5%;
+    width: unset !important;
+    margin-top: 1.7%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1249px) {
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: 1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -5% !important;
+    margin-left: 90% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -81.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: 0% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 24.7%;
+    width: unset !important;
+    margin-top: 2.4%;
+  }
+}
+
+@media (min-width: 1250px) and (max-width: 1299px) {
+
+ .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: 1%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: 24vw !important;
+    margin-top: -5% !important;
+    margin-left: 92% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 7.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -84.9% !important;
+    width: unset !important;
+    margin-top: 4.9%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 16% !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: 0% !important;
+    width: unset !important;
+    margin-top: 5%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: 29.8%;
+    width: unset !important;
+    margin-top: 2.4%;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1349px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important;
+    margin-left: -44px !important;
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 10px !important;
+    margin-left: -6% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1;
+    margin-left: -5px !important;
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: -10px !important;
+  }
+
+  .manaulhour-bar {
+    margin-left: -37.9% !important;
+    margin-right: -10px !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -2% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5.3%;
+    width: unset !important;
+    margin-top: -50px;
+  }
+}
+
+
+@media (min-width: 1350px) and (max-width: 1370px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 10px !important;
+    margin-left: -2% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.7% !important;
+    margin-left: 1.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -2% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4.9%;
+    width: unset !important;
+    margin-top: -50px;
+  }
+}
+
+@media (min-width: 1371px) and (max-width: 1399px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: -3% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.6% !important;
+    margin-left: 1.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -2% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3.9%;
+    width: unset !important;
+    margin-top: -50px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1470px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+        margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: -2% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.6% !important;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3.3%;
+    width: unset !important;
+    margin-top: -50px;
+  }
+}
+
+@media (min-width: 1471px) and (max-width: 1510px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 4% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.6% !important;
+    margin-left: 4%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5.5%;
+    width: unset !important;
+    margin-top: -50px;
+  }
+}
+
+@media (min-width: 1511px) and (max-width: 1550px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 5% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5.3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1551px) and (max-width: 1580px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 8% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1581px) and (max-width: 1614px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 11% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 7%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1615px) and (max-width: 1650px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 14% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1651px) and (max-width: 1750px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 15% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 10%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1751px) and (max-width: 1799px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 22% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 13%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1800px) and (max-width: 1890px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 24% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 14%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1891px) and (max-width: 1970px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 28% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 16.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 1971px) and (max-width: 1999px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 1% !important;
+    margin-left: 32% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3.8% !important;
+    margin-left: 18.8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 2099px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 33% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 19.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -39.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -5%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 2100px) and (max-width: 2150px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 36% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 20.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2151px) and (max-width: 2199px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 38% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 22%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2200px) and (max-width: 2250px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 39% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 23.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2251px) and (max-width: 2299px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 41% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 24.7%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2300px) and (max-width: 2350px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 42% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 26%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2351px) and (max-width: 2399px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 44% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 27.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 2400px) and (max-width: 2450px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 46% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 29%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -4%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2451px) and (max-width: 2499px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -1.1%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 46% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 29.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2500px) and (max-width: 2549px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.9%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 47% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 32%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2550px) and (max-width: 2599px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.9%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 49% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 32.3%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2600px) and (max-width: 2649px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 51% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 33.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 2650px) and (max-width: 2699px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 51% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 35%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2700px) and (max-width: 2749px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 52% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 35.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2750px) and (max-width: 2799px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    width: unset !important;
+    margin-top: 0% !important;
+    margin-left: 52% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 37%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2800px) and (max-width: 2849px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.6% !important;
+    margin-left: 88% !important;
+
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 38%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2850px) and (max-width: 2899px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+  
+    margin-top: -2.6% !important;
+    margin-left: 88% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 39.6%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2900px) and (max-width: 2949px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.6% !important;
+    margin-left: 90% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 42%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 2950px) and (max-width: 2999px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.6% !important;
+    margin-left: 91% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 43.4%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3000px) and (max-width: 3050px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 92% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 43.8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3051px) and (max-width: 3099px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 92% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 45.2%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3100px) and (max-width: 3149px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 93% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 46.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3150px) and (max-width: 3199px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 94% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 48%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3200px) and (max-width: 3249px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 95% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 49.2%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3250px) and (max-width: 3299px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.4% !important;
+    margin-left: 96% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 51%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3300px) and (max-width: 3349px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 97% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 52.2%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3350px) and (max-width: 3399px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 97% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 53.4%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3400px) and (max-width: 3449px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 98% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 55%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3450px) and (max-width: 3499px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 99% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 56.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3500px) and (max-width: 3549px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 100% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 57.8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3550px) and (max-width: 3599px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -2.1% !important;
+    margin-left: 100% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 59%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3600px) and (max-width: 3649px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 101% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 60.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3650px) and (max-width: 3699px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 101% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 62%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3700px) and (max-width: 3749px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 102% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 63.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3750px) and (max-width: 3799px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 103% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 64.7%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3800px) and (max-width: 3849px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 103% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 66%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3850px) and (max-width: 3899px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.9% !important;
+    margin-left: 104% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 67.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 3900px) and (max-width: 3949px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.8% !important;
+    margin-left: 104% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 69%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 3950px) and (max-width: 3999px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.8% !important;
+    margin-left: 105% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 70.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4000px) and (max-width: 4049px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.7% !important;
+    margin-left: 106% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 72%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4050px) and (max-width: 4099px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.7% !important;
+    margin-left: 106% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 73.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4100px) and (max-width: 4149px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.7% !important;
+    margin-left: 107% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 74.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4150px) and (max-width: 4199px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.7% !important;
+    margin-left: 107% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 76%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4200px) and (max-width: 4249px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.7% !important;
+    margin-left: 108% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 77.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4250px) and (max-width: 4299px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.6% !important;
+    margin-left: 108% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 78.8%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4300px) and (max-width: 4349px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.6% !important;
+    margin-left: 108% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 80%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4350px) and (max-width: 4399px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.6% !important;
+    margin-left: 109% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 81.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4400px) and (max-width: 4449px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.6% !important;
+    margin-left: 110% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 83%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4450px) and (max-width: 4499px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.5%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 110% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 84.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4500px) and (max-width: 4549px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 110% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 85.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4550px) and (max-width: 4599px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 111% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 87%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4600px) and (max-width: 4649px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 111% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 89%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4650px) and (max-width: 4699px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 111% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 90%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 4700px) and (max-width: 4749px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 112% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 91%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4750px) and (max-width: 4799px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 112% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 92.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4800px) and (max-width: 4849px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 113% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 94.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4850px) and (max-width: 4899px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.4%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 113% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 95.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4900px) and (max-width: 4949px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 113% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 97%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 4950px) and (max-width: 4999px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 113% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 98%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5000px) and (max-width: 5099px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 114% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 100%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -2%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5100px) and (max-width: 5149px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.5% !important;
+    margin-left: 115% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 103.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5150px) and (max-width: 5199px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.4% !important;
+    margin-left: 115% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 105%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5200px) and (max-width: 5299px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.4% !important;
+    margin-left: 115% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 106%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5300px) and (max-width: 5399px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.4% !important;
+    margin-left: 116% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 111%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5400px) and (max-width: 5499px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.4% !important;
+    margin-left: 117% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 112%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5500px) and (max-width: 5599px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.3% !important;
+    margin-left: 117% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 115%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 5600px) and (max-width: 5699px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.3% !important;
+    margin-left: 118% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 117.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 5700px) and (max-width: 5799px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.2% !important;
+    margin-left: 118% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 120.5%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 5800px) and (max-width: 5899px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.2% !important;
+    margin-left: 119% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 123%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+
+@media (min-width: 5900px) and (max-width: 5999px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.1% !important;
+    margin-left: 119% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 126%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+
+@media (min-width: 6000px) and (max-width: 6099px) {
+
+  .main-top-bar {
+    display: -webkit-box;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .title-tab {
+    margin-top: -0.3%;
+    margin-left: 4px;
+  }
+
+  .main-sub-container-first {
+    width: 68vw !important; 
+    margin-left: -4.1%
+  }
+
+  .appliance-container {
+    margin-top: -1.1% !important;
+    margin-left: 120% !important;
+  }
+
+  .appliance-container > p {
+    line-height: 1.1
+  }
+
+  .main-sub-container-second {
+    display: -webkit-box;
+    margin-top: 3% !important;
+    margin-left: 129%;
+  }
+
+  .manaulhour-bar {
+    margin-left: -38.9% !important;
+    width: unset !important;
+    margin-top: -2.1%;
+  }
+
+  .manaulhour-bar > progress {
+    display: inline-block;
+    width: 28px !important;
+    height: 10px !important;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .manaulhour-bar > p {
+    margin-top: -45px !important;
+    margin-left: 24px !important;
+    line-height: 1 !important;
+    width: 165px !important;
+  }
+
+  .ips-bar {
+    margin-left: -1% !important;
+    width: unset !important;
+    margin-top: -2%;
+  }
+
+  .ips-bar > progress {
+    display: inline-block;
+    width: 20%;
+    height: 10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-top: -1px;
+  }
+
+  .ips-bar > p {
+    margin-top: -45px;
+    margin-left: 24px;
+    line-height: 1;
+
+  }
+
+  .status-btn {
+    margin-left: -3%;
+    width: unset !important;
+    margin-top: -4.6%;
+  }
+}
+.ver-space{
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

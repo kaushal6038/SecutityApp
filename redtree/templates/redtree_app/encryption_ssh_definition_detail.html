@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Encryption Definition - RedTree</title>
+{% endblock %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid vul">
+            <!-- Row starts -->
+            <div class="row gutter">
+                <div class="row gutter">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label class="notifications_heading">
+                            <a href="/encryption/definitions">
+                                Ciphers
+                            </a>
+                        </label>
+                        <label class="notifications_heading">
+                            <a href="/encryption/definitions/ssh">
+                                SSH
+                            </a>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label style="float: right; margin-top: -10px; margin-bottom: 10px; margin-right: 8px;">
+                            <a href="/encryption/definitions/ssh/update" class="btn btn-info">
+                                Update Definitions
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <center>
+                                <h4>SSH Ciphers</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" style="overflow: hidden;">
+
+                                <table class="table table-bordered table-hover table-condensed no-margin enc_table_wd">
+                                    <thead>
+                                        <tr>
+                                            <th class="no-sort">Name</th>
+                                            <th class="no-sort">ARC4</th>
+                                            <th class="no-sort">CBC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in encryption_ciphers %}
+                                            <tr>
+                                                <td>
+                                                    <a href="/ssh/{{data.id}}">
+                                                        {{data.ssh_cipher}}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    {% if data.arc4 %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            arc4
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if data.cbc %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            cbc
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <center>
+                                <h4>MAC Algorithms</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" style="overflow: hidden;">
+
+                                <table class="table table-bordered table-hover table-condensed no-margin mac_table_wd">
+                                    <thead>
+                                        <tr>
+                                            <th class="no-sort">Name</th>
+                                            <th class="no-sort">Weak</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in mac_ciphers %}
+                                            <tr>
+                                                <td>
+                                                    <a href="/ssh/{{data.id}}">
+                                                        {{data.ssh_cipher}}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    {% if data.weak %}
+                                                        <button class="btn btn-danger btn-transparent btn-xs cipher_padding_fail">
+                                                            weak
+                                                        </button>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <center>
+                                <h4>Key Exchange Algorithms</h4>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" style="overflow: hidden;">
+
+                                <table class="table table-bordered table-hover table-condensed no-margin key_exc_table_wd">
+                                    <thead>
+                                        <tr>
+                                            <th class="no-sort">Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in key_exc_ciphers %}
+                                            <tr>
+                                                <td>
+                                                    <a href="/ssh/{{data.id}}">
+                                                        {{data.ssh_cipher}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row ends -->
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

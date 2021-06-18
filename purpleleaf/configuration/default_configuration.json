@@ -1,0 +1,29 @@
+{
+	"purpleLeaf": {
+		"active": true,
+		"mailgun_api_key": "key-f4759de934fd01df346dddbc0e5bf724",
+		"hostname": "http://webpurpleleaf:8004",
+		"mailgun_base_url": "https://api.mailgun.net/v3/platform.purpleleaf.io",
+		"redtree_auth_key": "9de934fd01df346d",
+		"twilio_account_sid": "ACe2973b4abae315400dc7bc943ae2e430",
+		"twilio_auth_key": "3715c8619e381b6a82edffcf76f6d4f1",
+		"twilio_account_number": "+19733632522",
+		"application_status": true,
+		"analytics_status": false,
+		"session_timeout_length": 43200,
+		"manual_hours_purchased": "40",
+		"manual_hours_remaining": "40",
+		"max_ips": "40"
+	},
+	"image_upload": {
+		"storage_type": "S3",
+		"s3_access_token": "AKIAI2XHVTDTQC7JYZGQ",
+		"s3_secret_access_token": "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",
+		"s3_bucket_name": "purpleleaf-dev11",
+		"pre_signed_time_length": "10000"
+	},
+	"redtree": {
+		"data_auth_key": "9d1df346d",
+		"redtree_base_url": "http://webredtree:8005"
+	}
+}

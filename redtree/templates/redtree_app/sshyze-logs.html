@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>RedTree - Sshyze Logs</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block content %}
+    <!-- Dashboard Wrapper Start -->
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+        	<div class="col-lg-12 col-md-12">
+                <h3> Sshyze Logs</h3>
+        		<div class="panel custom-display">
+        			<div class="panel-body">
+        				<div class="table-responsive">
+        					<table class="table table-bordered table-hover table-condensed no-margin">
+        						<thead>
+        							<tr>
+        								<th>Age</th>
+        								<th>Status</th>
+        								<th>Host/Port</th>
+        								<th>Result/Error</th>
+        								<th>Duration</th>
+        							</tr>
+        						</thead>
+        						<tbody>
+                                    {% for sshyze in sshyze_logs %}
+            							<tr>
+            								<td>
+                                                {{sshyze.created|get_microservices_log_age}}
+                                            </td>
+            								<td>{{sshyze.status}}</td>
+            								<td>
+                                                {% if sshyze.host and sshyze.port %}
+                                                    {{sshyze.host}}:{{sshyze.port}}
+                                                {% endif %}
+                                            </td>
+                                            {% if sshyze.result %}
+            								    <td>{{sshyze.result}}</td>
+                                            {% elif sshyze.message %}
+                                                <td>{{sshyze.message}}</td>
+                                            {% else %}
+                                                <td>Scan is running</td>
+                                            {% endif %}
+                                            {% if sshyze.is_completed %}
+            								    <td title="scan completed in {{sshyze.task_duration}}">
+                                                {{sshyze.task_duration}}</td>
+                                            {% else %}
+                                                <td title="scan is running from {{sshyze.task_duration}} time">{{sshyze.task_duration}}</td>
+                                            {% endif %}
+            							</tr>
+                                    {% endfor %}
+        						</tbody>
+        					</table>
+                        <nav>
+                            <ul class="pagination">
+                                {% if sshyze_logs.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ sshyze_logs.previous_page_number }}">Previous</a></li>
+                                {% endif %}
+                                {% for page in paginator.page_range %}
+                                    <li class="page-item {% if page == sshyze_logs.number %}active{% endif %}">
+                                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                    </li>
+                                {% endfor %}
+                                {% if sshyze_logs.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ sshyze_logs.next_page_number }}">Next</a></li>
+                                {% endif %}
+                             </ul>
+                        </nav>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!-- Container fluid ends -->
+    </div>
+    <!-- Dashboard Wrapper End -->
+{% endblock %}

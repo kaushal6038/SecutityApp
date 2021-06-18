@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if issue %}
+<title>RedTree-Burp - {{ issue.name }} </title>
+{% else %}
+<title>RedTree-Burp - No object Found</title>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+		{% if issue %}
+			<div class="top-bar clearfix">
+                <div class="row gutter">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="page-title">
+							<h3>{{ issue.name }}</h3>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <ul  class="right-stats" id="mini-nav-right">
+							<li>
+								<a  href="/burp" class="btn btn-info">Back</a>
+							</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Description</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.description|escape}}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Confidence</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.confidence|escape}}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>Caption</h3>
+						</div>
+						<div class="panel-body">
+							<p class="burp_internal_data">
+                               {{ issue.caption|escape }}
+                            </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% for evidence in issue.evidences %}
+			<div class="row gutter">
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="burp-break">Evidence - {{ evidence.url }}</h3>
+						</div>
+						<div class="panel-body">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 burp-break">
+								<div class="panel-heading">
+									<h4>Request</h4>
+								</div>
+								<p class="burp_internal_data">
+
+	                               {{ evidence.request|linebreaks }}
+	                            </p>
+	                        </div>
+	                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 burp-break">
+	                        	<div class="panel-heading">
+									<h4>Response</h4>
+								</div>
+								<p class="burp_internal_data">
+	                               {{ evidence.response|linebreaks }}
+	                            </p>
+	                        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		{% else %}
+			<h3>No Detail Found</h3>
+		{% endif %}
+		</div>
+	</div>
+{% endblock %}

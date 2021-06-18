@@ -1,0 +1,94 @@
+version: '3.5'
+services:
+  db:
+    image: postgres:9.6.2
+    volumes:
+      - ./docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=redtree,purpleleaf
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=Test1234
+  rt_redis:
+    image: redis
+    networks:
+      - default
+  pl_redis:
+    image: redis
+    networks:
+      - default
+  webpurpleleaf:
+    image: purpleleaf/purpleleaf:develop
+    env_file: ./config.env
+    command: /purpleleaf/pl_entrypoint.sh
+    volumes:
+      - /purpleleaf
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_rt:/purpleleaf/media
+    depends_on:
+      - db
+    networks:
+      - default
+  webredtree:
+    image: purpleleaf/redtree:develop
+    env_file: ./config.env
+    command: /redtree/rt_entrypoint.sh
+    volumes:
+      - /redtree
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    depends_on:
+      - db
+    networks:
+      - default
+  celery_redtree:
+    image: purpleleaf/redtree:develop
+    env_file: ./config.env
+    command: celery -A redtree worker -c 2 --beat --scheduler django --loglevel=info -Q default,burp,masscan,sslyze,sshyze,domainenum,nessus,cloudstorage,screenshot
+    volumes:
+      - /redtree
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    depends_on:
+      - rt_redis
+      - db
+    networks:
+      - default
+  nginxredtree:
+    image: purpleleaf/nginxredtree:latest
+    volumes:
+      - static_volume_rt:/redtree/static
+      - media_volume_rt:/redtree/media
+    depends_on:
+      - webredtree
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.frontend.rule=Host:redtree"
+    networks:
+      - traefik
+      - default
+  nginxpurpleleaf:
+    image: purpleleaf/nginxpurpleleaf:latest
+    volumes:
+      - static_volume_pl:/purpleleaf/static
+      - media_volume_rt:/purpleleaf/media
+    depends_on:
+      - webpurpleleaf
+    labels:
+      - "traefik.docker.network=traefik"
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:purpleleaf"
+    networks:
+      - traefik
+      - default
+volumes:
+  static_volume_rt:
+  media_volume_rt:
+  static_volume_pl:
+  media_volume_pl:
+  pgdata:
+networks:
+  traefik:
+    external:
+      name: "traefik"

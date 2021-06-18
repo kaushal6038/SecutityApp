@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>Home - RedTree</title>
+{% endblock %}
+{% load markdown_tags %}
+{% block extracss %}
+{% endblock %}
+
+{% block content %}
+
+	<!-- Dashboard Wrapper Start -->
+	<div class="dashboard-wrapper dashboard-wrapper-lg">
+		<!-- Container fluid Starts -->
+		<div class="container-fluid">
+			<!--Unscanned ports row starts -->
+			<div class="row gutter" style="display: -webkit-box"> 
+				<div class="col-md-9">
+					<div class="panel custom-display">
+						<div class="panel-heading">
+							<h3>Unscanned Ports</h3>
+						</div>
+						<div class="panel-body panel-padding">
+							<div class="table-responsive">
+								<table class="table-bordered table-hover table-condensed no-margin">
+									<thead>
+										<tr>
+											<th>Host</th>
+											<th>Port</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for unscanned_host in unscanned_host_list %}
+										<tr>
+											<td>{{ unscanned_host.host }}</td>
+											<td>
+											{% for port in unscanned_host.ports %}
+												{{ port }}{% if not forloop.last %}, {% endif %}
+											{%  endfor %}
+											</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Ends here-->
+		</div>
+		<!-- Container fluid ends -->
+	</div>
+	<!-- Dashboard Wrapper End -->
+{% endblock %}

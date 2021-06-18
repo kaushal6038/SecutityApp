@@ -1,0 +1,650 @@
+{% extends 'purpleleaf_app/base.html' %}
+{% block title %}
+    <title>Hosts - Purpleleaf Dashboard</title>
+{% endblock %}
+
+{% block content %}
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper dashboard-wrapper-lg dashboard-wrapper-lg-custom">
+<!-- <div class="dashboard-wrapper dashboard-wrapper-lg "> -->
+
+	<!-- Container fluid Starts -->
+	<div class="container-fluid">
+        <!-- Row starts -->
+		<div class="row gutter">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 host-container">
+				<div class="panel panel-margin">
+					<div class="panel-body">
+						<div class="tabbable tabs-left clearfix">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#hosts" data-toggle="tab" onclick="createHostTable()" id="host_text">
+									    Hosts ({%if total_host%}{{total_host}}{%else%}0{%endif%})</a>
+								</li>
+								<li>
+									<a href="#network" data-toggle="tab" id="network_text">Networks ({{total_networks}})</a>
+								</li>
+								{% if application_status %}
+								<li>
+									<a href="#applications" data-toggle="tab" onclick="createApplicationTable();" id="application_text">Applications ({{total_applications}})</a>
+								</li>
+								{% endif %}
+								<li>
+									<a href="#domains" data-toggle="tab" onclick="createDomainTable()" id="domain_text">Domains ({{total_domains}})</a>
+								</li>
+								<li>
+									<a href="#cloudassets" data-toggle="tab" onclick="createCloudAssetTables();"  data-toggle="tab" id="cloud-assets">Cloud Assets ({{total_assets}})</a>
+								</li>
+								<li>
+									<a href="#excluded" onclick="createExcludeTable();" data-toggle="tab" id="excluded_link">Excluded ({{total_exclude}})</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane active" id="hosts">
+									<div class="row gutter">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="external_host_table_container">
+														<div class="row host-row">
+															<div class="col-lg-1">	
+																<label class="
+																		host-delete-label host-select">
+	                                                               	<input type="checkbox" id='checkall' />
+	                                                               		<span class="host-delete-checkmark">	
+	                                                               		</span>
+	                                                            </label>
+	                                                        </div>
+	                                                        <div class="col-lg-4">
+		                                                        <div class="custom-select">
+		                                                            <select id="selected_host_value" class="btn btn-primary dropdown-toggle">
+		                                                                <option value="selected">
+		                                                                    --  bulk actions  --
+		                                                                </option>
+		                                                                <option value="selected">
+		                                                                    --  bulk actions  --
+		                                                                </option>
+		                                                                <option value="delete">
+		                                                                     	Delete Selected
+		                                                                </option>
+		                                                            </select>
+		                                                        </div>
+		                                                    </div>
+		                                                    <div class="col-lg-1">
+		                                                        <button type="button" class="btn btn-info btn-md host-delete-btn" onclick="checked_action();">
+	                                                                Go
+	                                                            </button>
+	                                                        </div>
+	                                                        <br><br>
+	                                                    </div>
+	                                                </div>
+	                                            	<div>
+	                                            		<label id="external_host_label">
+	                                            			
+	                                            		</label>
+				                                       	<br>
+				                                       	<table id="external_host_table" >
+				                                       		
+				                                       	</table>
+				                                        <div class="data_right">
+				                                        	<table id="external_iptrackinfo">
+				                                        		
+				                                        	</table>
+				                                        </div>
+				                                    </div>
+				                                </div>
+
+				                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	                                            	<div>
+	                                            		<label id="internal_host_label">
+	                                            			
+	                                            		</label>
+				                                       	<br>
+				                                        <table id="internal_host_table" >
+				                                       		
+				                                       	</table>
+				                                        <div class="int_data_rights">
+				                                        	<table id="internal_iptrackinfo">
+				                                        		
+				                                        	</table>
+				                                        </div>
+				                                    </div>
+				                                </div>
+			                                </div>
+
+			                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 map-margin">
+			                                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								                    <div class="panel height2">
+								                        <div class="panel-heading">
+								                            <h4 class="map-text">Target Locations</h4>
+								                        </div>
+								                        <div class="panel-body">
+								                            <div id="world-map-markers" class="chart-height1"></div>
+								                        </div>
+								                    </div>
+							                	</div>
+			                                    <form method="post" id="ipsform">
+							                        {% csrf_token %}
+							                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							                            <label id="host-error" class="host-error-color"></label>
+							                            	<div class="panel-heading">
+																<h4 class="alignment">Add Targets</h4>
+															</div>
+							                                <textarea id="ipaddress"  type="text" name="ip_address" required class="form-control" rows="10"></textarea>
+							                                <br>
+							                        </div>
+							                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							                            <div class="host-custom-select network-custom-select custom-select host-network-select net-width">
+															<select name="network_id" class="form-control  host-network-add" id="select-network">
+																<option></option>
+															</select>
+														</div>
+										            </div>
+										            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							                            <button type="submit" class="btn btn-info btn-md" id="load">Add Hosts</button>
+							                        </div>
+							                    </form>
+			                                </div>
+			                            </div>
+		                            </div>
+								</div>
+
+								<div class="tab-pane" id="network">
+									<div class="row gutter">
+										<div class="col-lg-12 col-md-12 net_width">
+											<div class="col-lg-6 col-md-6">
+												<div class="panel">
+													<div class="row gutter">
+														<div class="col-lg-12 col-md-12">
+															<div class="table-responsive">
+																<table class="network table table-hover table-condensed">
+																	<thead>
+																		<tr>
+																			<td></td>
+																			<td>
+																				Vulnerabilities
+																			</td>
+																			<td>
+																				Network Name
+																			</td>
+																			<td>
+																				<center>
+																				Network Type
+																				</center>
+																			</td>
+																			<td>
+																				<center>
+																				Hosts
+																				</center>
+																			</td>
+																			<td>
+																				<center>
+																				Action
+																				</center>
+																			</td>
+																		</tr>
+																	</thead>
+																	<tbody id="network-table">
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-lg-4 col-md-4">
+												{% if network_data %}
+												<div class="row gutter">
+													<div class="col-lg-5 col-md-5 net_margin">
+														<table>
+															<thead>
+																<tr>
+																	<td>Create Network</td>
+																</tr>
+															</thead>
+														</table>
+														<input type="text" id="network_input_id" class="form-control net_margin_top" name="" autocomplete="off">
+													</div>
+
+													<div class="col-lg-3 col-md-3">
+														<table>
+															<thead>
+																<tr>
+																	<td>Type</td>
+																</tr>
+															</thead>
+														</table>
+														<div class="custom-select net-style">
+															<select id="network_type" class="form-control network_margin_top">
+																<option value="External">
+																	External
+																</option>
+																<option value="External">
+																	External
+																</option>
+																<option value="Internal">
+																	Internal
+																</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-1 col-md-1">
+														<button type="button" id="network_button" class="btn btn-info 
+															network_margin_top network_margin_left" onclick="addNetwork();">
+															Add
+														</button>
+													</div>
+												</div>
+												<div class="row gutter">
+													<label id="network-alert"></label>
+												</div>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="applications">
+									<div class="row gutter">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 add_application_width">
+												<div class="row gutter">
+													<div class="col-lg-6">
+														&nbsp;&nbsp;
+														Add Application:
+													</div>
+													
+													<br>
+													<br>
+												</div>
+												<div class="row gutter">
+													<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+														<input type="text" id="application_url_input_id" class="form-control" name="applications_url">
+													</div>
+													<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+														<div class="custom-select">
+															<select id="application_network_type" class="form-control">
+																<option value="">
+																	Network type
+																</option>
+																<option value="">
+																	Network type
+																</option>
+																<option value="External">
+																	External
+																</option>
+																<option value="Internal">
+																	Internal
+																</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+														<button type="button" id="application_button" class="btn btn-info application_network_margin_top" onclick="addApplicationUrl();">Create Application</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 added_application_width">
+												<div class="panel">
+													<div class="panel-body">
+														<div class="table-responsive">
+															<table class="table table-bordered table-hover table-condensed no-margin">
+																<thead>
+																	<tr>
+																		<th></th>
+																		<th class="application-heading">Application</th>
+																		<th class="application-heading">Internal/External</th>
+																		<th class="application-heading">Action</th>
+																	</tr>
+																</thead>
+																<tbody id="application-table">
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+                                    </div>
+								</div>
+
+								<div class="tab-pane" id="domains">
+									<div class="row gutter">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 domain_container_left">
+												<div class="row gutter">
+													
+												</div>
+												<div class="row gutter domain-row-width">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														&nbsp;&nbsp;
+														Add Domain:
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														&nbsp;&nbsp;
+														Type:
+													</div>
+													<br>
+													<br>
+													<div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+														<input type="text" id="domain_input_id" class="form-control" name="domain_name">
+													</div>
+													<div class="col-lg-3 col-md-6 col-sm-3 col-xs-12">
+														<div class="custom-select domain-net-style">
+															<select id="domain_network_type" class="form-control">
+																<option value="External">
+																	External
+																</option>
+																
+																<option value="External">
+																	External
+																</option>
+																<option value="Internal">
+																	Internal
+																</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-2 col-md-6 col-sm-2 col-xs-12">
+														<button type="button" id="domain_button" class="btn btn-info" onclick="addDomain();">Add</button>
+													</div>
+												</div>
+												<div class="row gutter domain-row-width">
+													<br><br>
+													<div class="col-lg-8">
+														<p style="text-align: justify;">
+															Domains are used by our testing team to look for targets that may not be seen by IP address alone. Because some applications are only accessible by hostname, we attempt to routinely enumerate subdomains to discover these targets. You will be notified if new targets are discovered and will be able to confirm if they are in scope.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+												<div class="panel domain-table-width domain_table_parent">
+													<div class="panel-heading">
+														<h3>Organization Domains</h3>
+													</div>
+													<div class="panel-body">
+														<div class="table-responsive">
+															<table class="domain-table-style table table-bordered table-hover table-condensed no-margin">
+																<thead>
+																	<tr>
+																		<th></th>
+																		<th class="domains-heading">
+																			Domain
+																		</th>
+																		<th class="domains-heading">
+																			Internal / External
+																		</th>
+																		<th></th>		
+																	</tr>
+																</thead>
+																<tbody id="domain-table">	
+																</tbody>
+															</table>	
+														</div>
+													</div>
+												</div>
+												<div style="display: table;">
+													<div class="sub-domain-table">
+													</div>
+												</div>
+											</div>
+										</div>
+                                    </div>
+								</div>
+
+								<div class="tab-pane" id="cloudassets">
+									<div class="row">
+										<div class="col-lg-7 col-md-7 col-sm-7">
+											<div class="col-lg-12">
+												<div class="panel cloud-asset-table-width">
+													<div class="panel-heading">
+														<h4 class="alignment">
+															AWS Assets
+														</h4>
+													</div>
+													<div class="panel-body">
+														<table id="aws_asset_table" class="table-bordered table-hover table-condensed no-margin">
+											                <thead>
+											                    <tr>
+											                    	<th class="aws_assets_heading">Description
+											                    	</th>
+											                        <th class="aws_assets_heading">Access Token
+											                        </th>
+											                        <th class="aws_assets_heading">Status
+																	</th>
+											                        <th class="aws_assets_heading">Assets
+											                        </th>
+											                        <th class="aws_assets_heading">Remove
+											                        </th>
+											                    </tr>
+											                </thead>
+											                <tbody id="aws-asset-table">
+											                </tbody>
+											            </table>
+											        </div>
+											    </div>
+											</div>
+
+											<form method="post" id="aws_configuration">
+                                            {% csrf_token %}
+                                            <div class="col-lg-12">
+                                            	<div class="row gutter">
+													<div class="col-lg-6 aws_margin">
+														<br>
+														&nbsp;&nbsp;
+														Add AWS Access Token:
+													</div>
+													<br><br>
+												</div>
+											</div>
+                                            <div class="col-lg-12">
+                                                Description <input type="text" id="aws_access_token_description_id" class="form-control input_asset" name="aws_access_token_description">
+                                                <br>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                Access Key ID <input type="text" id="aws_access_token_id" class="form-control input_asset" name="aws_access_token">
+                                                <br>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                Secret Access <input type="text" id="aws_secret_token_id" class="form-control input_asset1" name="aws_secret_token">
+                                                <button id="aws_asset_button" type="button" class="btn btn-danger load_asset_btn" onclick="addToken()">
+													Load Assets
+		                                        </button>
+		                                        <br><br><br><br>
+                                            </div>
+											</form>
+												
+											<div class="col-lg-8 col-md-4 col-sm-4">
+												<div class="panel-heading">
+													<h4 class="alignment">Manually Load Cloud Storage Assets: </h4>
+												</div>
+												<div class="form-group">
+													<div class="row gutter">
+														<div class="col-md-12 textArea cloud-asset-textarea-width">
+															{{cloud_assets_form.bucket}}
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="row gutter">
+														<div class="col-md-6">
+															<label id="cloudasset-alert"></label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group cloud-asset-category-dropdown-width">
+													<div class="row gutter">
+														<div class="col-md-5">
+															<div class="custom-select">
+																{{cloud_assets_form.category}}
+															</div>
+														</div>
+														<div class="col-md-2">
+															<button type="button" class="btn btn-info" onclick="addCloudAsset();">Add</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-5 col-md-5 col-sm-5 cloud-asset-table-margin-left">
+											<div class="panel cloud-asset-table-width">
+												<div class="panel-body">
+													<div class="table-responsive">
+														<table class="assets-table-style table-bordered table-hover table-condensed no-margin assets_width" >	
+												        	<thead>
+												            	<tr>
+												                	<th class="aws_assets_heading">Type</th>
+												                	<th class="aws_assets_heading">S3</th>
+												                	<th></th>
+												            	</tr>
+												        	</thead>
+												        	<tbody id="s3">
+												        	</tbody>
+												    	</table>
+													</div>
+												</div>
+											</div>
+
+		                      				<div class="panel cloud-asset-table-width">
+		                      					<div class="panel-body">
+		                      						<table class="assets-table-style table-bordered table-hover table-condensed no-margin assets_width">
+	                      								<thead>
+	                      									<tr>
+	                      										<th class="aws_assets_heading">Type</th>
+	                      										<th class="aws_assets_heading">Azure</th>
+	                      										<th></th>
+	                      									</tr>
+	                      								</thead>
+	                      								<tbody id="azure">
+	                      								</tbody>
+	                      							</table>
+	                      						</div>
+		                      				</div>
+
+		                      				<div class="panel cloud-asset-table-width">
+		                      					<div class="panel-body">
+		                      						<table class="assets-table-style table-bordered table-hover table-condensed no-margin assets_width">
+	                      								<thead>
+	                      									<tr>
+	                      										<th class="aws_assets_heading">Type</th>
+	                      										<th class="aws_assets_heading">GCP</th>
+	                      										<th></th>
+	                      									</tr>
+	                      								</thead>
+	                      								<tbody id="gcp">
+	                      								</tbody>
+	                      							</table>
+	                      						</div>
+		                      				</div>
+	                      				</div>
+	                      			</div>
+	                      		</div>
+
+								<div class="tab-pane" id="excluded">
+									<div id="ips">
+	                                    <table id="excludedips" ></table>
+	                                </div>
+								</div>
+							</div>
+
+							<div id="hostnetworkModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Edit Network</h4>
+										</div>
+										<form  method="post">
+											{% csrf_token %}
+											<input type="hidden" id="edit_host_network_id" name="host">
+											<div class="modal-body">
+												<div class="network-custom-select custom-select edit-host-network-select">
+													<select class="form-control" id="network_dropdown_value" name="network_name">
+														<option></option>
+													</select>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" name="cancel" value="cancel" class="btn btn-default retest-cancel-btn" data-dismiss="modal">
+													Cancel
+												</button>
+												<a onclick="update_host_network();" name="leave" value="leave" class="btn btn-info">
+													Save
+												</a>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div id="editNetworkModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Edit Network Name</h4>
+										</div>
+										<form  method="post">
+											{% csrf_token %}
+											<input type="hidden" id="host_network_id" name="host">
+											<div class="modal-body">
+												<div>
+													<input type="text" class="form-control" name="network_name" id="network_name_id">
+													<input type="hidden" class="form-control" name="hidden_network_name" id="hidden_network_name_id">
+												</div>
+												<br>
+												<div class="custom-select edit_network_div">
+													<select id="change_network_type" class="form-control network_margin_top">
+														<option value="">
+															Network type
+														</option>
+														<option value="External">
+															External
+														</option>
+														<option value="Internal">
+															Internal
+														</option>
+													</select>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" name="cancel" value="cancel" class="btn btn-default retest-cancel-btn" data-dismiss="modal">Cancel</button>
+													<a onclick="save_edit_network_name();" name="" value="" class="btn btn-info">Save</a>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Row ends -->
+	</div>
+	<!-- Container fluid ends -->
+</div>
+<!-- Dashboard Wrapper End -->
+{% endblock %}
+
+{% block script %}
+{% csrf_token %}
+<script src="/static/js/jquery.growl.js" type="text/javascript"></script>
+<script src="/static/js/customs.js"></script>
+<script src="/static/js/hosts-networks.js"></script>
+<script src="/static/js/ipsdata.js"></script>
+<script src="/static/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/static/js/additional-methods.min.js" type="text/javascript"></script>
+<script src="/static/js/dropdowncolor.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/static/js/jvectormap/jquery-jvectormap-2.0.3.min.js"></script> 
+<script src="/static/js/jvectormap/world-mill-en.js"></script>
+<script src="/static/js/jvectormap/gdp-data.js"></script>
+<script src="/static/js/jvectormap/country-coords-data.js"></script>
+<script src="/static/js/jvectormap/custom-map.js"></script>
+<script src="/static/js/trigger_enter_button.js"></script>
+{% endblock %}
